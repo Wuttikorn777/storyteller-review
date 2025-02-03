@@ -172,17 +172,33 @@
 - **ปัญหาเรื่องข้อจำกัดด้านเวลา** สมาชิกในทีมมีตารางเวลาที่แตกต่างกัน ทำให้เกิดความล่าช้าในการทำงาน ดังนั้นจึงกำหนดการนัดหมายล่วงหน้าเพื่อให้สามารถบริหารเวลาได้อย่างมีประสิทธิภาพมากยิ่งขึ้น
 - **ปัญหาขาดประสบการณ์การใช้เครื่องมือ Azure DevOps** สมาชิกบางส่วนยังไม่คุ้นเคยกับแพลตฟอร์ม Azure DevOps ส่งผลให้เกิดความล่าช้าในการทำงาน
 
-<br>    
+<br>    </br>
 
-<center> ภาคผนวก
+##<center>ภาคผนวก
 
 <br> </br>
+
 Show screenshot and explanation of the following page ไว้ใน report
-<br> Product backlog: Work items ที่มีการใช้ Epic (optional) and Issue (User story) </br>
-<br>Issue (User story) </br>
+<br> </br>
+
+**Product backlog** : Work items ที่มีการใช้ Epic (optional) and Issue (User story) </br>
+
+
 ![Screenshot 2025-02-03 210820.png](/.attachments/Screenshot%202025-02-03%20210820-0abd83e5-533c-455f-a940-ca3acab66432.png)
+
+<br> </br>
+
+Sprint backlog: มีการกำหนดเวลาและวางแผน work item สำหรับ Sprint1 (Sprint 1 อาจเป็นแค่งานการเขียน report และการกำหนด requirement)
+
+<br> </br>
 ![image.png](/.attachments/image-e8f673d8-6026-4a44-a8c7-877fe069a7f2.png)
 <br> Epic (optional) </br>
+
+<br> </br>
+
 ![image.png](/.attachments/image-b45af4d7-4c6a-4f00-a3ca-8c3542dfdbf6.png)
 <br> Sprint backlog: </br>
+
+<br> </br>
+
 ![Screenshot 2025-02-03 204317.png](/.attachments/Screenshot%202025-02-03%20204317-7e0334ca-27c2-41f1-a277-8f1f4f2ea1a6.png)
