@@ -174,5 +174,7 @@
 
 <br>    
 
-**ภาคผนวก** </center>
+<center> ภาคผนวก
+
+<br> </br>
 Show screenshot and explanation of the following page ไว้ใน report
