@@ -122,7 +122,7 @@
 
 ** **
 
-##อธิบายกระบวนการทำงาน โดยใช้ process, methods, and tools**
+##อธิบายกระบวนการทำงาน โดยใช้ process, methods, and tools
 <br>
 
 **Process**
