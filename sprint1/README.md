@@ -178,7 +178,7 @@
 
 <br> </br>
 Show screenshot and explanation of the following page ไว้ใน report
-Product backlog: Work items ที่มีการใช้ Epic (optional) and Issue (User story)
+<br> Product backlog: Work items ที่มีการใช้ Epic (optional) and Issue (User story) </br>
 ![Screenshot 2025-02-03 210820.png](/.attachments/Screenshot%202025-02-03%20210820-0abd83e5-533c-455f-a940-ca3acab66432.png)
-Sprint backlog:
+<br> Sprint backlog: </br>
 ![Screenshot 2025-02-03 204317.png](/.attachments/Screenshot%202025-02-03%20204317-7e0334ca-27c2-41f1-a277-8f1f4f2ea1a6.png)
