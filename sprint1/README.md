@@ -181,24 +181,25 @@
 Show screenshot and explanation of the following page ไว้ใน report
 <br> </br>
 
-**Product backlog** : Work items ที่มีการใช้ Epic (optional) and Issue (User story) </br>
+**Product backlog** : Work items ที่มีการใช้ Epic (optional) and Issue (User story) 
 
 
 ![Screenshot 2025-02-03 210820.png](/.attachments/Screenshot%202025-02-03%20210820-0abd83e5-533c-455f-a940-ca3acab66432.png)
 
 <br> </br>
 
-Sprint backlog: มีการกำหนดเวลาและวางแผน work item สำหรับ Sprint1 (Sprint 1 อาจเป็นแค่งานการเขียน report และการกำหนด requirement)
+**Sprint backlog**: มีการกำหนดเวลาและวางแผน work item สำหรับ Sprint1 (Sprint 1 อาจเป็นแค่งานการเขียน report และการกำหนด requirement)
+
+[![Screenshot 2568-02-03 at 21.53.37.png](/.attachments/Screenshot%202568-02-03%20at%2021.53.37-94493cf3-0ab8-4be9-9e08-f22e8fff4267.png)]()
 
 <br> </br>
+
+**ต้วอย่าง detail ของ work item ชนิด user story**
+
 ![image.png](/.attachments/image-e8f673d8-6026-4a44-a8c7-877fe069a7f2.png)
-<br> Epic (optional) </br>
 
 <br> </br>
+**ต้วอย่าง detail ของ work item ชนิด Epic (optional)** 
 
 ![image.png](/.attachments/image-b45af4d7-4c6a-4f00-a3ca-8c3542dfdbf6.png)
-<br> Sprint backlog: </br>
 
-<br> </br>
-
-![Screenshot 2025-02-03 204317.png](/.attachments/Screenshot%202025-02-03%20204317-7e0334ca-27c2-41f1-a277-8f1f4f2ea1a6.png)
