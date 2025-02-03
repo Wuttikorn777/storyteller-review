@@ -188,9 +188,9 @@ Show screenshot and explanation of the following page ไว้ใน report
 
 <br> </br>
 
-**Sprint backlog**: มีการกำหนดเวลาและวางแผน work item สำหรับ Sprint1 (Sprint 1 อาจเป็นแค่งานการเขียน report และการกำหนด requirement)
+**Sprint backlog** : มีการกำหนดเวลาและวางแผน work item สำหรับ Sprint1 (Sprint 1 อาจเป็นแค่งานการเขียน report และการกำหนด requirement)
 
-[![Screenshot 2568-02-03 at 21.53.37.png](/.attachments/Screenshot%202568-02-03%20at%2021.53.37-94493cf3-0ab8-4be9-9e08-f22e8fff4267.png)]()
+![Screenshot 2568-02-03 at 21.58.00.png](/.attachments/Screenshot%202568-02-03%20at%2021.58.00-34e9414e-46a5-46e4-8174-1edf13163ee7.png)
 
 <br> </br>
 
