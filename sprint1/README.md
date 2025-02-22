@@ -184,8 +184,11 @@ User จะสามารถทำการ
 
 <br>**UI design**</br>
 ![image.png](/.attachments/image-13b2cf3a-ad25-424d-9b9d-0a17d01f2215.png)
+ภาพของหน้า Homepage และ movie </center>
 ![image.png](/.attachments/image-5db48d40-bff5-4cd0-8c65-567f12f3aff7.png)
+ภาพของหน้า login และ bookmarks </center>
 ![image.png](/.attachments/image-87653636-c807-470c-98b4-f425ce4dc43d.png)
+ภาพของหน้า Genre </center>
 
 
 ** **
