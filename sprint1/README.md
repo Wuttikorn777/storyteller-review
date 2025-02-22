@@ -162,8 +162,14 @@
 4. ทำ Retrospective โดยใช้ Zoom หรือ Microsoft Teams สำหรับการประชุมออนไลน์ 
 
 ** **
-##สรุปการประชุม Retrospective
+##Design and Prototype
+Use case diagram 
+<br>UI design</br>
+![image.png](/.attachments/image-13b2cf3a-ad25-424d-9b9d-0a17d01f2215.png)
+![image.png](/.attachments/image-5db48d40-bff5-4cd0-8c65-567f12f3aff7.png)
+![image.png](/.attachments/image-87653636-c807-470c-98b4-f425ce4dc43d.png)
 
+##สรุปการประชุม Retrospective
 ลิงค์คลิปการประชุม : https://youtu.be/J2fzecNiS1I
  
 สรุป Retrospective ที่ 1 มีการพูดคุยดังนี้ 
