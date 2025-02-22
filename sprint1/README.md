@@ -163,9 +163,17 @@
 
 ** **
 ##Design and Prototype
-Use case diagram 
+
+<br>
+
+**Use case diagram**
+ 
 ![](https://cdn.discordapp.com/attachments/1334407407002189834/1342748079870185563/Screenshot_2568-02-22_at_13.15.40.png?ex=67bac319&is=67b97199&hm=503304ae447d061bb0b62427a34ef92549b1071418b6ca713a94b511c071a304&=)
-<br>UI design</br>
+
+<br>**Architectural design**</br>
+![Screenshot 2568-02-22 at 13.22.28.png](/.attachments/Screenshot%202568-02-22%20at%2013.22.28-c3a1aab2-82f2-4b20-a85f-19e2232dc871.png)
+
+<br>**UI design**</br>
 ![image.png](/.attachments/image-13b2cf3a-ad25-424d-9b9d-0a17d01f2215.png)
 ![image.png](/.attachments/image-5db48d40-bff5-4cd0-8c65-567f12f3aff7.png)
 ![image.png](/.attachments/image-87653636-c807-470c-98b4-f425ce4dc43d.png)
@@ -179,7 +187,10 @@ Use case diagram
 - **ปัญหาเรื่องข้อจำกัดด้านเวลา** สมาชิกในทีมมีตารางเวลาที่แตกต่างกัน ทำให้เกิดความล่าช้าในการทำงาน ดังนั้นจึงกำหนดการนัดหมายล่วงหน้าเพื่อให้สามารถบริหารเวลาได้อย่างมีประสิทธิภาพมากยิ่งขึ้น
 - **ปัญหาขาดประสบการณ์การใช้เครื่องมือ Azure DevOps** สมาชิกบางส่วนยังไม่คุ้นเคยกับแพลตฟอร์ม Azure DevOps ส่งผลให้เกิดความล่าช้าในการทำงาน
 
-<br>    </br>
+สรุป Retrospective ที่ 2 มีการพูดคุยดังนี้ 
+
+
+<br> </br>
 
 ##<center>ภาคผนวก
 
