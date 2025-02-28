@@ -192,6 +192,9 @@ User จะสามารถทำการ
 <br>**Architectural design**</br>
 ![Screenshot 2568-02-28 at 17.53.13.png](/.attachments/Screenshot%202568-02-28%20at%2017.53.13-3c4ccd61-d6c8-433b-bf0f-90e1a35cedbb.png)
 
+<br>
+<br>
+
 <br>**UI design**</br>
 ![image.png](/.attachments/image-13b2cf3a-ad25-424d-9b9d-0a17d01f2215.png)
 <center>ภาพของหน้า Homepage และ movie </center>
@@ -210,6 +213,11 @@ User จะสามารถทำการ
 <br> กระบวนการทำงานใน Sprint ที่ 2 </br>
 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ในการพัฒนา Software ของกลุ่ม douplep ในครั้งนี้นั้น ผู้พัฒนาได้มีการพูดคุยเรื่องโครงงานผ่านทาง Line และ Discord เพื่อแลกเปลี่ยนความเข้าใจ และเริ่มออกแบบร่างของ UI โดยใช้ Figma ในการสร้างหน้าตาโครงสร้างของเว็บไซต์ ในการทำ Design Document นั้นเราได้เลือกใช้ Mermaid ในการช่วยออกแบบ และมีการทำ  
 
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 
 ##สรุปการประชุม Retrospective
