@@ -180,7 +180,7 @@ User จะสามารถทำการ
 
 
 <br>**Architectural design**</br>
-![Screenshot 2568-02-22 at 13.22.28.png](/.attachments/Screenshot%202568-02-22%20at%2013.22.28-c3a1aab2-82f2-4b20-a85f-19e2232dc871.png)
+![Screenshot 2568-02-28 at 17.53.13.png](/.attachments/Screenshot%202568-02-28%20at%2017.53.13-3c4ccd61-d6c8-433b-bf0f-90e1a35cedbb.png)
 
 <br>**UI design**</br>
 ![image.png](/.attachments/image-13b2cf3a-ad25-424d-9b9d-0a17d01f2215.png)
