@@ -3,41 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Login - STORYTELLER</title>
+    <link rel="stylesheet" href="styles.css"> <!-- ลิงก์ไปที่ไฟล์ CSS -->
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1 class="logo">STORYTELLER</h1>
-            <nav>
-                <a href="#" class="nav-link">HOME</a>
-                <a href="#" class="nav-link">GENRE</a>
-            </nav>
-        </header>
+    <header>
+        <h1 class="logo">STORYTELLER</h1>
+        <nav>
+            <a href="/" class="nav-link">HOME</a>
+            <a href="/genre" class="nav-link">GENRE</a>
+        </nav>
+    </header>
 
-        <div class="modal">
-          <div class="modal-content">
-              <span class="close">&times;</span>
-              <div class="modal-inner"> <!-- กรอบด้านใน -->
-                  <h2 class="modal-title">LOGIN</h2>
-                  <form action="/login" method="POST">
-                      <label for="username">Username</label>
-                      <input type="text" id="username" name="username" required>
-      
-                      <label for="password">Password</label>
-                      <input type="password" id="password" name="password" required>
-      
-                      <button type="submit" class="login-btn">LOGIN</button>
-                      <button type="button" class="register-btn">REGISTER</button>
-                    </form>
-                    <a href="reigster.ejs" class="register-link">
-                      <a href="login.ejs" class="home-link"></a>
-                  </form>
-              </div>
-          </div>
-      </div>
+    <main>
+        <div class="login-container">
+            <div class="login-modal">
+                <h2 class="login-title">LOGIN</h2>
+                <form action="/login" method="POST">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <button type="submit" class="login-btn">LOGIN</button>
+
+                    <div class="register-link-container">
+                        <span>Don't have an account?</span>
+                        <a href="/register" class="register-link">Register here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 STORYTELLER</p>
+    </footer>
 
 </body>
 </html>
