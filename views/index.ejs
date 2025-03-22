@@ -4,34 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Movie Reviews</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       background-color: #111;
       color: white;
-      text-align: center;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
+      text-align: left;
       padding: 20px;
     }
-    .navbar {
+    h1 {
+      font-family: 'Lobster', cursive;
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    /* จัด GENRE และปุ่มเป็นแถวเดียวกัน */
+    .genre-container {
       display: flex;
-      justify-content: center;
+      align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
       gap: 10px;
       margin-bottom: 20px;
     }
-    .navbar a {
+    .genre-title {
+      color: pink;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .genre-button {
       text-decoration: none;
       color: white;
       padding: 10px 20px;
-      border-radius: 5px;
+      border-radius: 20px;
       background: #222;
+      font-weight: 500;
+      border: 2px solid transparent;
+      transition: 0.3s;
     }
-    .navbar a.active {
+    .genre-button:hover {
+      border-color: pink;
+    }
+    .genre-button.active {
       background: pink;
       color: black;
+      border-color: pink;
     }
     .movie-list {
       display: grid;
@@ -43,9 +58,11 @@
       padding: 10px;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+      text-align: center; /* จัดเนื้อหาให้อยู่ตรงกลาง */
     }
     .movie img {
-      width: 100%;
+      width: 120%; /* ลดขนาดรูปภาพ */
+      max-width: 400px; /* จำกัดขนาดสูงสุด */
       border-radius: 5px;
     }
     .ratings {
@@ -57,32 +74,35 @@
 <body>
   <div class="container">
     <h1>Storyteller</h1>
-    <div class="navbar">
-      <a href="#">Action</a>
-      <a href="#" class="active">Comedy</a>
-      <a href="#">Drama</a>
-      <a href="#">Fantasy</a>
-      <a href="#">Horror</a>
-    </div>
     
+    <!-- GENRE และปุ่มอยู่แถวเดียวกัน -->
+    <div class="genre-container">
+      <div class="genre-title">GENRE</div>
+      <a href="#" class="genre-button active">Action</a>
+      <a href="#" class="genre-button">Comedy</a>
+      <a href="#" class="genre-button">Drama</a>
+      <a href="#" class="genre-button">Fantasy</a>
+      <a href="#" class="genre-button">Horror</a>
+    </div>
+
     <div class="movie-list">
       <div class="movie">
-        <img src="https://via.placeholder.com/200x300" alt="Ballerina">
+        <img src="https://icecreamconvos.com/wp-content/uploads/2025/03/John-Wick-Ballerina-Movie-Poster-696x870.jpg" alt="Ballerina">
         <h3>Ballerina</h3>
         <p>Ratings: ⭐⭐⭐⭐</p>
       </div>
       <div class="movie">
-        <img src="public/image/BadBoy2024.jpg" alt="Bad Boys: Ride or Die">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Bad_Boys_Ride_or_Die_%282024%29_poster.jpg" alt="Bad Boys: Ride or Die">
         <h3>Bad Boys: Ride or Die</h3>
         <p>Ratings: ⭐⭐⭐⭐</p>
       </div>
       <div class="movie">
-        <img src="https://via.placeholder.com/200x300" alt="Road House">
+        <img src="https://th.bing.com/th/id/OIP.wNfEQnctWTG3eW5F-nqLJgAAAA?rs=1&pid=ImgDetMain" alt="Road House">
         <h3>Road House</h3>
         <p>Ratings: ⭐⭐⭐</p>
       </div>
       <div class="movie">
-        <img src="https://via.placeholder.com/200x300" alt="Fall Guy">
+        <img src="https://images.squarespace-cdn.com/content/v1/63bb3e8a824d7e2f7eedf0d3/2a1921a3-8615-4043-9c0b-9919a27e8fbc/The+Fall+Guy+5.jpeg" alt="Fall Guy">
         <h3>Fall Guy</h3>
         <p>Ratings: ⭐⭐⭐⭐</p>
       </div>
