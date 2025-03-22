@@ -1,7 +1,7 @@
 {
   "name": "review",
   "version": "1.0.0",
-  "description": "",
+  "description": "TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -14,5 +14,13 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-session": "^1.18.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://thananyathana@dev.azure.com/thananyathana/doublep/_git/doublep"
+  },
+  "keywords": []
 }
