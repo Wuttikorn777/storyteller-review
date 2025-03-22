@@ -12,90 +12,82 @@
       text-align: center;
     }
     .container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
       padding: 20px;
     }
-    .movie-form input, .movie-form textarea, .movie-form select, .movie-form button {
-      width: 100%;
-      margin: 5px 0;
-      padding: 10px;
-      border: 1px solid #ccc;
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      padding: 10px 20px;
       border-radius: 5px;
+      background: #222;
+    }
+    .navbar a.active {
+      background: pink;
+      color: black;
     }
     .movie-list {
-      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
-    .movie-list ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .movie-list li {
+    .movie {
       background: #222;
       padding: 10px;
-      margin: 5px 0;
       border-radius: 5px;
       box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
     }
-    .actions {
-      margin-top: 20px;
+    .movie img {
+      width: 100%;
+      border-radius: 5px;
     }
-    .logout {
-      float: right;
-      text-decoration: none;
-      color: red;
-      font-weight: bold;
+    .ratings {
+      color: gold;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Movie List</h1>
-    <a href="/logout" class="logout">Logout</a>
-    
-    <form class="movie-form" action="/add" method="POST">
-      <input type="text" name="username" placeholder="User Name" required />
-      <input type="text" name="name" placeholder="Movie Title" required />
-      <textarea name="description" placeholder="Movie Description" required></textarea>
-      <label for="genre">Genre:</label>
-      <select name="genre" id="genre">
-        <option value="action">Action</option>
-        <option value="comedy">Comedy</option>
-        <option value="drama">Drama</option>
-        <option value="fantasy">Fantasy</option>
-        <option value="horror">Horror</option>
-      </select>
-      <button type="submit">Add Movie</button>
-    </form>
-    
-    <h2>Movie Summary by Genre</h2>
-    <ul>
-      <% Object.keys(summary).forEach(genre => { %>
-        <li>Genre <%= genre %>: <%= summary[genre] %> movies</li>
-      <% }) %>
-    </ul>
-    
-    <form action="/search" method="POST">
-      <input type="text" name="searchName" placeholder="Search Movie by Title" />
-      <button type="submit">Search</button>
-    </form>
-    
-    <div class="actions">
-      <a href="/sort"><button>Sort by Genre</button></a>
+    <h1>Storyteller</h1>
+    <div class="navbar">
+      <a href="#">Action</a>
+      <a href="#" class="active">Comedy</a>
+      <a href="#">Drama</a>
+      <a href="#">Fantasy</a>
+      <a href="#">Horror</a>
     </div>
     
-    <form action="/delete" method="POST" class="movie-list">
-      <ul>
-        <% movies.forEach(movie => { %>
-          <li>
-            <input type="checkbox" name="movieNames" value="<%= movie.name %>" />
-            <strong><%= movie.name %></strong>: <%= movie.description %> by <%= movie.username %> (Genre: <%= movie.genre %>)
-            <a href="/view/<%= movie.name %>">View</a>
-          </li>
-        <% }) %>
-      </ul>
-      <button type="submit">Delete Selected Movies</button>
-    </form>
+    <div class="movie-list">
+      <div class="movie">
+        <img src="https://via.placeholder.com/200x300" alt="Ballerina">
+        <h3>Ballerina</h3>
+        <p>Ratings: ⭐⭐⭐⭐</p>
+      </div>
+      <div class="movie">
+        <img src="public/image/BadBoy2024.jpg" alt="Bad Boys: Ride or Die">
+        <h3>Bad Boys: Ride or Die</h3>
+        <p>Ratings: ⭐⭐⭐⭐</p>
+      </div>
+      <div class="movie">
+        <img src="https://via.placeholder.com/200x300" alt="Road House">
+        <h3>Road House</h3>
+        <p>Ratings: ⭐⭐⭐</p>
+      </div>
+      <div class="movie">
+        <img src="https://via.placeholder.com/200x300" alt="Fall Guy">
+        <h3>Fall Guy</h3>
+        <p>Ratings: ⭐⭐⭐⭐</p>
+      </div>
+    </div>
   </div>
 </body>
 </html>
+
