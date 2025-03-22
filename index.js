@@ -8,8 +8,6 @@ const authController = require('./controllers/authController');
 
 // Initialize Express app
 const app = express();
-// Set static folder
-app.use(express.static(path.join(__dirname, "public")));
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -30,7 +28,6 @@ app.use(
 
 app.get('/', authController.authenticate, taskController.getTasks);
 app.get('/view/:name', taskController.viewTask);
-//  app.get ('gerne',)
 app.get('/logout', authController.logout);
 app.get('/sort', authController.authenticate, taskController.sortTasksByPriority);
 app.get('/login', authController.showLoginPage);
