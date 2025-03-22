@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    .movie-form input, .movie-form textarea, .movie-form select, .movie-form button {
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .movie-list {
+      margin-top: 20px;
+    }
+    .movie-list ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .movie-list li {
+      background: #222;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+    .actions {
+      margin-top: 20px;
+    }
+    .logout {
+      float: right;
+      text-decoration: none;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Movie List</h1>
+    <a href="/logout" class="logout">Logout</a>
+    
+    <form class="movie-form" action="/add" method="POST">
+      <input type="text" name="username" placeholder="User Name" required />
+      <input type="text" name="name" placeholder="Movie Title" required />
+      <textarea name="description" placeholder="Movie Description" required></textarea>
+      <label for="genre">Genre:</label>
+      <select name="genre" id="genre">
+        <option value="action">Action</option>
+        <option value="comedy">Comedy</option>
+        <option value="drama">Drama</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="horror">Horror</option>
+      </select>
+      <button type="submit">Add Movie</button>
+    </form>
+    
+    <h2>Movie Summary by Genre</h2>
+    <ul>
+      <% Object.keys(summary).forEach(genre => { %>
+        <li>Genre <%= genre %>: <%= summary[genre] %> movies</li>
+      <% }) %>
+    </ul>
+    
+    <form action="/search" method="POST">
+      <input type="text" name="searchName" placeholder="Search Movie by Title" />
+      <button type="submit">Search</button>
+    </form>
+    
+    <div class="actions">
+      <a href="/sort"><button>Sort by Genre</button></a>
+    </div>
+    
+    <form action="/delete" method="POST" class="movie-list">
+      <ul>
+        <% movies.forEach(movie => { %>
+          <li>
+            <input type="checkbox" name="movieNames" value="<%= movie.name %>" />
+            <strong><%= movie.name %></strong>: <%= movie.description %> by <%= movie.username %> (Genre: <%= movie.genre %>)
+            <a href="/view/<%= movie.name %>">View</a>
+          </li>
+        <% }) %>
+      </ul>
+      <button type="submit">Delete Selected Movies</button>
+    </form>
+  </div>
+</body>
+</html>
