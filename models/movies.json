@@ -1,0 +1,23 @@
+[
+    {
+      "id": "1",
+      "title": "Final Destination: Bloodlines",
+      "genre": "Action, Horror",
+      "duration": "120 minutes",
+      "release": "2025",
+      "description": "A new chapter in the Final Destination franchise...",
+      "trailer": "https://www.youtube.com/embed/UWMzKXsY9A4",
+      "poster": "https://...image.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Joker",
+      "genre": "Drama, Thriller",
+      "duration": "122 minutes",
+      "release": "2019",
+      "description": "A mentally troubled comedian embarks on...",
+      "trailer": "https://www.youtube.com/embed/zAGVQLHvwOY",
+      "poster": "https://...joker.jpg"
+    }
+  ]
+  

@@ -6,6 +6,7 @@ const authController = require('./controllers/authController');
 
 
 
+
 // Initialize Express app
 const app = express();
 // Set EJS as the templating engine
@@ -80,13 +81,19 @@ app.get('/genre', (req, res) => {
 app.get("/action", (req, res) => {
   res.render("action");
 });
+
+const movies = require('./data/movies.json');
+
+app.get('/movie/:id', (req, res) => {
+  const movie = movies.find(m => m.id === req.params.id);
+  if (!movie) return res.status(404).send('Movie not found');
+  res.render('moviedetails', { movie });
+});
+
+
 app.get('/bookmarks', authController.authenticate, taskController.getBookmarks);
 app.post('/bookmarks/add', authController.authenticate, taskController.addBookmark);
 app.post('/bookmarks/remove', authController.authenticate, taskController.removeBookmark);
 
 
-// Start server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
