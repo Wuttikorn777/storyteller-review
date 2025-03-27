@@ -5,7 +5,172 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage - STORYTELLER</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+   <style> /* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #111;
+    border-bottom: 2px solid #ff69b4;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff69b4; /* สีชมพู */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    color: #ff69b4;
+}
+/* Hero Section */
+.hero-section {
+    position: relative;
+    text-align: center;
+    margin-bottom: 40px;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 400px;  /* ตั้งความสูงตามต้องการ */
+}
+
+.slider {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+
+/* Dot Indicators */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 10;  /* เพื่อให้ dots อยู่บนภาพ */
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: opacity 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.dot:hover {
+    transform: scale(1.2);  /* ขยาย dot ขึ้นเมื่อ hover */
+}
+
+.dot.active {
+    opacity: 1;
+    background-color: #fff;  /* เปลี่ยนเป็นสีขาวเมื่อ active */
+}
+
+/* Genres Section */
+.genres {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.genre-container {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #222;
+    border-radius: 10px;
+}
+
+.genre-title {
+    font-size: 2rem;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+.genre-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.genre-button:hover {
+    background-color: #ff69b4;
+}
+
+.genre-button.active {
+    background-color: #ff69b4;
+}
+
+/* Movies Section */
+.movies {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.movie-posters {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.movie-poster {
+    text-align: center;
+}
+
+.poster-img {
+    width: 200px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.movie-poster p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    border-top: 2px solid #ff69b4;
+}
+
+footer p {
+    margin: 0;
+    color: white;
+}
+</style>
 </head>
 <body>
 
@@ -13,7 +178,7 @@
         <h1 class="logo">STORYTELLER</h1>
         <nav>
             <a href="/" class="nav-link">HOME</a>
-            <a href="/index.ejs" class="nav-link">GENRE</a>
+            <a href="/genre" class="nav-link">GENRE</a>
         </nav>
     </header>
 

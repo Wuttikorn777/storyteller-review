@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - STORYTELLER</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #111;
+            border-bottom: 2px solid #ff69b4;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff69b4; /* สีชมพู */
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1.2rem;
+        }
+        
+        nav a:hover {
+            color: #ff69b4;
+        }
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            text-align: center;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;  /* ตั้งความสูงตามต้องการ */
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+        
+        .slider img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+        
+        /* Dot Indicators */
+        .dots-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;  /* เพื่อให้ dots อยู่บนภาพ */
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            transition: opacity 0.3s, transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .dot:hover {
+            transform: scale(1.2);  /* ขยาย dot ขึ้นเมื่อ hover */
+        }
+        
+        .dot.active {
+            opacity: 1;
+            background-color: #fff;  /* เปลี่ยนเป็นสีขาวเมื่อ active */
+        }
+        
+        /* Genres Section */
+        .genres {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .genre-container {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #222;
+            border-radius: 10px;
+        }
+        
+        .genre-title {
+            font-size: 2rem;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+        
+        .genre-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #444;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .genre-button:hover {
+            background-color: #ff69b4;
+        }
+        
+        .genre-button.active {
+            background-color: #ff69b4;
+        }
+        
+        /* Movies Section */
+        .movies {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .movie-posters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .movie-poster {
+            text-align: center;
+        }
+        
+        .poster-img {
+            width: 200px;
+            height: 300px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        
+        .movie-poster p {
+            margin-top: 10px;
+            font-size: 1.2rem;
+        }
+        /* Login Styles */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-color: #333;
+        }
+        
+        .login-modal {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ff69b4;  /* กรอบที่ใช้สีชมพู */
+        }
+        
+        .login-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff69b4;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        button.login-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button.login-btn:hover {
+            background-color: #e2589e;
+        }
+        
+        /* Register Styles */
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background-color: #333;
+        }
+        
+        .register-modal {
+            background-color: #222; /* สีพื้นหลังเทาเข้ม */
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: 2px solid #ff69b4;  /* กรอบที่ใช้สีชมพู */
+        }
+        
+        .register-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff69b4; /* สีชมพู */
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: white;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            background-color: #444; /* เทาเข้ม */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        button.register-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #ff69b4; /* สีชมพู */
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button.register-btn:hover {
+            background-color: #e2589e; /* สีชมพูเข้มเมื่อ hover */
+        }
+        
+        .back-to-login-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .back-to-login {
+            color: #ff69b4; /* สีชมพู */
+            text-decoration: none;
+        }
+        
+        .back-to-login:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            border-top: 2px solid #ff69b4;
+        }
+        
+        footer p {
+            margin: 0;
+            color: white;
+        }
+        </style> <!-- ลิงก์ไปที่ไฟล์ CSS -->
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">STORYTELLER</h1>
+        <nav>
+            <a href="/" class="nav-link">HOME</a>
+            <a href="/genre" class="nav-link">GENRE</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="register-container">
+            <div class="register-modal">
+                <h2 class="register-title">REGISTER</h2>
+                <form action="/register" method="POST">
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+
+                    <button type="submit" class="register-btn">REGISTER</button>
+
+                    <div class="back-to-login-container">
+                        <span>Already have an account?</span>
+                        <a href="/login" class="back-to-login">Back to Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 STORYTELLER</p>
+    </footer>
+
+</body>
+</html>

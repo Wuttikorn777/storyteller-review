@@ -63,3 +63,26 @@ exports.searchTasksByName = (req, res) => {
 };
 
 
+// จำลองฐานข้อมูล Bookmarks
+let bookmarks = [];
+
+exports.getBookmarks = (req, res) => {
+  const bookmarks = ["Story 1", "Story 2"];
+    res.render('bookmarks', { bookmarks });
+};
+
+exports.addBookmark = (req, res) => {
+    const { storyName } = req.body;
+    if (storyName && !bookmarks.includes(storyName)) {
+        bookmarks.push(storyName);
+    }
+    res.redirect('/bookmarks');
+};
+
+exports.removeBookmark = (req, res) => {
+    const { storyName } = req.body;
+    bookmarks = bookmarks.filter(item => item !== storyName);
+    res.redirect('/bookmarks');
+};
+
+
