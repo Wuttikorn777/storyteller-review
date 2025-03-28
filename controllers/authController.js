@@ -11,43 +11,25 @@ const credentials = {
   
   // Middleware to check authentication
   exports.authenticate = (req, res, next) => {
-    if (req.session.user) {
-      next();
-    } else {
-      res.redirect('/login');
+    // ตรวจสอบ session หรือ token
+    if (req.isAuthenticated()) {
+        return next();
     }
-  };
+    res.redirect('/login');  // ถ้ายังไม่ได้เข้าสู่ระบบให้ไปหน้า login
+};
 
-
-  // Handle logout
-  exports.logout = (req, res) => {
-    req.session.destroy(() => {
-      res.redirect('/login');
-    });
-  };
-  
-
-// Show login page
 exports.showLoginPage = (req, res) => {
-  // Pass unsanitized error message from query parameters
-  res.render('login', { error: req.query.error || null });
+    res.render('login');  // แสดงหน้า login
 };
 
-
-
-// Handle login
 exports.login = (req, res) => {
-  const { username, password } = req.body;
-  secret = util.encrypt(password);
-  if (username === credentials.username && secret === credentials.password) {
-    req.session.user = username;
-    console.log(username + " has logged in");
-    res.redirect('/');
-  } else {
-    // Reflect the unsanitized username in the error message
-    const error = `Invalid credentials for username: ${username}`;
-    console.log("username or password is not correct");
-    res.render('login', { error });
-  }
+    // ประมวลผลการ login และเซสชั่น
+    res.redirect('/home');  // หรือหน้าอื่นๆหลังจาก login สำเร็จ
 };
 
+exports.logout = (req, res) => {
+    req.logout((err) => {
+        if (err) { return next(err); }
+        res.redirect('/login');  // หลัง logout ให้กลับไปที่หน้า login
+    });
+};

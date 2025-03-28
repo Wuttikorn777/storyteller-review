@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <style>
+    /* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to bottom right, #1a1a1a, #2c2c2c);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(17, 17, 17, 0.9);
+    color: #ff69b4;
+    border-bottom: 2px solid #ff69b4;
+    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+/* Movie Container */
+.movie-container {
+    display: flex;
+    gap: 40px;
+    padding: 50px 30px;
+    max-width: 1200px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+}
+
+/* Poster */
+.movie-poster {
+    width: 40%;
+    border-radius: 15px;
+    overflow: hidden;
+    height: auto;
+}
+
+.movie-poster img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #111;
+}
+
+.movie-poster img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+}
+
+/* Info */
+.movie-info {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.movie-title {
+    font-size: 2.7rem;
+    color: #ff69b4;
+    font-weight: 800;
+    margin-top: 15px;
+    letter-spacing: 1.5px;
+}
+
+.movie-info p {
+    font-size: 1.1rem;
+    color: #ddd;
+    margin: 8px 0;
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: #f0f0f0;
+}
+
+/* Rating */
+.rating {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.star {
+    color: #ff69b4;
+    cursor: pointer;
+    font-size: 1.6rem;
+    transition: transform 0.2s;
+}
+.star:hover {
+    transform: scale(1.2);
+}
+
+/* Button */
+.play-button {
+    background-color: #ff69b4;
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 25px;
+    width: fit-content;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+}
+.play-button:hover {
+    background-color: #e6007e;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Video */
+.video-container {
+    margin-top: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Comment Section */
+.comment-section {
+    margin-top: 40px;
+}
+.comment-box {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.comment-box textarea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    background-color: #444;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.comment-box button {
+    background-color: #ff69b4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.comment-box button:hover {
+    background-color: #e6007e;
+}
+
+
+.comments-list {
+    margin-top: 20px;
+}
+.comment {
+    background-color: #2b2b2b;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    color: #eee;
+}
+.comment {
+    background-color: #2c2c2c;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    color: #eee;
+    font-size: 0.95rem;
+}
+.comment strong {
+    color: #ff69b4;
+    font-weight: 600;
+}
+
+.rating-section {
+    margin-top: 25px;
+}
+.rating-stars {
+    display: flex;
+    gap: 8px;
+}
+.rating-stars .star {
+    font-size: 2rem;
+    color: #777;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+}
+.rating-stars .star:hover {
+    transform: scale(1.2);
+}
+.rating-display {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #ddd;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    padding: 20px;
+    background-color: #111;
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="movie-container">
+            <!-- Movie Poster Section (left side) -->
+            <div class="movie-poster">
+                <img src="https://images.squarespace-cdn.com/content/v1/63bb3e8a824d7e2f7eedf0d3/fdc337c3-9aa5-4264-a318-12a22c4c0d6e/Final+Destination-+Bloodlines.jpeg?format=2500w" alt="Final Destination: Bloodlines">
+            </div>
+            
+
+            <!-- Movie Info and Video Section (right side) -->
+            <div class="movie-info">
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/UWMzKXsY9A4?autoplay=1" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                <h2 class="movie-title">Final Destination: Bloodlines</h2>
+                <p><strong>Genre:</strong> Action, Horror</p>
+                <p><strong>Release Date:</strong> 2025</p>
+                <p><strong>Duration:</strong> 120 minutes</p>
+
+                <p class="description">A new chapter in the Final Destination franchise where the deadly fate lurks at every corner.</p>
+
+                <!-- Rating Section -->
+<div class="rating-section">
+    <div class="rating-stars" id="rating-stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+    <p class="rating-display"><span id="average-rating">4.8</span>/5 จาก <span id="total-votes">25</span> โหวต</p>
+</div>
+
+
+
+
+        <!-- Comment Section -->
+        <div class="comment-section">
+            <div class="comment-box">
+                <textarea placeholder="Leave a comment..."></textarea>
+                <button>Submit</button>
+            </div>
+
+            <!-- Displaying Comments -->
+            <div class="comments-list">
+                <div class="comment">
+                    <strong>User1:</strong>
+                    <p>This movie was amazing! The plot was intense and full of suspense.</p>
+                </div>
+                <div class="comment">
+                    <strong>User2:</strong>
+                    <p>Good thriller, but the ending was a bit predictable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 All Rights Reserved</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
+    <script>
+        let totalVotes = 25;
+        let totalScore = 120; // ตัวอย่าง (เฉลี่ย 4.8)
+        
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function () {
+                const value = parseInt(this.getAttribute('data-value'));
+                totalVotes += 1;
+                totalScore += value;
+        
+                const avg = (totalScore / totalVotes).toFixed(1);
+                document.getElementById('average-rating').innerText = avg;
+                document.getElementById('total-votes').innerText = totalVotes;
+                highlightStars(value);
+            });
+        });
+        
+        function highlightStars(value) {
+            document.querySelectorAll('.star').forEach(star => {
+                const starValue = parseInt(star.getAttribute('data-value'));
+                star.style.color = (starValue <= value) ? '#ff69b4' : '#777';
+            });
+        }
+        </script>
+        
+</body>
+</html> 

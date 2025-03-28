@@ -5,7 +5,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage - STORYTELLER</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+          color: white;
+          margin: 0;
+          padding: 0;
+        }
+        header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 40px;
+          background-color: #111;
+          border-bottom: 2px solid #ff69b4;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+        .logo {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: #ff69b4;
+        }
+        nav a {
+          color: white;
+          text-decoration: none;
+          margin-left: 30px;
+          font-size: 1.2rem;
+          position: relative;
+        }
+        nav a:hover {
+          color: #ff69b4;
+        }
+        .slider-container {
+          position: relative;
+          width: 100%;
+          max-width: 700px;
+          height: 625px;
+          margin: 40px auto;
+          overflow: hidden;
+          border-radius: 20px;
+          box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+        .slider {
+          display: flex;
+          transition: transform 1s ease-in-out;
+        }
+        .slider-item {
+          min-width: 100%;
+          display: flex;
+        }
+        .video-container {
+          display: flex;
+          width: 100%;
+          background-color: #222;
+        }
+        .video-thumbnail {
+          width: 60%;
+          position: relative;
+        }
+        .video-thumbnail img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .play-button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(255,105,180,0.8);
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  border: none;
+}
+
+
+.play-button:hover {
+  background-color: rgba(230, 0, 126, 0.9);
+}
+
+        .video-info {
+          width: 40%;
+          padding: 20px;
+          background-color: rgba(0, 0, 0, 0.6);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+        }
+        .video-info h2 {
+          font-size: 1.4rem;
+          color: #ff69b4;
+          margin-bottom: 10px;
+        }
+        .video-info p {
+          font-size: 1rem;
+          margin-bottom: 10px;
+        }
+        .dots-container {
+          display: flex;
+          justify-content: center;
+          margin-top: 15px;
+        }
+        .dot {
+          width: 12px;
+          height: 12px;
+          margin: 0 6px;
+          background-color: #888;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .dot.active {
+          background-color: #ff69b4;
+        }
+        .prev, .next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0,0,0,0.5);
+          color: white;
+          border: none;
+          font-size: 2rem;
+          padding: 10px 15px;
+          cursor: pointer;
+          z-index: 100;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+    
+        .genres, .movies {
+          text-align: center;
+          margin: 50px 0;
+        }
+        .genre-container {
+          display: inline-block;
+          padding: 20px;
+          background-color: #2a2a2a;
+          border-radius: 15px;
+        }
+        .genre-title {
+          font-size: 2.2rem;
+          color: #ff69b4;
+          margin-bottom: 20px;
+        }
+        .genre-button {
+          display: inline-block;
+          margin: 5px;
+          padding: 10px 20px;
+          background-color: #444;
+          border-radius: 8px;
+          color: white;
+          text-decoration: none;
+          font-size: 1rem;
+        }
+        .genre-button:hover, .genre-button.active {
+          background-color: #ff69b4;
+        }
+        .movie-posters {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+          flex-wrap: wrap;
+        }
+        .poster-img {
+          width: 200px;
+          height: 300px;
+          border-radius: 10px;
+          object-fit: cover;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+          transition: transform 0.3s;
+        }
+        .poster-img:hover {
+          transform: scale(1.05);
+        }
+        .movie-poster p {
+          margin-top: 10px;
+          font-size: 1.2rem;
+        }
+        footer {
+          background-color: #111;
+          padding: 20px;
+          text-align: center;
+          border-top: 2px solid #ff69b4;
+        }
+        footer p {
+          color: white;
+          margin: 0;
+        }
+      </style>
+    
 </head>
 <body>
 
@@ -13,7 +213,7 @@
         <h1 class="logo">STORYTELLER</h1>
         <nav>
             <a href="/" class="nav-link">HOME</a>
-            <a href="/index.ejs" class="nav-link">GENRE</a>
+            <a href="/genre" class="nav-link">GENRE</a>
         </nav>
     </header>
 
@@ -21,34 +221,92 @@
         <section class="hero-section">
             <div class="slider-container">
                 <div class="slider">
-                    <img src="https://static.wikia.nocookie.net/jaws/images/3/3b/Jaws_blu-ray_movie_1.jpg/revision/latest?cb=20131122124857" alt="Jaws Movie Poster">
-                    <img src="https://cdn.theplaylist.net/wp-content/uploads/2023/05/08064650/Oppenheimer-Christopher-Nolan.jpg">
-                    <img src="https://i.ytimg.com/vi/CHkSXqKYElo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCtStBQgmIYTtTrvogmIUVnyPMFqw">
-                </div>
+                    <div class="slider-item">
+                      <div class="video-container">
+                        <div class="video-thumbnail">
+                          <img src="https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg" alt="Final Destination: Bloodlines">
+                            
+                          </a>
+                        </div>
+                        <div class="video-info">
+                          <h2>Final Destination: Bloodlines</h2>                        
+                          <p>Theaters</p>
+                          <p>Plagued by a recurring violent nightmare, a college student returns home to find the one person who can break the cycle and save her family from the horrific fate that inevitably awaits them.</p>
+                          
+                          <a href="/moviedetails" class="play-button nav-link">
+                            <i class="fas fa-play"></i>
+                          </a>
+                        
+                        </div>
+                      </div>
+
+                    </div>
+                  
+                    <!-- เพิ่ม Slider อีกสไลด์ -->
+                    <div class="slider-item">
+                      <div class="video-container">
+                        <div class="video-thumbnail">
+                          <img src="https://m.media-amazon.com/images/M/MV5BZDI5YzJhODQtMzQyNy00YWNmLWIxMjUtNDBjNjA5YWRjMzExXkEyXkFqcGc@._V1_.jpg" alt="Severance">
+                          
+                        
+                          </a>
+                        </div>
+                        <div class="video-info">
+                          <h2>Severance</h2>
+                          <p>Theaters</p>
+                          <p>Mark leads a team of office workers whose memories have been surgically divided between their work and personal lives. When a mysterious colleague appears outside of work, it begins a journey to discover the truth about their jobs.</p>
+                          <a href="/moviedetails" class="play-button nav-link">
+                            <i class="fas fa-play"></i>
+                          </a>
+                        
+                        </div>
+                        
+                      </div>
+                    </div>
+                    <!-- เพิ่ม Slider อีกสไลด์ -->
+                    <div class="slider-item">
+                        <div class="video-container">
+                          <div class="video-thumbnail">
+                            <img src="https://resizing.flixster.com/UAU9F6CrWLvjFOArCiUGe_sQpkw=/206x305/v2/https://resizing.flixster.com/xHBOCtYwNN39zZJ5ljhZjxm0pEA=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMWJmZmY2YzAtYmQ3ZC00MmZmLWIxOTYtZmZiMzVkMzg2Mzg3LmpwZw==" alt="Adolescence">
+                            </a>
+                          </div>
+                          <div class="video-info">
+                            <h2>Adolescence</h2>
+                            <p>TV Mini Series</p>
+                            <p>A family's world turns upside down when 13-year-old Jamie Miller is arrested for murdering a schoolmate: the charges against their son force them to confront every parent's worst nightmare.</p>
+                            <a href="/moviedetails" class="play-button nav-link">
+                                <i class="fas fa-play"></i>
+                              </a>                            
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  
                 <!-- จุดบ่งชี้ (dots) -->
                 <div class="dots-container">
                     <span class="dot active"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </div>
+                <!-- ปุ่ม prev และ next -->
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
             </div>
+            <section class="genres">
+                <div class="genre-container">
+                    <h2 class="genre-title">GENRES</h2>
+                    <a href="#" class="genre-button active">Action</a>
+                    <a href="#" class="genre-button">Comedy</a>
+                    <a href="#" class="genre-button">Drama</a>
+                    <a href="#" class="genre-button">Fantasy</a>
+                    <a href="#" class="genre-button">Horror</a>
+                </div>
+            </section>
         </section>
-
-        <section class="genres">
-            <div class="genre-container">
-                <h2 class="genre-title">GENRES</h2>
-                <a href="#" class="genre-button active">Action</a>
-                <a href="#" class="genre-button">Comedy</a>
-                <a href="#" class="genre-button">Drama</a>
-                <a href="#" class="genre-button">Fantasy</a>
-                <a href="#" class="genre-button">Horror</a>
-            </div>
-        </section>
-
         <section class="movies">
             <div class="movie-posters">
                 <div class="movie-poster">
-                    <img src="https://static.wikia.nocookie.net/ultimatepopculture/images/3/39/Shrek.jpg/revision/latest?cb=20210311141139" alt="Shrek" class="poster-img">
+                    <img src="https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg" alt="Shrek" class="poster-img">
                     <p>Shrek</p>
                 </div>
                 <div class="movie-poster">
@@ -58,13 +316,66 @@
             </div>
         </section>
     </main>
-    
+
     <footer>
         <p>&copy; 2025 STORYTELLER</p>
     </footer>
 
-    <!-- Link to external JS file at the end of the body -->
-    <script src="script.js"></script> 
+    <script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.slider-item');
+    const totalImages = images.length;
+    const slider = document.querySelector('.slider');
+    const dots = document.querySelectorAll('.dot');
 
+    // แสดงภาพถัดไป
+    function showNextImage() {
+      currentIndex++;
+      if (currentIndex >= totalImages) {
+        currentIndex = 0;
+      }
+      updateSliderPosition();
+      updateDots();
+    }
+
+    // แสดงภาพก่อนหน้า
+    function showPrevImage() {
+      currentIndex--;
+      if (currentIndex < 0) {
+        currentIndex = totalImages - 1;
+      }
+      updateSliderPosition();
+      updateDots();
+    }
+
+    // อัปเดตตำแหน่งของ slider
+    function updateSliderPosition() {
+      const offset = -currentIndex * 100;  // ใช้เปอร์เซ็นต์เพื่อเลื่อนภาพ
+      slider.style.transform = `translateX(${offset}%)`;
+    }
+
+    // อัปเดตตำแหน่งของ dots
+    function updateDots() {
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[currentIndex].classList.add('active');
+    }
+
+    // ฟังก์ชันเลื่อนภาพโดยใช้ scroll wheel
+    slider.addEventListener('wheel', (event) => {
+      event.preventDefault();
+      if (event.deltaY > 0) {
+        showNextImage();  // เลื่อนภาพถัดไป
+      } else {
+        showPrevImage();  // เลื่อนภาพก่อนหน้า
+      }
+    });
+
+    // ตั้งเวลาให้เลื่อนภาพทุกๆ 3 วินาที
+    setInterval(showNextImage, 3000);
+
+    // การควบคุมปุ่ม prev และ next
+    document.querySelector('.prev').addEventListener('click', showPrevImage);
+    document.querySelector('.next').addEventListener('click', showNextImage);
+  </script>
 </body>
 </html>
