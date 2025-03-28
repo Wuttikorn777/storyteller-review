@@ -21,7 +21,7 @@
     /* จัด GENRE และปุ่มเป็นแถวเดียวกัน */
     .genre-container {
       display: flex;
-      align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+      align-items: center;
       gap: 10px;
       margin-bottom: 20px;
     }
@@ -54,22 +54,27 @@
       gap: 20px;
     }
     .movie {
-      background: #222;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-      text-align: center; /* จัดเนื้อหาให้อยู่ตรงกลาง */
-    }
-    .movie img {
-      width: 120%; /* ลดขนาดรูปภาพ */
-      max-width: 400px; /* จำกัดขนาดสูงสุด */
-      border-radius: 5px;
-    }
-    .ratings {
-      color: gold;
-      margin-top: 5px;
+  background: #222;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  padding: 0;
+  overflow: hidden;
+}
 
-    }
+.movie img {
+  width: 100%;
+  height: auto; /* ให้รักษาสัดส่วนของรูป */
+  object-fit: cover; /* รูปจะพอดีกับกรอบโดยไม่ผิดสัดส่วน */
+  display: block;
+  border-radius: 5px 5px 0 0;
+}
+
+.ratings {
+  color: gold;
+  margin-top: 10px; /* เพิ่ม margin ให้พอเหมาะ */
+  font-size: 1.2rem; /* ให้ขนาดของตัวอักษรใหญ่ขึ้นถ้าต้องการ */
+}
   </style>
 </head>
 <body>
@@ -80,33 +85,32 @@
     <!-- GENRE และปุ่มอยู่แถวเดียวกัน -->
     <div class="genre-container">
       <div class="genre-title">GENRE</div>
-      <a href="#" class="genre-button active">Action</a>
-      <a href="#" class="genre-button">Comedy</a>
-      <a href="#" class="genre-button">Drama</a>
-      <a href="#" class="genre-button">Fantasy</a>
-      <a href="#" class="genre-button">Horror</a>
+      <a href="/action" class="genre-button">Action</a>
+      <a href="comedy" class="genre-button">Comedy</a>
+      <a href="drama" class="genre-button">Drama</a>
+      <a href="horror" class="genre-button">Horror</a>
     </div>
 
     <div class="movie-list">
       <div class="movie">
-        <img src="https://icecreamconvos.com/wp-content/uploads/2025/03/John-Wick-Ballerina-Movie-Poster-696x870.jpg" alt="Ballerina">
+        <img src="https://i0.wp.com/jediyuth.com/wp-content/uploads/2024/12/Ballerina_Poster_Thai-version.jpg?w=1000&ssl=1" alt="Ballerina">
         <h3>Ballerina</h3>
         <p>Ratings: ⭐⭐⭐⭐</p>
       </div>
       <div class="movie">
-        <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Bad_Boys_Ride_or_Die_%282024%29_poster.jpg" alt="Bad Boys: Ride or Die">
+        <img src="https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg" alt="Bad Boys: Ride or Die">
         <h3>Bad Boys: Ride or Die</h3>
         <p>Ratings: ⭐⭐⭐⭐</p>
       </div>
       <div class="movie">
-        <img src="https://th.bing.com/th/id/OIP.wNfEQnctWTG3eW5F-nqLJgAAAA?rs=1&pid=ImgDetMain" alt="Road House">
-        <h3>Road House</h3>
+        <img src="https://scontent.fbkk29-1.fna.fbcdn.net/v/t39.30808-6/482000592_1533367107584002_8924514609620022598_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFudZYrSa79OoCiYR9aH7tW54d3Lrr6baLnh3cuuvptohLUA8j-64YmKb2BeeX4pNpgzvT5jJtnJzx2tOZlgCwK&_nc_ohc=9JFLoE5Zu6MQ7kNvgHfeOM0&_nc_oc=AdlmGU9yfEjGz6lvB_HpgNK3hOgKyMCMQfARGwL82RJjfrawwuKkRWxHuINwDm2zYjIl2Nc13A68q8kCF4vtL6-t&_nc_zt=23&_nc_ht=scontent.fbkk29-1.fna&_nc_gid=nA_-4CJntnQVnew_4QBxYw&oh=00_AYH_JR92vbVFwn-f5xKsVcTz1X_t5ZBdQjsU-L9fp2BbNw&oe=67EAC2EB" alt="Road House">
+        <h3>Nosferatu</h3>
         <p>Ratings: ⭐⭐⭐</p>
       </div>
       <div class="movie">
-        <img src="https://images.squarespace-cdn.com/content/v1/63bb3e8a824d7e2f7eedf0d3/2a1921a3-8615-4043-9c0b-9919a27e8fbc/The+Fall+Guy+5.jpeg" alt="Fall Guy">
-        <h3>Fall Guy</h3>
-        <p>Ratings: ⭐⭐⭐⭐</p>
+        <img src="https://scontent.fbkk29-5.fna.fbcdn.net/v/t39.30808-6/484505368_1064155409078465_6577906682143342680_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHrF2ruN45E1R3EgQCcgFA8pXeAzUlvIAOld4DNSW8gA3GNOxv553CsCpKImL6lEBdW0mrz_FQbiXyRHGPGmMgz&_nc_ohc=dG-n0vgjCuQQ7kNvgEkmLHr&_nc_oc=Admu8vBBFKtMePNgEH_2BoHAugW7FIjbxlFRJ_EGrsvaWpiLmIizFqWjuxFqWIS36o0XTuCPyHgsQDMFxpMinnA6&_nc_zt=23&_nc_ht=scontent.fbkk29-5.fna&_nc_gid=wHHiUrhTuPxWjgaVnUqTHw&oh=00_AYE7lLssG-OCXW02Q_RxJdaIPhLNFg0NBPFamSOKSnpRrA&oe=67EAEC70" alt="Fall Guy">
+        <h3>พนอ</h3>
+        <p>Ratings: ⭐⭐⭐</p>
       </div>
     </div>
   </div>

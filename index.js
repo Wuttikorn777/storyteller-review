@@ -5,12 +5,12 @@ const taskController = require('./controllers/taskController');
 const authController = require('./controllers/authController');
 
 
-
 // Initialize Express app
 const app = express();
+
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'views'));  
 
 
 // Middleware to parse request body
@@ -24,7 +24,15 @@ app.use(
     saveUninitialized: true,
   })
 );
-// Routes
+// ✅ Route ไปหน้า GENRE
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+// ✅ Route ไปหน้า Action Movies
+app.get("/action", (req, res) => {
+  res.render("action");
+});
 
 app.get('/', authController.authenticate, taskController.getTasks);
 app.get('/view/:name', taskController.viewTask);
