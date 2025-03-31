@@ -220,6 +220,20 @@ iframe {
     font-size: 1.1rem;
     color: #ddd;
 }
+.bookmark-btn {
+            margin-top: 10px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .bookmarked {
+            background: gray;
+        }
 
 /* Footer */
 footer {
@@ -238,11 +252,12 @@ footer {
 </head>
 <body>
     <div class="container">
-
         <div class="movie-container">
             <!-- Movie Poster Section (left side) -->
             <div class="movie-poster">
                 <img src="https://images.squarespace-cdn.com/content/v1/63bb3e8a824d7e2f7eedf0d3/fdc337c3-9aa5-4264-a318-12a22c4c0d6e/Final+Destination-+Bloodlines.jpeg?format=2500w" alt="Final Destination: Bloodlines">
+                
+                <button class="bookmark-btn" id="bookmark-btn">★ Bookmark</button>
             </div>
             
 
@@ -275,9 +290,6 @@ footer {
     <p class="rating-display"><span id="average-rating">4.8</span>/5 จาก <span id="total-votes">25</span> โหวต</p>
 </div>
 
-
-
-
         <!-- Comment Section -->
         <div class="comment-section">
             <div class="comment-box">
@@ -297,8 +309,7 @@ footer {
                 </div>
             </div>
         </div>
-    </div>
-
+    </div>        
     <footer>
         <p>&copy; 2025 All Rights Reserved</p>
     </footer>
@@ -328,6 +339,43 @@ footer {
                 star.style.color = (starValue <= value) ? '#ff69b4' : '#777';
             });
         }
+        </script>
+        <!--bookmarks-->
+        <script>
+            const movie = {
+                title: "Final Destination: Bloodlines",
+                image: "final-destination.jpg"
+            };
+    
+            const bookmarkBtn = document.getElementById('bookmark-btn');
+    
+            function loadBookmarkStatus() {
+                let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+                if (bookmarks.some(b => b.title === movie.title)) {
+                    bookmarkBtn.classList.add('bookmarked');
+                    bookmarkBtn.textContent = "✓ Bookmarked";
+                }
+            }
+    
+            function toggleBookmark() {
+                let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+                const index = bookmarks.findIndex(b => b.title === movie.title);
+    
+                if (index === -1) {
+                    bookmarks.push(movie);
+                    bookmarkBtn.classList.add('bookmarked');
+                    bookmarkBtn.textContent = "✓ Bookmarked";
+                } else {
+                    bookmarks.splice(index, 1);
+                    bookmarkBtn.classList.remove('bookmarked');
+                    bookmarkBtn.textContent = "★ Bookmark";
+                }
+    
+                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            }
+    
+            bookmarkBtn.addEventListener('click', toggleBookmark);
+            window.onload = loadBookmarkStatus;
         </script>
         
 </body>

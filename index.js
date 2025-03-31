@@ -31,7 +31,7 @@ app.use(
 );
 // ✅ Route ไปหน้า GENRE
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("login");
 });
 
 // ✅ Route ไปหน้า Action Movies
