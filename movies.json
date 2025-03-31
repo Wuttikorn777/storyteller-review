@@ -1,0 +1,19 @@
+[
+    {
+        "id": "1",
+        "title": "Final Destination: Bloodlines",
+        "poster": "https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg",
+        "youtubeId": "UWMzKXsY9A4",
+        "genre": "Action, Horror",
+        "releaseDate": "2025",
+        "duration": 120,
+        "description": "A new chapter in the Final Destination franchise where the deadly fate lurks at every corner.",
+        "averageRating": 4.8,
+        "totalVotes": 25,
+        "comments": [
+            { "user": "User1", "text": "This movie was amazing! The plot was intense and full of suspense." },
+            { "user": "User2", "text": "Good thriller, but the ending was a bit predictable." }
+        ]
+    }
+]
+

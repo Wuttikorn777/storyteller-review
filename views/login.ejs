@@ -4,314 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - STORYTELLER</title>
-<style>
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1a1a1a;
-    color: white;
-    margin: 0;
-    padding: 0;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: white;
+            height: 100%;
+        }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #111;
-    border-bottom: 2px solid #ff69b4;
-}
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #111;
+            border-bottom: 2px solid #ff69b4;
+        }
 
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ff69b4; /* สีชมพู */
-}
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff69b4;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-size: 1.2rem;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
 
-nav a:hover {
-    color: #ff69b4;
-}
-/* Hero Section */
-.hero-section {
-    position: relative;
-    text-align: center;
-    margin-bottom: 40px;
-    overflow: hidden;
-}
+        nav a:hover {
+            color: #ff69b4;
+        }
 
-.slider-container {
-    position: relative;
-    width: 100%;
-    height: 400px;  /* ตั้งความสูงตามต้องการ */
-}
+        /* Login Section */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            height: 100vh; 
+        }
 
-.slider {
-    display: flex;
-    transition: transform 1s ease-in-out;
-}
+        .login-modal {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+            border: 3px solid #ff69b4;
+        }
 
-.slider img {
-    width: 100%;
-    object-fit: cover;
-    height: 100%;
-}
+        .login-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ff69b4;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-/* Dot Indicators */
-.dots-container {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 15px;
-    z-index: 10;  /* เพื่อให้ dots อยู่บนภาพ */
-}
+        .input-group {
+            margin-bottom: 20px;
+        }
 
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.6);
-    transition: opacity 0.3s, transform 0.3s;
-    cursor: pointer;
-}
+        label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: white;
+            font-weight: 500;
+        }
 
-.dot:hover {
-    transform: scale(1.2);  /* ขยาย dot ขึ้นเมื่อ hover */
-}
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1rem;
+            background-color: #444;
+            color: white;
+            border: 2px solid #555;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: 0.3s ease;
+        }
 
-.dot.active {
-    opacity: 1;
-    background-color: #fff;  /* เปลี่ยนเป็นสีขาวเมื่อ active */
-}
+        input:focus {
+            background-color: #555;
+            border-color: #ff69b4;
+            outline: none;
+        }
 
-/* Genres Section */
-.genres {
-    text-align: center;
-    margin: 40px 0;
-}
+        button.login-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.2rem;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
 
-.genre-container {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #222;
-    border-radius: 10px;
-}
+        button.login-btn:hover {
+            background-color: #e2589e;
+            transform: scale(1.05);
+        }
 
-.genre-title {
-    font-size: 2rem;
-    color: #ff69b4;
-    margin-bottom: 20px;
-}
+        .register-link-container {
+            text-align: center;
+            margin-top: 10px;
+        }
 
-.genre-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    background-color: #444;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1rem;
-}
+        .register-link {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: 500;
+        }
 
-.genre-button:hover {
-    background-color: #ff69b4;
-}
+        .register-link:hover {
+            text-decoration: underline;
+        }
 
-.genre-button.active {
-    background-color: #ff69b4;
-}
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222;
+            border-top: 2px solid #ff69b4;
+        }
 
-/* Movies Section */
-.movies {
-    text-align: center;
-    margin: 40px 0;
-}
+        footer p {
+            margin: 0;
+            color: white;
+        }
 
-.movie-posters {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.movie-poster {
-    text-align: center;
-}
-
-.poster-img {
-    width: 200px;
-    height: 300px;
-    border-radius: 10px;
-    object-fit: cover;
-}
-
-.movie-poster p {
-    margin-top: 10px;
-    font-size: 1.2rem;
-}
-/* Login Styles */
-.login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    background-color: #333;
-}
-
-.login-modal {
-    background-color: #222;
-    padding: 30px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ff69b4;  /* กรอบที่ใช้สีชมพู */
-}
-
-.login-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ff69b4;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 5px;
-    color: white;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #444;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-button.login-btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    background-color: #ff69b4;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button.login-btn:hover {
-    background-color: #e2589e;
-}
-
-/* Register Styles */
-.register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    background-color: #333;
-}
-
-.register-modal {
-    background-color: #222; /* สีพื้นหลังเทาเข้ม */
-    padding: 30px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ff69b4;  /* กรอบที่ใช้สีชมพู */
-}
-
-.register-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #ff69b4; /* สีชมพู */
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 5px;
-    color: white;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #444; /* เทาเข้ม */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-button.register-btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 1rem;
-    background-color: #ff69b4; /* สีชมพู */
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button.register-btn:hover {
-    background-color: #e2589e; /* สีชมพูเข้มเมื่อ hover */
-}
-
-.back-to-login-container {
-    text-align: center;
-    margin-top: 10px;
-}
-
-.back-to-login {
-    color: #ff69b4; /* สีชมพู */
-    text-decoration: none;
-}
-
-.back-to-login:hover {
-    text-decoration: underline;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #222;
-    border-top: 2px solid #ff69b4;
-}
-
-footer p {
-    margin: 0;
-    color: white;
-}
-</style>
+    </style>
 </head>
 <body>
 
@@ -330,12 +163,12 @@ footer p {
                 <form action="/login" method="POST">
                     <div class="input-group">
                         <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
                     </div>
 
                     <div class="input-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
                     </div>
 
                     <button type="submit" class="login-btn">LOGIN</button>
