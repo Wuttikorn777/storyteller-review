@@ -53,7 +53,7 @@
         }
         .slider {
           display: flex;
-          transition: transform 1s ease-in-out;
+          transition: none; /* ปิดตอนโหลด */
         }
         .slider-item {
           min-width: 100%;
@@ -74,28 +74,25 @@
           object-fit: cover;
         }
         .play-button {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 45px;
-  height: 45px;
-  background-color: rgba(255,105,180,0.8);
-  border-radius: 50%;
-  color: white;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  transition: background 0.3s ease;
-  border: none;
-}
-
-
-.play-button:hover {
-  background-color: rgba(230, 0, 126, 0.9);
-}
-
+          position: absolute;
+          bottom: 15px;
+          right: 15px;
+          width: 45px;
+          height: 45px;
+          background-color: rgba(255,105,180,0.8);
+          border-radius: 50%;
+          color: white;
+          font-size: 1.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+          transition: background 0.3s ease;
+          border: none;
+        }
+        .play-button:hover {
+          background-color: rgba(230, 0, 126, 0.9);
+        }
         .video-info {
           width: 40%;
           padding: 20px;
@@ -174,26 +171,59 @@
           background-color: #ff69b4;
         }
         .movie-posters {
-          display: flex;
-          justify-content: center;
-          gap: 30px;
-          flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์ในแถว */
+  gap: 20px; /* ระยะห่างระหว่างภาพยนตร์ */
+  justify-items: center;
+  padding: 20px;
+}
+
+.movie-poster {
+  width: 300px; /* ขยายขนาดของโปสเตอร์ */
+  height: 550px; /* ขยายขนาดของโปสเตอร์ */
+  border-radius: 12px; /* ทำมุมให้โค้ง */
+  overflow: hidden; /* ป้องกันภาพเบียดออกนอกกรอบ */
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* เพิ่มเงาให้ภาพ */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #222; /* เพิ่มพื้นหลังให้กับโปสเตอร์ */
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+}
+
+.movie-poster p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+  margin: 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.movie-poster:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5); /* เพิ่มเงาเมื่อ hover */
+}
+
+
+
+        .movie-link {
+          text-decoration: none;  /* ลบขีดใต้ของลิงก์ */
+          color: inherit;         /* ให้ลิงก์ใช้สีของข้อความปกติ */
         }
-        .poster-img {
-          width: 200px;
-          height: 300px;
-          border-radius: 10px;
-          object-fit: cover;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-          transition: transform 0.3s;
+
+        .movie-link p {
+          color: white;  /* กำหนดสีให้กับชื่อภาพยนตร์เพื่อให้แน่ใจว่าสีข้อความเป็นปกติ */
         }
-        .poster-img:hover {
-          transform: scale(1.05);
-        }
-        .movie-poster p {
-          margin-top: 10px;
-          font-size: 1.2rem;
-        }
+
         footer {
           background-color: #111;
           padding: 20px;
@@ -205,7 +235,6 @@
           margin: 0;
         }
       </style>
-    
 </head>
 <body>
 
@@ -225,63 +254,74 @@
                     <div class="slider-item">
                       <div class="video-container">
                         <div class="video-thumbnail">
-                          <img src="https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg" alt="Final Destination: Bloodlines">
-                            
-                          </a>
+                          <img src="https://m.media-amazon.com/images/M/MV5BMDU5MTU2ODctMTBhOC00YTljLWE5MGYtNjI5YzZkNDY1ZjI0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Final Destination: Bloodlines">
                         </div>
                         <div class="video-info">
                           <h2>Final Destination: Bloodlines</h2>                        
                           <p>Theaters</p>
                           <p>Plagued by a recurring violent nightmare, a college student returns home to find the one person who can break the cycle and save her family from the horrific fate that inevitably awaits them.</p>
                           
-                          <a href="/moviedetails" class="play-button nav-link">
+                          <!-- ปรับลิงก์ให้ไปที่ /moviedetails/1 -->
+                          <a href="/moviedetails/1" class="play-button nav-link">
                             <i class="fas fa-play"></i>
                           </a>
-                        
                         </div>
                       </div>
-
                     </div>
-                  
+
                     <!-- เพิ่ม Slider อีกสไลด์ -->
                     <div class="slider-item">
                       <div class="video-container">
                         <div class="video-thumbnail">
                           <img src="https://m.media-amazon.com/images/M/MV5BZDI5YzJhODQtMzQyNy00YWNmLWIxMjUtNDBjNjA5YWRjMzExXkEyXkFqcGc@._V1_.jpg" alt="Severance">
-                          
-                        
-                          </a>
                         </div>
                         <div class="video-info">
                           <h2>Severance</h2>
                           <p>Theaters</p>
                           <p>Mark leads a team of office workers whose memories have been surgically divided between their work and personal lives. When a mysterious colleague appears outside of work, it begins a journey to discover the truth about their jobs.</p>
-                          <a href="/moviedetails" class="play-button nav-link">
+                          <!-- ปรับลิงก์ให้ไปที่ /moviedetails/2 -->
+                          <a href="/moviedetails/2" class="play-button nav-link">
                             <i class="fas fa-play"></i>
                           </a>
-                        
                         </div>
-                        
                       </div>
                     </div>
+
                     <!-- เพิ่ม Slider อีกสไลด์ -->
                     <div class="slider-item">
                         <div class="video-container">
                           <div class="video-thumbnail">
-                            <img src="https://resizing.flixster.com/UAU9F6CrWLvjFOArCiUGe_sQpkw=/206x305/v2/https://resizing.flixster.com/xHBOCtYwNN39zZJ5ljhZjxm0pEA=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMWJmZmY2YzAtYmQ3ZC00MmZmLWIxOTYtZmZiMzVkMzg2Mzg3LmpwZw==" alt="Adolescence">
+                            <img src="https://m.media-amazon.com/images/M/MV5BNGY1YjBiNzMtYWZhNC00OWViLWE0MzItNjc4YzczOGNiM2I0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Adolescence">
                             </a>
                           </div>
                           <div class="video-info">
                             <h2>Adolescence</h2>
                             <p>TV Mini Series</p>
                             <p>A family's world turns upside down when 13-year-old Jamie Miller is arrested for murdering a schoolmate: the charges against their son force them to confront every parent's worst nightmare.</p>
-                            <a href="/moviedetails" class="play-button nav-link">
+                            <a href="/moviedetails/3" class="play-button nav-link">
                                 <i class="fas fa-play"></i>
                               </a>                            
                         </div>
                         </div>
                       </div>
                     </div>
+                    
+                    <div class="slider-item clone">
+                      <div class="video-container">
+                        <div class="video-thumbnail">
+                          <img src="https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg" alt="Final Destination: Bloodlines">
+                        </div>
+                        <div class="video-info">
+                          <h2>Final Destination: Bloodlines</h2>                        
+                          <p>Theaters</p>
+                          <p>Plagued by a recurring violent nightmare...</p>
+                          <a href="/moviedetails/1" class="play-button nav-link">
+                            <i class="fas fa-play"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
                   
                 <!-- จุดบ่งชี้ (dots) -->
                 <div class="dots-container">
@@ -305,17 +345,57 @@
             </section>
         </section>
         <section class="movies">
-            <div class="movie-posters">
+          <div class="movie-posters">
+              <!-- สำหรับภาพยนตร์ Shrek -->
+              <a href="/moviedetails/4" class="movie-link">
+                  <div class="movie-poster">
+                      <img src="https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg" alt="Shrek" class="poster-img">
+                      <p>Shrek</p>
+                  </div>
+              </a>
+              
+              <!-- สำหรับภาพยนตร์ Joker -->
+              <a href="/moviedetails/5" class="movie-link">
+                  <div class="movie-poster">
+                      <img src="https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg" alt="Joker" class="poster-img">
+                      <p>Joker</p>
+                  </div>
+              </a>
+
+              <a href="/moviedetails/6" class="movie-link">
                 <div class="movie-poster">
-                    <img src="https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg" alt="Shrek" class="poster-img">
-                    <p>Shrek</p>
+                    <img src="https://i0.wp.com/jediyuth.com/wp-content/uploads/2024/12/Ballerina_Poster_Thai-version.jpg?w=1000&ssl=1" alt="Ballerina" class="poster-img">
+                    <p>Ballerina</p>
                 </div>
-                <div class="movie-poster">
-                    <img src="https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg" alt="Joker" class="poster-img">
-                    <p>Joker</p>
-                </div>
+            </a>
+
+            <a href="/moviedetails/7" class="movie-link">
+              <div class="movie-poster">
+                  <img src="https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg" alt="Bad Boys: Ride or Die" class="poster-img">
+                  <p>Bad Boys: Ride or Die</p>
+              </div>
+          </a>
+
+
+          <a href="/moviedetails/8" class="movie-link">
+            <div class="movie-poster">
+                <img src="https://m.media-amazon.com/images/M/MV5BY2FhZGE3NmEtNWJjOC00NDI1LWFhMTQtMjcxNmQzZmEwNGIzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Nosferatu" class="poster-img">
+                <p>Nosferatu</p>
             </div>
+        </a>
+
+
+        <a href="/moviedetails/9" class="movie-link">
+          <div class="movie-poster">
+              <img src="https://lh3.googleusercontent.com/6qK91RhkYF5CGu_a1Rul7_gSQv4H5vr3tyCNxUZ7hHEQOuDcqQPD3iqLrQlZUAnmVUODx8KfVQs84hC6JCeZOHGV5jTXEgCc0w=s0" alt="พนอ" class="poster-img">
+              <p>พนอ</p>
+          </div>
+      </a>
+
+          </div>
         </section>
+        
+      
     </main>
 
     <footer>
@@ -324,20 +404,32 @@
 
     <script>
     let currentIndex = 0;
-    const images = document.querySelectorAll('.slider-item');
+    const images = document.querySelectorAll('.slider-item:not(.clone)');
     const totalImages = images.length;
     const slider = document.querySelector('.slider');
     const dots = document.querySelectorAll('.dot');
+    
 
-    // แสดงภาพถัดไป
     function showNextImage() {
-      currentIndex++;
-      if (currentIndex >= totalImages) {
-        currentIndex = 0;
-      }
+  currentIndex++;
+
+  slider.style.transition = "transform 0.8s ease-in-out";
+  updateSliderPosition();
+
+  // ถ้าเป็น clone slide (slide สุดท้ายที่เป็นสำเนา)
+  if (currentIndex === totalImages) {
+    setTimeout(() => {
+      slider.style.transition = "none";
+      currentIndex = 0;
       updateSliderPosition();
-      updateDots();
-    }
+    }, 800); // เวลาที่ตรงกับ transition
+  }
+
+  updateDots();
+}
+
+
+
 
     // แสดงภาพก่อนหน้า
     function showPrevImage() {
@@ -357,9 +449,19 @@
 
     // อัปเดตตำแหน่งของ dots
     function updateDots() {
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[currentIndex].classList.add('active');
-    }
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[currentIndex % totalImages].classList.add('active');
+}
+
+// ให้ผู้ใช้คลิก dot เพื่อเปลี่ยนสไลด์
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentIndex = index;
+    updateSliderPosition();
+    updateDots();
+  });
+});
+
 
     // ฟังก์ชันเลื่อนภาพโดยใช้ scroll wheel
     slider.addEventListener('wheel', (event) => {
