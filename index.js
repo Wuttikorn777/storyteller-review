@@ -84,7 +84,7 @@ app.post('/login', (req, res) => {
   });
 });
 
-// ✅ Route ไปหน้า GENRE
+// ✅ Route ไปหน้า login
 app.get("/", (req, res) => {
   res.render("login");
 });
@@ -150,9 +150,33 @@ app.get('/moviedetails', (req, res) => {
   res.render('moviedetails');  // แสดง moviedetails.ejs
 });
 
-app.get('/bookmarks', authController.authenticate, taskController.getBookmarks);
-app.post('/bookmarks/add', authController.authenticate, taskController.addBookmark);
-app.post('/bookmarks/remove', authController.authenticate, taskController.removeBookmark);
+let bookmarks = []; // เก็บหนังที่บุ๊คมาร์คไว้
+
+// 📌 Route หน้า Home
+app.get('/', (req, res) => {
+    res.render('home');
+});
+
+// 📌 Route หน้า Bookmarks
+app.get('/bookmarks', (req, res) => {
+    res.render('bookmarks', { bookmarks });
+});
+
+// 📌 เพิ่มหนังเข้า Bookmarks
+app.post('/bookmarks/add', (req, res) => {
+    const { title, image } = req.body;
+    if (!bookmarks.some(b => b.title === title)) {
+        bookmarks.push({ title, image });
+    }
+    res.redirect('/bookmarks');
+});
+
+// 📌 ลบหนังออกจาก Bookmarks
+app.post('/bookmarks/remove', (req, res) => {
+    const { title } = req.body;
+    bookmarks = bookmarks.filter(b => b.title !== title);
+    res.redirect('/bookmarks');
+});
 
 // Start server
 const PORT = process.env.PORT || 3000;

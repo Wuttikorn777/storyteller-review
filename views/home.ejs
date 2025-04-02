@@ -214,6 +214,7 @@
         <nav>
             <a href="" class="nav-link">HOME</a>
             <a href="/genre" class="nav-link">GENRE</a>
+            <a href="/bookmarks" class="view-bookmarks-btn">My Bookmarks</a>
         </nav>
     </header>
 
@@ -377,5 +378,10 @@
     document.querySelector('.prev').addEventListener('click', showPrevImage);
     document.querySelector('.next').addEventListener('click', showNextImage);
   </script>
+  <form action="/bookmarks/add" method="POST">
+    <input type="hidden" name="title" value="Adolescence">
+    <input type="hidden" name="image" value="adolescence.jpg">
+    <button type="submit">★ Bookmark</button>
+</form>
 </body>
 </html>

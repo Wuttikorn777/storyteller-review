@@ -18,5 +18,10 @@
     "username": "purinpurin",
     "email": "purin@gmail.com",
     "password": "$2b$10$VZ5MQMdU.l44Y.2gwwD4Kus2XXgDWMg.8BUTcK.ARfTFDD5KyQEOG"
+  },
+  {
+    "username": "admin",
+    "email": "admin@example.com",
+    "password": "$2b$10$DOFLal1lRLO220OhwjMc3.mDjXNuuk/fjLOl3LQY9Du3kjhim.uj2"
   }
 ]

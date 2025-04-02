@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookmarks - STORYTELLER</title>
+    <style>
+        body {
+            background: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .bookmark-list {
+            list-style: none;
+            padding: 0;
+        }
+        .bookmark-list li {
+            background: #222;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .remove-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #ff69b4;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>My Bookmarks</h1>
+    <ul class="bookmark-list">
+        <% if (bookmarks.length === 0) { %>
+            <p>No bookmarks yet.</p>
+        <% } else { %>
+            <% bookmarks.forEach(bookmark => { %>
+                <li>
+                    <img src="<%= bookmark.image %>" alt="<%= bookmark.title %>" width="100"><br>
+                    <strong><%= bookmark.title %></strong><br>
+                    <form action="/bookmarks/remove" method="POST">
+                        <input type="hidden" name="title" value="<%= bookmark.title %>">
+                        <button class="remove-btn" type="submit">Remove</button>
+                    </form>
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+
+    <a href="/home" class="back-btn">⬅ Back to Home</a>
+
+</body>
+</html>
