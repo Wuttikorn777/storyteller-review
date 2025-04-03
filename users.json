@@ -1,8 +1,8 @@
 [
   {
     "username": "inao",
-    "email": "inao@gmail.com",
-    "password": "$2b$10$8aI7m1w.fqeOMTXB2eg22u70lq3lOPcXSBCQHL1n0Lp/g8RIBeomS"
+    "email": "newemail@example.com",
+    "password": "$2b$10$UGGuk.4Xeqvdu9MGkV98XO8mB1Y2NR1Bqbh9rp60xfJOXXIuuV8Gu"
   },
   {
     "username": "angpao",
@@ -23,5 +23,225 @@
     "username": "admin",
     "email": "admin@example.com",
     "password": "$2b$10$DOFLal1lRLO220OhwjMc3.mDjXNuuk/fjLOl3LQY9Du3kjhim.uj2"
+  },
+  {
+    "username": "kimwinter",
+    "email": "kimwinter@gmail.com",
+    "password": "$2b$10$GYxgWIu9jaRXD1YGu.wbu..lvP00LsAEfKU6/EpzVpEwTS6/kMlNm"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$D2aSFRPBWRtchNXc99TZkeBFJTt8cOx1mkxWsxVeV1lXIZovtnUQK"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$Ol0H2k0RBovdEoH2ZmuO/O.dt98bqWF94JpfTCcpYIUo9sNBagp8C"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$3CljmMRRNIX6HPK7vUc9D.cENnAbnJ1EuH.ag2oZ0ykq0J/WI8gAe"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$JzlKiADRvtZqNijD2NWm4OopWBTeOOh8eFNhQhRANOScz4vBOA8w6"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$Xm9B3523JD3287JzGulsN.rWIxCf5tEuHpxfjdnlDYBkd8iKQEQsy"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$q1X.orPWOUTQxAOtT94Oqel5Ppsm2H.OEQjEZ5kEjKfsvRn2uRLDK"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$yJZf8uNy60pFWxdnIOuqjenbE7m1BDu.ZRoUrNstphyry6fzNOVt."
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$zBMMOT32m.M.uxIJmEvwB.Sopu6u4r/IlXVJS8Voxlk/8fFlzOUx6"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$fuamNRjakm9vQcaW7BnoN.VadmlxFX7fSa3TP0gZFy3wCD94ssy42"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$8Ur.pmiNroDeTvSsbS2JTeOJiDbZw2aK/63PROE6rLtquwrajshDy"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$a/zdGOczKF0SEPWD0kpD0OF9rVKJvvw3PTsbaXqvu9vTzS54djLRO"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$dPVG8VC1S3vMkOMjellS7u5Pmre0RmHO7qk1QhPc4OKZUgcWuSKj2"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser",
+    "email": "testuser@example.com",
+    "password": "$2b$10$mUyyQQ448TmT/dT3FEu14uViEK120K3bltqDbBV1hj9YO5mGQT4CW"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$uFRaPwHCSAKEl2Y/XgaI6eLt3ADPnktOYPK/UZ4O2BS4CQPxUwhKa"
+  },
+  {
+    "username": "newuser",
+    "email": "newuser@example.com",
+    "password": "password123"
+  },
+  {
+    "username": "testuser",
+    "email": "testuser@example.com",
+    "password": "$2b$10$WGG5hlCB3hdljrBfc9taGuI8od8CYcyj430JNnsMqplAuqU0u2kFm"
+  },
+  {
+    "username": "testuser2",
+    "email": "testuser2@example.com",
+    "password": "$2b$10$fbSCo3txCGUtjPrvEJVMKejKQx0NGBzFjJWzktqpkQ.W5cz1sc0Jq"
   }
 ]
