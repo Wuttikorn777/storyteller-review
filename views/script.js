@@ -52,3 +52,44 @@ setInterval(showNextImage, 3000);
 // การควบคุมปุ่ม prev และ next
 document.querySelector('.prev').addEventListener('click', showPrevImage);
 document.querySelector('.next').addEventListener('click', showNextImage);
+
+document.addEventListener("DOMContentLoaded", function () {
+  loadBookmarks();
+});
+
+function loadBookmarks() {
+  let bookmarkList = document.getElementById("bookmark-list");
+  let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+
+  if (bookmarks.length === 0) {
+      bookmarkList.innerHTML = "<p>No bookmarks yet.</p>";
+      return;
+  }
+
+  bookmarkList.innerHTML = ""; // เคลียร์ค่าก่อนโหลดใหม่
+
+  bookmarks.forEach((movie, index) => {
+      let listItem = document.createElement("li");
+      listItem.innerHTML = `
+          <img src="${movie.poster}" alt="${movie.title}" width="100">
+          <h3>${movie.title}</h3>
+          <button onclick="removeBookmark(${index})">Remove</button>
+      `;
+      bookmarkList.appendChild(listItem);
+  });
+}
+
+function removeBookmark(index) {
+  let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+  bookmarks.splice(index, 1);
+  localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+  loadBookmarks(); // โหลดใหม่หลังลบ
+}
+function addBookmark(title, poster) {
+  let bookmarks = getUserBookmarks();
+  if (!bookmarks.some(b => b.title === title)) {
+      bookmarks.push({ title, poster });
+      saveUserBookmarks(bookmarks);
+  }
+  loadBookmarks();
+}

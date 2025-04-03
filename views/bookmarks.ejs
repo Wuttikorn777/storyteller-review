@@ -22,10 +22,10 @@
             border-radius: 5px;
         }
         .remove-btn {
-            background: red;
+            background-color: red;
             color: white;
             border: none;
-            padding: 5px;
+            padding: 5px 10px;
             cursor: pointer;
         }
         .back-btn {
@@ -41,25 +41,70 @@
 </head>
 <body>
 
+   
     <h1>My Bookmarks</h1>
-    <ul class="bookmark-list">
-        <% if (bookmarks.length === 0) { %>
-            <p>No bookmarks yet.</p>
-        <% } else { %>
-            <% bookmarks.forEach(bookmark => { %>
-                <li>
-                    <img src="<%= bookmark.image %>" alt="<%= bookmark.title %>" width="100"><br>
-                    <strong><%= bookmark.title %></strong><br>
-                    <form action="/bookmarks/remove" method="POST">
-                        <input type="hidden" name="title" value="<%= bookmark.title %>">
-                        <button class="remove-btn" type="submit">Remove</button>
-                    </form>
-                </li>
-            <% }); %>
-        <% } %>
-    </ul>
-
+    <p id="user-info"></p>
+    <ul id="bookmark-list" class="bookmark-list"></ul>
     <a href="/home" class="back-btn">⬅ Back to Home</a>
+    <script>  
+      let currentUser = "<%= currentUser %>";
+
+function getUserBookmarks() {
+    return JSON.parse(localStorage.getItem(`bookmarks_${currentUser}`)) || [];
+}
+
+function saveUserBookmarks(bookmarks) {
+    localStorage.setItem(`bookmarks_${currentUser}`, JSON.stringify(bookmarks));
+} 
+    document.addEventListener("DOMContentLoaded", function () {
+        loadBookmarks();
+      });
+      
+      function loadBookmarks() {
+        let bookmarkList = document.getElementById("bookmark-list");
+        let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
+      
+        if (bookmarks.length === 0) {
+            bookmarkList.innerHTML = "<p>No bookmarks yet.</p>";
+            return;
+        }
+      
+        bookmarkList.innerHTML = ""; // เคลียร์ค่าก่อนโหลดใหม่
+      
+        bookmarks.forEach((movie, index) => {
+            let listItem = document.createElement("li");
+            listItem.innerHTML = `
+                <img src="${movie.poster}" alt="${movie.title}" width="250">
+                <h3>${movie.title}</h3>
+                 <button class="remove-btn" onclick="removeBookmark(${index})">Remove</button>
+                `;
+            bookmarkList.appendChild(listItem);
+        });
+      }
+      </script>
+<script>
+    function addBookmark(title, poster) {
+        let bookmarks = getUserBookmarks();
+        if (!bookmarks.some(b => b.title === title)) {
+            bookmarks.push({ title, poster });
+            saveUserBookmarks(bookmarks);
+        }
+        loadBookmarks();
+    }
+
+    function removeBookmark(index) {
+            let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+            bookmarks.splice(index, 1);
+            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+            loadBookmarks();
+        }
+
+        window.onload = loadBookmarks;
+
+
+</script>
+
+
 
 </body>
 </html>

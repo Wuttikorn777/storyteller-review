@@ -1,19 +1,21 @@
 const express = require('express');
+const session = require('express-session');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const path = require('path');
-const session = require('express-session');
 const taskController = require('./controllers/taskController');
 const authController = require('./controllers/authController');
 
 // Initialize Express app
 const app = express();
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); // รับข้อมูล JSON
+
 
 // Session middleware
 app.use(session({
@@ -130,17 +132,41 @@ app.post('/login', (req, res) => {
   });
 });
 
-// Route สำหรับหน้า home
+
 app.get('/home', (req, res) => {
+  if (!req.session.user) {
+      return res.redirect('/login'); // ถ้ายังไม่ได้ login ให้กลับไปหน้า login
+  }
+
   fs.readFile(path.join(__dirname, 'movies.json'), 'utf8', (err, data) => {
-    if (err) {
-      console.error("Error reading movie data:", err);
-      return res.status(500).send('Error reading movie data');
-    }
-    const movies = JSON.parse(data);  // แปลง JSON
-    res.render('home', { movies });  // ส่งข้อมูล movies ไปที่ home.ejs
+      if (err) {
+          console.error("Error reading movie data:", err);
+          return res.status(500).send('Error reading movie data');
+      }
+
+      const movies = JSON.parse(data); // แปลง JSON เป็น array ของหนัง
+      res.render('home', { 
+          currentUser: req.session.user.username,  // ✅ ส่ง `currentUser`
+          movies                                   // ✅ ส่ง `movies`
+      });
   });
 });
+
+app.get('/bookmarks', (req, res) => {
+  if (!req.session.user) {
+    return res.redirect('/login'); // ถ้ายังไม่ล็อกอิน ให้ไปที่หน้า login
+  }
+
+  console.log("SESSION DATA:", req.session.user); // ✅ Debug session
+
+  const movies = req.session.user.bookmarks || []; // เปลี่ยนจาก 'bookmarks' เป็น 'movies'
+
+  res.render('bookmarks', { 
+      currentUser: req.session.user.username, 
+      movies // ส่งค่าบุ๊คมาร์ค (หรือ movies) ไปที่ EJS
+  });
+});
+
 
 
 app.get('/logout', authController.logout);
@@ -175,39 +201,24 @@ app.get('/moviedetails/:id', (req, res) => {
     res.render('moviedetails', { movie });
   });
 });
+// 📌 Route หน้า Bookmarks
+app.get('/bookmarks', (req, res) => {
+  if (!req.session.user) {
+      return res.redirect('/login'); // ถ้ายังไม่ล็อกอิน ให้ไปที่หน้า login
+  }
+
+  console.log("SESSION DATA:", req.session.user); // ✅ Debug session
+
+  const bookmarks = req.session.user.bookmarks || []; // ดึงบุ๊คมาร์คของ user
+
+  res.render('bookmarks', { 
+      currentUser: req.session.user.username, 
+      bookmarks // ส่งค่าบุ๊คมาร์คไปที่ EJS
+  });
+});
 
 
 let bookmarks = []; // เก็บหนังที่บุ๊คมาร์คไว้
-
-
-app.post('/bookmarks/add', (req, res) => {
-  if (!req.session.user) {
-      return res.status(401).send('ต้องเข้าสู่ระบบก่อน');
-  }
-
-  const { title, image } = req.body;
-  let bookmarks = req.session.user.bookmarks || [];
-
-  if (!bookmarks.some(b => b.title === title)) {
-      bookmarks.push({ title, image });
-      req.session.user.bookmarks = bookmarks;
-  }
-  res.redirect('/bookmarks');
-});
-
-app.post('/bookmarks/remove', (req, res) => {
-  if (!req.session.user) {
-      return res.status(401).send('ต้องเข้าสู่ระบบก่อน');
-  }
-
-  const { title } = req.body;
-  let bookmarks = req.session.user.bookmarks || [];
-  bookmarks = bookmarks.filter(b => b.title !== title);
-
-  req.session.user.bookmarks = bookmarks;
-  res.redirect('/bookmarks');
-});
-
 
 // 📌 Route หน้า Home
 app.get('/', (req, res) => {
@@ -221,19 +232,36 @@ app.get('/bookmarks', (req, res) => {
 
 // 📌 เพิ่มหนังเข้า Bookmarks
 app.post('/bookmarks/add', (req, res) => {
-    const { title, image } = req.body;
-    if (!bookmarks.some(b => b.title === title)) {
-        bookmarks.push({ title, image });
-    }
-    res.redirect('/bookmarks');
+  if (!req.session.user) {
+      return res.status(401).send('ต้องเข้าสู่ระบบก่อน');
+  }
+
+  const { title, poster } = req.body;
+  if (!req.session.user.bookmarks) {
+      req.session.user.bookmarks = [];
+  }
+
+  // ป้องกันการเพิ่มซ้ำ
+  if (!req.session.user.bookmarks.some(b => b.title === title)) {
+      req.session.user.bookmarks.push({ title, poster });
+  }
+
+  res.json({ success: true });
 });
 
 // 📌 ลบหนังออกจาก Bookmarks
 app.post('/bookmarks/remove', (req, res) => {
-    const { title } = req.body;
-    bookmarks = bookmarks.filter(b => b.title !== title);
-    res.redirect('/bookmarks');
+  if (!req.session.user) {
+      return res.status(401).send('ต้องเข้าสู่ระบบก่อน');
+  }
+
+  const { title } = req.body;
+  req.session.user.bookmarks = req.session.user.bookmarks.filter(b => b.title !== title);
+
+  res.json({ success: true });
 });
+
+
 
 // Start server
 const PORT = process.env.PORT || 3000;

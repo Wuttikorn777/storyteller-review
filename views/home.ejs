@@ -480,10 +480,68 @@ dots.forEach((dot, index) => {
     document.querySelector('.prev').addEventListener('click', showPrevImage);
     document.querySelector('.next').addEventListener('click', showNextImage);
   </script>
-  <form action="/bookmarks/add" method="POST">
-    <input type="hidden" name="title" value="Adolescence">
-    <input type="hidden" name="image" value="adolescence.jpg">
-    <button type="submit">★ Bookmark</button>
-</form>
+  
+  <h2>Welcome, <%= currentUser %>!</h2>
+
+  <h3>Available Movies</h3>
+  <ul>
+      <% movies.forEach(movie => { %>
+          <li>
+              <img src="<%= movie.poster %>" alt="<%= movie.title %>" width="250">
+              <h4><%= movie.title %></h4>
+              <button onclick="addBookmark('<%= movie.title %>', '<%= movie.poster %>')">Bookmark</button>
+          </li>
+      <% }) %>
+  </ul>
+
+<script>
+    let currentUser = "<%= currentUser %>"; // ✅ ใช้ค่าที่ส่งจากเซิร์ฟเวอร์
+
+    function getUserBookmarks() {
+        return JSON.parse(localStorage.getItem(`bookmarks_${currentUser}`)) || [];
+    }
+
+    function saveUserBookmarks(bookmarks) {
+        localStorage.setItem(`bookmarks_${currentUser}`, JSON.stringify(bookmarks));
+    }
+
+    function loadBookmarks() {
+        let bookmarks = getUserBookmarks();
+        const bookmarkList = document.getElementById('bookmark-list');
+        bookmarkList.innerHTML = ""; 
+
+        if (bookmarks.length === 0) {
+            bookmarkList.innerHTML = "<p>No bookmarks yet.</p>";
+        } else {
+            bookmarks.forEach((b, index) => {
+                let li = document.createElement('li');
+                li.innerHTML = `
+                    <img src="${b.poster}" alt="${b.title}" width="250">
+                    <h2>${b.title}</h2>
+                    <button class="remove-btn" onclick="removeBookmark(${index})">Remove</button>
+                `;
+                bookmarkList.appendChild(li);
+            });
+        }
+    }
+
+    function addBookmark(title, poster) {
+        let bookmarks = getUserBookmarks();
+        if (!bookmarks.some(b => b.title === title)) {
+            bookmarks.push({ title, poster });
+            saveUserBookmarks(bookmarks);
+        }
+        loadBookmarks();
+    }
+
+    function removeBookmark(index) {
+        let bookmarks = getUserBookmarks();
+        bookmarks.splice(index, 1);
+        saveUserBookmarks(bookmarks);
+        loadBookmarks();
+    }
+
+    loadBookmarks();
+</script>
 </body>
 </html>
