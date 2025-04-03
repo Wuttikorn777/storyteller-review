@@ -1,62 +1,72 @@
 const fs = require('fs');
 const path = './movies.json';
+const { addMovie, updateMovie } = require('../models/movieData');
 
-//Test Case 11: ฟังก์ชันการเพิ่มภาพยนตร์ (addMovie)
+beforeEach(() => {
+  fs.writeFileSync(path, JSON.stringify([], null, 2));
+  console.log = jest.fn();
+  console.error = jest.fn();
+});
 
-// ฟังก์ชันการเพิ่มภาพยนตร์
-function addMovie(name, releaseYear, rating, comments = []) {
-    const newMovie = { name, releaseYear, rating, comments };
-  
-    let data = fs.readFileSync(path, 'utf-8');
-    let movies = JSON.parse(data);
-    movies.push(newMovie);
-  
-    fs.writeFileSync(path, JSON.stringify(movies, null, 2));  // บันทึกข้อมูลลงในไฟล์
-  }
-  
-  test('should add a new movie', () => {
-    const name = 'Test Movie';
-    const releaseYear = 2023;
-    const rating = 4.0;
-    const comments = ['Exciting!', 'Great storyline'];
-  
-    // ก่อนทำการเพิ่มภาพยนตร์
-    let data = fs.readFileSync(path, 'utf-8');
-    let movies = JSON.parse(data);
-    const initialLength = movies.length;
-  
-    // เพิ่มภาพยนตร์ใหม่
-    addMovie(name, releaseYear, rating, comments);
-  
-    // ตรวจสอบการเพิ่มภาพยนตร์ใหม่
-    data = fs.readFileSync(path, 'utf-8');
-    movies = JSON.parse(data);
-    expect(movies.length).toBe(initialLength + 1);  // ขนาดของรายการภาพยนตร์ต้องเพิ่มขึ้น 1
-    const newMovie = movies.find(movie => movie.name === name);
-    expect(newMovie).not.toBeUndefined();
-    expect(newMovie.releaseYear).toBe(releaseYear);
-    expect(newMovie.rating).toBe(rating);
-    expect(newMovie.comments).toEqual(comments);
+describe('addMovie', () => {
+  test('should not add movie without rating', () => {
+    addMovie('Test Movie', 2020);
+    expect(console.log).toHaveBeenCalledWith('Movie cannot be added without a rating!');
+    const data = JSON.parse(fs.readFileSync(path, 'utf-8'));
+    expect(data.length).toBe(0);
   });
-  
 
-//Test Case 12:ตรวจสอบข้อมูล movies.json
-test('should check if movies data is valid in movies.json', () => {
-    let data = fs.readFileSync('./movies.json', 'utf-8');
-    let movies = JSON.parse(data);
-  
-    expect(Array.isArray(movies)).toBe(true);
-    expect(movies.length).toBeGreaterThan(0);
+  test('should add movie with rating and no comments', () => {
+    addMovie('Test Movie', 2020, 8);
+    const data = JSON.parse(fs.readFileSync(path, 'utf-8'));
+    expect(data.length).toBe(1);
+    expect(data[0].comments).toEqual([]);
   });
-  
-//Test Case 11: ตรวจสอบข้อมูลใน movies.json ที่ไม่มีชื่อภาพยนตร์
-  test('should not find a non-existing movie in movies.json', () => {
-    const name = 'Non-existing Movie';
-  
-    let data = fs.readFileSync(path, 'utf-8');
-    let movies = JSON.parse(data);
-  
-    const movieExists = movies.some(movie => movie.name === name);
-    expect(movieExists).toBe(false);  // คาดว่าไม่มีภาพยนตร์นี้
+
+  test('should add movie with full data', () => {
+    const comments = ['Great movie!', 'Loved it!'];
+    addMovie('Epic Film', 2021, 9, comments);
+    const data = JSON.parse(fs.readFileSync(path, 'utf-8'));
+    expect(data[0].name).toBe('Epic Film');
+    expect(data[0].releaseYear).toBe(2021);
+    expect(data[0].rating).toBe(9);
+    expect(data[0].comments).toEqual(comments);
   });
-  
+
+  test('should allow duplicate movie names (if no validation)', () => {
+    addMovie('Duplicated', 2020, 7);
+    addMovie('Duplicated', 2021, 8);
+    const data = JSON.parse(fs.readFileSync(path, 'utf-8'));
+    const allSameName = data.filter(m => m.name === 'Duplicated');
+    expect(allSameName.length).toBe(2);
+  });
+});
+
+describe('updateMovie', () => {
+  test('should update rating and comments', () => {
+    addMovie('Update Me', 2019, 7);
+    updateMovie('Update Me', 10, ['Amazing']);
+    const data = JSON.parse(fs.readFileSync(path, 'utf-8'));
+    const movie = data.find(m => m.name === 'Update Me');
+    expect(movie.rating).toBe(10);
+    expect(movie.comments).toEqual(['Amazing']);
+  });
+
+  test('should return null if movie not found', () => {
+    const result = updateMovie('Not Exist', 10, []);
+    expect(result).toBeNull();
+  });
+
+  test('should return null if file read fails', () => {
+    fs.writeFileSync(path, '{ bad json');
+    const result = updateMovie('Anything', 5, []);
+    expect(result).toBeNull();
+  });
+
+  test('should update movie with default empty comments if not provided', () => {
+    addMovie('Silent Update', 2018, 6, ['Old']);
+    const result = updateMovie('Silent Update', 9); // No newComments
+    expect(result.rating).toBe(9);
+    expect(result.comments).toBeUndefined(); // เพราะไม่ได้ส่ง comments ใหม่
+  });
+});
