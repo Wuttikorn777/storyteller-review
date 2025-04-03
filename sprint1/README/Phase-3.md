@@ -123,4 +123,4 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 
 3.Testing & CI/CD Jest : ใช้ทดสอบโค้ด Azure DevOps Pipelines : ใช้ Automate Deployment
 
-4.Monitoring & Logging Docker & Kubernetes → ใช้ Deploy ระบบแบบ Containerized Prometheus / Grafana → ใช้ Monitor ระบบ Logstash / Kibana → ใช้จัดการ Logs
+4.Monitoring & Logging Docker & Kubernetes : ใช้ Deploy ระบบแบบ Containerized Prometheus / Grafana : ใช้ Monitor ระบบ Logstash / Kibana : ใช้จัดการ Logs
