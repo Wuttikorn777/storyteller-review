@@ -144,26 +144,6 @@
 <br>
 
   
-**ตาราง** **Unit Test Case** **ที่ทดสอบ** **Data Structure**
-    
-| **Test ID**<br> | **Test Cases**<br> | **ฟังก์ชันที่ทดสอบ**<br> | **Expected Result**<br> | **Actual Result**<br> | **Status (Pass/Fail)**<br> |
-| --- | --- | --- | --- | --- | --- |
-| 1<br> | ทดสอบการเพิ่มภาพยนตร์ใหม่ที่มีข้อมูลครบถ้วน<br> | addMovie(name, releaseYear, rating, comments)<br> | เพิ่มภาพยนตร์สำเร็จ และอัพเดตไฟล์ JSON<br> | ตัวภาพยนตร์ถูกเพิ่มในไฟล์ JSON และอัพเดตสำเร็จ<br> | Pass<br> |
-| 2<br> | ทดสอบการเพิ่มภาพยนตร์ที่ไม่มีคะแนน<br> | addMovie(name, releaseYear, rating, comments)<br> | ควรแสดงข้อความ "Movie cannot be added without a rating!" และไม่เพิ่มภาพยนตร์<br> | แสดงข้อความ "Movie cannot be added without a rating!" และไม่เพิ่มภาพยนตร์<br> | Pass<br> |
-| 3<br> | ทดสอบการเพิ่มภาพยนตร์ที่มีข้อมูลไม่ครบ (เช่น ไม่มีชื่อหรือปีที่ออก)<br> | addMovie(name, releaseYear, rating, comments)<br> | ไม่ควรเพิ่มภาพยนตร์ และควรแสดงข้อความแสดงข้อผิดพลาด<br> | ข้อผิดพลาดแสดงเมื่อข้อมูลไม่ครบ และไม่สามารถเพิ่มภาพยนตร์<br> | Pass<br> |
-| 4<br> | ทดสอบการเพิ่มภาพยนตร์ที่มีความคิดเห็นซ้ำ<br> | addMovie(name, releaseYear, rating, comments)<br> | ควรจัดการกับความคิดเห็นที่ซ้ำได้อย่างถูกต้อง<br> | ความคิดเห็นที่ซ้ำได้รับการจัดการและเพิ่มตามที่คาดหวัง<br> | Pass<br> |
-| 5<br> | ทดสอบการอัปเดตข้อมูลของภาพยนตร์ที่มีอยู่แล้ว<br> | updateMovie(name, newRating, newComments)<br> | ข้อมูลของภาพยนตร์จะได้รับการอัปเดตในไฟล์ movies.json<br> | ข้อมูลของภาพยนตร์ถูกอัปเดตสำเร็จในไฟล์ JSON<br> | Pass<br> |
-| 6<br> | ทดสอบการอัปเดตภาพยนตร์ที่ไม่พบในระบบ<br> | updateMovie(name, newRating, newComments)<br> | ควรคืนค่า null ถ้าไม่พบภาพยนตร์<br> | คืนค่า null เนื่องจากไม่พบภาพยนตร์<br> | Pass<br> |
-| 7<br> | ทดสอบการลบภาพยนตร์ที่มีอยู่ในระบบ<br> | deleteMovie(name)<br> | ลบภาพยนตร์ออกจากไฟล์ movies.json สำเร็จ<br> | ภาพยนตร์ถูกลบออกจากไฟล์ JSON<br> | Pass<br> |
-| 8<br> | ทดสอบการลบภาพยนตร์ที่ไม่พบในระบบ<br> | deleteMovie(name)<br> | ควรคืนค่า false ถ้าไม่พบภาพยนตร์<br> | คืนค่า false เนื่องจากไม่พบภาพยนตร์<br> | Pass<br> |
-| 9<br> | ทดสอบการเพิ่มผู้ใช้ใหม่ที่มีข้อมูลครบถ้วน<br> | addUser(username, email, password)<br> | เพิ่มผู้ใช้สำเร็จ พร้อมแฮชรหัสผ่านและบันทึกลงในไฟล์<br> | ผู้ใช้ถูกเพิ่มสำเร็จและข้อมูลถูกบันทึก<br> | Pass<br> |
-| 10<br> | ทดสอบการเพิ่มผู้ใช้ที่มีข้อมูลไม่ครบ (เช่น ไม่มีชื่อ, อีเมล หรือรหัสผ่าน)<br> | addUser(username, email, password)<br> | ควรแสดงข้อความ "User information is incomplete!" และไม่เพิ่มผู้ใช้<br> | แสดงข้อความ "User information is incomplete!" และไม่เพิ่มผู้ใช้<br> | Pass<br> |
-| 11<br> | ทดสอบการเพิ่มผู้ใช้ที่อีเมลไม่ถูกต้อง<br> | addUser(username, email, password)<br> | ควรแสดงข้อความ "Invalid email format!" และไม่เพิ่มผู้ใช้<br> | แสดงข้อความ "Invalid email format!" และไม่เพิ่มผู้ใช้<br> | Pass<br> |
-| 12<br> | ทดสอบการอัปเดตข้อมูลของผู้ใช้ที่มีอยู่ในระบบ<br> | updateUser(username, newEmail, newPassword)<br> | ข้อมูลของผู้ใช้จะได้รับการอัปเดตพร้อมอีเมลและรหัสผ่านใหม่<br> | ข้อมูลของผู้ใช้ถูกอัปเดตสำเร็จ<br> | Pass<br> |
-| 13<br> | ทดสอบการอัปเดตผู้ใช้ที่ไม่พบในระบบ<br> | updateUser(username, newEmail, newPassword)<br> | ควรคืนค่า null ถ้าไม่พบผู้ใช้<br> | คืนค่า null เนื่องจากไม่พบผู้ใช้<br> | Pass<br> |
-
-<br>
-
 ##อธิบายกระบวนการทำงาน โดยใช้ process, methods, and tools
 <br>
 
