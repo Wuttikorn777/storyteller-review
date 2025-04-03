@@ -481,19 +481,6 @@ dots.forEach((dot, index) => {
     document.querySelector('.next').addEventListener('click', showNextImage);
   </script>
   
-  <h2>Welcome, <%= currentUser %>!</h2>
-
-  <h3>Available Movies</h3>
-  <ul>
-      <% movies.forEach(movie => { %>
-          <li>
-              <img src="<%= movie.poster %>" alt="<%= movie.title %>" width="250">
-              <h4><%= movie.title %></h4>
-              <button onclick="addBookmark('<%= movie.title %>', '<%= movie.poster %>')">Bookmark</button>
-          </li>
-      <% }) %>
-  </ul>
-
 <script>
     let currentUser = "<%= currentUser %>"; // ✅ ใช้ค่าที่ส่งจากเซิร์ฟเวอร์
 
