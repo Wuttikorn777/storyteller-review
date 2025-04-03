@@ -13,6 +13,25 @@
       text-align: left;
       padding: 20px;
     }
+    header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 20px 40px;
+          background-color: #111;
+          border-bottom: 2px solid #ff69b4;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    nav a:hover {
+          color: #ff69b4;
+    }
+    nav a {
+          color: white;
+          text-decoration: none;
+          margin-left: 30px;
+          font-size: 1.2rem;
+          position: relative;
+    }
     h1 {
       font-family: 'Lobster', cursive;
       font-size: 3rem;
@@ -77,7 +96,14 @@
 }
   </style>
 </head>
+
 <body>
+  <header>
+    <nav>
+        <a href="/home" class="nav-link">HOME</a>
+        <a href="/bookmarks" class="view-bookmarks-btn">My Bookmarks</a>
+    </nav>
+  </header>
 
   <div class="container">
     <h1>Storyteller</h1>
@@ -111,6 +137,17 @@
         <img src="https://scontent.fbkk29-5.fna.fbcdn.net/v/t39.30808-6/484505368_1064155409078465_6577906682143342680_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHrF2ruN45E1R3EgQCcgFA8pXeAzUlvIAOld4DNSW8gA3GNOxv553CsCpKImL6lEBdW0mrz_FQbiXyRHGPGmMgz&_nc_ohc=dG-n0vgjCuQQ7kNvgEkmLHr&_nc_oc=Admu8vBBFKtMePNgEH_2BoHAugW7FIjbxlFRJ_EGrsvaWpiLmIizFqWjuxFqWIS36o0XTuCPyHgsQDMFxpMinnA6&_nc_zt=23&_nc_ht=scontent.fbkk29-5.fna&_nc_gid=wHHiUrhTuPxWjgaVnUqTHw&oh=00_AYE7lLssG-OCXW02Q_RxJdaIPhLNFg0NBPFamSOKSnpRrA&oe=67EAEC70" alt="Fall Guy">
         <h3>พนอ</h3>
         <p>Ratings: ⭐⭐⭐</p>
+      </div>  
+      <div class="movie">
+        <img src="https://s359.kapook.com/pagebuilder/f00227c0-e35c-4110-8bcd-5f389a67ef95.jpg" alt="JOKER: Folie à Deux">
+        <h3> JOKER: Folie à Deux</h3>
+        <p>Ratings: ⭐⭐⭐</p>
+      </div>
+      <div class="movie">
+        <img src="https://m.media-amazon.com/images/M/MV5BMTMzMTc3MjA5NF5BMl5BanBnXkFtZTcwOTk3MDE5MQ@@._V1_FMjpg_UX1000_.jpg" alt="A Real Pain">
+        <h3>A Real Pain</h3>
+        <p>Ratings: ⭐⭐⭐</p>
+      </div>
       </div>
     </div>
   </div>

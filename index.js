@@ -96,6 +96,22 @@ app.get("/action", (req, res) => {
   res.render("action");
 });
 
+// ✅ Route ไปหน้า Horror Movies
+app.get("/horror", (req, res) => {
+  res.render("horror");
+});
+
+// ✅ Route ไปหน้า Comedy Movies
+app.get("/comedy", (req, res) => {
+  res.render("comedy");
+});
+
+// ✅ Route ไปหน้า drama Movies
+app.get("/drama", (req, res) => {
+  res.render("drama");
+});
+
+
 // Route สำหรับหน้า login
 app.get('/login', (req, res) => {
   res.render('login');  // แสดงหน้า login.ejs
