@@ -56,3 +56,48 @@
 javascript Copy bcrypt.hash(password, 10, (err, hashedPassword) => { if (err) return res.status(500).send('Error hashing password'); // Save hashedPassword }); 
 - การตรวจสอบรหัสผ่าน: เมื่อล็อกอิน, ระบบจะใช้ bcrypt.compare() เพื่อตรวจสอบว่า รหัสผ่านที่ผู้ใช้กรอก ตรงกับ รหัสผ่านที่แฮชแล้ว ที่เก็บในไฟล์ users.json หรือไม่: <br>
 javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (err || !result) return res.status(400).send('Invalid credentials'); // Proceed with login });
+
+<br>
+<br>
+
+**Process**
+1.  Requirement Analysis (วิเคราะห์ความต้องการ)
+ศึกษาความต้องการของผู้ใช้และฟังก์ชันที่จำเป็น กำหนดคุณสมบัติหลัก (Features) ของระบบ
+2.  System Design (ออกแบบระบบ)
+ออกแบบโครงสร้าง UI/UX และการทำงานของเว็บไซต์ วางระบบ API และ Backend Logic
+3.  Development (พัฒนาและเขียนโค้ด)
+พัฒนาเว็บไซต์โดยใช้ HTML เป็นโครงสร้างหลัก, CSS ในการออกแบบ และ JavaScript สำหรับการทดสอบ ใช้ Git และ Azure DevOps ในการจัดการโค้ด เขียน Unit Test และ Integration Test
+4.  Testing (ทดสอบระบบ)
+ทดสอบการทำงานของระบบด้วย Jest ตรวจสอบ API, ฟังก์ชันหลัก, Load Testing และ Security Testing
+5.  Deployment (นำระบบขึ้นใช้งานจริง)
+ใช้ CI/CD ผ่าน Azure DevOps Pipelines Deploy ระบบบน Azure Web Services
+6.  Maintenance & Updates (ดูแลและอัปเดตระบบ)
+ตรวจสอบข้อผิดพลาดและ Debugging อัปเดต Features และแก้ไข Bug
+7.  Retrospective (วิเคราะห์และปรับปรุงกระบวนการทำงาน)
+วิเคราะห์ปัญหาที่เกิดขึ้น ปรับปรุงกระบวนการทำงานของทีมเพื่อเพิ่มประสิทธิภาพ
+
+**Method**
+
+1.Agile Development
+*   ใช้แนวคิด Scrum ในการบริหารโปรเจกต์
+*   มี Sprint Planning, Daily Standup และ Retrospective
+
+2.Test-Driven Development (TDD)
+*   เขียน Test ก่อนพัฒนาโค้ดจริง
+*   ใช้ Unit Test, Integration Test และ End-to-End Test
+
+3.Continuous Integration & Continuous Deployment (CI/CD)
+*   ใช้ Azure DevOps Pipelines ในการ Automate Deployment
+
+**Tools**
+
+ Tools (เครื่องมือที่ใช้)
+
+1.Development Tools Node.js :
+ใช้เป็น Backend Framework Express.js : ใช้สร้าง REST API Json : ใช้พัฒนา Frontend 
+
+2.Version Control & Collaboration Git & GitHub / Azure DevOps : ใช้จัดการโค้ดและติดตามการเปลี่ยนแปลง Postman : ใช้ทดสอบ API
+
+3.Testing & CI/CD Jest : ใช้ทดสอบโค้ด Azure DevOps Pipelines : ใช้ Automate Deployment
+
+4.Monitoring & Logging Docker & Kubernetes → ใช้ Deploy ระบบแบบ Containerized Prometheus / Grafana → ใช้ Monitor ระบบ Logstash / Kibana → ใช้จัดการ Logs
