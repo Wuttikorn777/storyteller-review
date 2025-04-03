@@ -160,29 +160,46 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 <br>
 
 **Process**
-1. ศึกษาความต้องการของผู้ใช้และฟังก์ชันที่จำเป็นสำหรับเว็บไซต์ 
-2. ออกแบบ UI/UX เพื่อกำหนดโครงสร้างและการทำงานของเว็บไซต์ 
-3. พัฒนาเว็บไซต์ให้สามารถใช้งานได้จริง พร้อมทดสอบการทำงาน 
-4. จัดทำรายงานและเอกสารที่เกี่ยวข้องกับโครงการ 
-5. ทำ Retrospective วิเคราะห์ปัญหาและปรับปรุงการทำงานของทีม 
+1.  Requirement Analysis (วิเคราะห์ความต้องการ)
+ศึกษาความต้องการของผู้ใช้และฟังก์ชันที่จำเป็น กำหนดคุณสมบัติหลัก (Features) ของระบบ
+2.  System Design (ออกแบบระบบ)
+ออกแบบโครงสร้าง UI/UX และการทำงานของเว็บไซต์ วางระบบ API และ Backend Logic
+3.  Development (พัฒนาและเขียนโค้ด)
+พัฒนาเว็บไซต์โดยใช้ HTML เป็นโครงสร้างหลัก, CSS ในการออกแบบ และ JavaScript สำหรับการทดสอบ ใช้ Git และ Azure DevOps ในการจัดการโค้ด เขียน Unit Test และ Integration Test
+4.  Testing (ทดสอบระบบ)
+ทดสอบการทำงานของระบบด้วย Jest ตรวจสอบ API, ฟังก์ชันหลัก, Load Testing และ Security Testing
+5.  Deployment (นำระบบขึ้นใช้งานจริง)
+ใช้ CI/CD ผ่าน Azure DevOps Pipelines Deploy ระบบบน Azure Web Services
+6.  Maintenance & Updates (ดูแลและอัปเดตระบบ)
+ตรวจสอบข้อผิดพลาดและ Debugging อัปเดต Features และแก้ไข Bug
+7.  Retrospective (วิเคราะห์และปรับปรุงกระบวนการทำงาน)
+วิเคราะห์ปัญหาที่เกิดขึ้น ปรับปรุงกระบวนการทำงานของทีมเพื่อเพิ่มประสิทธิภาพ
 
 **Method**
-1. วิเคราะห์ความต้องการของผู้ใช้งานและฟีเจอร์ที่จำเป็น 
-2. ใช้เครื่องมือออกแบบ UI/UX 
-3. ใช้เครื่องมือสำหรับพัฒนา และจัดการโค้ดร่วมกัน รวมถึงการทดสอบประสิทธิภาพ 
-4. ทำเอกสารประกอบโครงงาน โดยใช้ Wiki on Azure DevOp เพื่อให้ทีมสามารถทำงานร่วมกันได้ 
-5. ทำ Retrospective เพื่อติดตามความคืบหน้าและปรับปรุงกระบวนการทำงานของทีม 
+
+1.Agile Development
+*   ใช้แนวคิด Scrum ในการบริหารโปรเจกต์
+*   มี Sprint Planning, Daily Standup และ Retrospective
+
+2.Test-Driven Development (TDD)
+*   เขียน Test ก่อนพัฒนาโค้ดจริง
+*   ใช้ Unit Test, Integration Test และ End-to-End Test
+
+3.Continuous Integration & Continuous Deployment (CI/CD)
+*   ใช้ Azure DevOps Pipelines ในการ Automate Deployment
 
 **Tools**
-1. รวบรวมข้อมูลจากกลุ่มเป้าหมาย 
- - ใช้ Figma เพื่อออกแบบ UI/UX ของเว็บไซต์รีวิวหนัง 
-2. เขียน Code และทดสอบเว็บไซต์
- - ใช้ Visual Studio Code ในการเขียนโค้ด 
- - ใช้ GitHub หรือ GitLab สำหรับการจัดการเวอร์ชันของโค้ด 
- - ใช้ Microsoft Azure สำหรับการ Deploy และทดสอบเว็บไซต์ 
-3. ทำเอกสารประกอบโครงงาน 
- - ใช้ Google Drive หรือ Microsoft OneDrive ในการจัดเก็บเอกสารและแชร์ไฟล์
-4. ทำ Retrospective โดยใช้ Zoom หรือ Microsoft Teams สำหรับการประชุมออนไลน์ 
+
+ Tools (เครื่องมือที่ใช้)
+
+1.Development Tools Node.js :
+ใช้เป็น Backend Framework Express.js : ใช้สร้าง REST API Json : ใช้พัฒนา Frontend 
+
+2.Version Control & Collaboration Git & GitHub / Azure DevOps : ใช้จัดการโค้ดและติดตามการเปลี่ยนแปลง Postman : ใช้ทดสอบ API
+
+3.Testing & CI/CD Jest : ใช้ทดสอบโค้ด Azure DevOps Pipelines : ใช้ Automate Deployment
+
+4.Monitoring & Logging Docker & Kubernetes → ใช้ Deploy ระบบแบบ Containerized Prometheus / Grafana → ใช้ Monitor ระบบ Logstash / Kibana → ใช้จัดการ Logs
 
 <br>
 <br>
