@@ -166,6 +166,15 @@ moviedetail.ejs
 bookmarks.ejs
 ![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332530562469948/image.png?ex=67f07aad&is=67ef292d&hm=3e278f9329e7314aa0df5468ee280cbb095c58d9f999581ef8073593e95519b4&=)
   
+**test case code**
+Test Case 1: ทดสอบการอ่านข้อมูลจากไฟล์ users.json
+
+
+
+
+
+
+
 **สรุป Retrospective ที่ 3 มีการพูดคุยดังนี้**
 
 ลิงค์คลิปการประชุม : https://youtu.be/VciA6gndCV4 
