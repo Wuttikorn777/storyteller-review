@@ -227,31 +227,31 @@ bookmarks.ejs
   
 **test case code**
 Test Case 1: ทดสอบการอ่านข้อมูลจากไฟล์ users.json
-![image.png](/.attachments/image-f99b802b-2028-4f06-9dba-a75d8685151e.png)
+![image.png](/.attachments/image-f99b802b-2028-4f06-9dba-a75d8685151e.png)<br>
 Test Case 2: ทดสอบการเพิ่มผู้ใช้ใหม่ในไฟล์ users.json
-![image.png](/.attachments/image-f2338300-ab50-40d2-ad7e-6696c5d633e4.png)
+![image.png](/.attachments/image-f2338300-ab50-40d2-ad7e-6696c5d633e4.png)<br>
 Test Case 3: ทดสอบการตรวจสอบว่า username ซ้ำใน users.json
-![image.png](/.attachments/image-f2c080a5-4a8c-4449-846a-a5eca2a1f1c0.png)
+![image.png](/.attachments/image-f2c080a5-4a8c-4449-846a-a5eca2a1f1c0.png)<br>
 Test Case 4: การเพิ่มผู้ใช้ใหม่ (addUser)
-![image.png](/.attachments/image-55b8f0c5-5fe5-4273-8dd9-7721c655aa13.png)
+![image.png](/.attachments/image-55b8f0c5-5fe5-4273-8dd9-7721c655aa13.png)<br>
 Test Case 5: ฟังก์ชันการอัปเดตข้อมูลผู้ใช้ (updateUser)
-![image.png](/.attachments/image-c3b5c9b5-b149-446b-b765-c8b94a2d02a4.png)
+![image.png](/.attachments/image-c3b5c9b5-b149-446b-b765-c8b94a2d02a4.png)<br>
 Test Case 6: ฟังก์ชันการลบผู้ใช้ (deleteUser)
-![image.png](/.attachments/image-3334adf5-74ff-4a2a-ae7c-fe08482851d5.png)
+![image.png](/.attachments/image-3334adf5-74ff-4a2a-ae7c-fe08482851d5.png)<br>
 Test Case 7: ทดสอบการตรวจสอบ username ซ้ำ (checkUsernameExist)
-![image.png](/.attachments/image-de5fbd83-9930-4eb4-8bcb-471e45e7c0a3.png)
+![image.png](/.attachments/image-de5fbd83-9930-4eb4-8bcb-471e45e7c0a3.png)<br>
 Test Case 8: ตรวจสอบข้อมูล users.json
-![image.png](/.attachments/image-8ad3127c-6ed6-462d-b9dc-bbcfe1c78fe6.png)
+![image.png](/.attachments/image-8ad3127c-6ed6-462d-b9dc-bbcfe1c78fe6.png)<br>
 Test Case 9: การเพิ่มผู้ใช้พร้อมการตรวจสอบรหัสผ่านที่แฮช (addUserWithCheckPassword)
-![image.png](/.attachments/image-199f7403-9c33-437c-8c2a-0906caa455ff.png)
+![image.png](/.attachments/image-199f7403-9c33-437c-8c2a-0906caa455ff.png)<br>
 Test Case 10: ตรวจสอบข้อมูลผู้ใช้ที่ไม่พบ (checkNonExistentUser)
-![image.png](/.attachments/image-09692455-b673-455c-ace1-f47af8edbe7c.png)
+![image.png](/.attachments/image-09692455-b673-455c-ace1-f47af8edbe7c.png)<br>
 Test Case 11: ฟังก์ชันการเพิ่มภาพยนตร์ (addMovie)
-![image.png](/.attachments/image-4cd198a5-249d-4832-bdeb-c295ba2217bf.png)
+![image.png](/.attachments/image-4cd198a5-249d-4832-bdeb-c295ba2217bf.png)<br>
 Test Case 12:ตรวจสอบข้อมูล movies.json
-![image.png](/.attachments/image-77bfbc8a-5fd2-4b4d-8dfa-402b3f29b5ba.png)
+![image.png](/.attachments/image-77bfbc8a-5fd2-4b4d-8dfa-402b3f29b5ba.png)<br>
 Test Case 13: ตรวจสอบข้อมูลใน movies.json ที่ไม่มีชื่อภาพยนตร์
-![image.png](/.attachments/image-2acb50f9-fc8f-43d3-b3b4-5fcc25dc68be.png)
+![image.png](/.attachments/image-2acb50f9-fc8f-43d3-b3b4-5fcc25dc68be.png)<br>
 
 **สรุป Retrospective ที่ 3 มีการพูดคุยดังนี้**
 
