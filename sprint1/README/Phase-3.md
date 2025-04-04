@@ -141,6 +141,30 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 
 <br>
 <br>
+
+**Website screenshot**<br>
+login.ejs 
+ ![](https://cdn.discordapp.com/attachments/1334407474488279110/1357331475518849196/image.png?ex=67f079b1&is=67ef2831&hm=60362d5371c78ca0c1cde6c12af00ffe5325b023d4d2af17d456c579f8ddb6bd&=) <br>
+register.ejs 
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357331578577223922/image.png?ex=67f079ca&is=67ef284a&hm=d6e87ab2af0315425a7a75146896e5efd697eb108086ea8c251108e6842eeaae&=) <br>
+home.ejs
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357331728607350925/image.png?ex=67f079ee&is=67ef286e&hm=bfaaa8fb3eaab05a518f383742c3e61dfe63a62737ade3c1fc611d577113ea32&=)
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357331825021681905/image.png?ex=67f07a05&is=67ef2885&hm=aaddb2a8a807927a67f676e682d96db1a31af9a939ab2f6f67b2da6560d8a03b&=)<br>
+genre.ejs
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357331970635468840/image.png?ex=67f07a27&is=67ef28a7&hm=b103b6c7594fedaf72de83a9611f1e821e98c829567016f0187cde451f28d938&=)
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357333071728476291/image.png?ex=67f07b2e&is=67ef29ae&hm=8d2b4900ad7e4d9010908cea9b0780a1df4c69d2c42afe5782c7cc89ef353a28&)<br> 
+action
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332057205772329/image.png?ex=67f07a3c&is=67ef28bc&hm=1633656036b33c17833c2bea8a1511a51c17a9ad63b0567ed0339ae827609682&=)
+comedy
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332156724019361/image.png?ex=67f07a54&is=67ef28d4&hm=818ddee0e08867c27a9b9b00bf34c6e496b3376eab7f3dacf4888c009bc41243&=)
+drama
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332247929421975/image.png?ex=67f07a69&is=67ef28e9&hm=bc688707f33ee91742f007dce2383dbce67fde5f9a167292954f76bf334409cc&=)
+horror
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332577828208824/image.png?ex=67f07ab8&is=67ef2938&hm=063828bd12b47a3e33d8ad06d2d66dc33d4fe38041dda19eb9c32ba2064e388d&=)
+moviedetail.ejs
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332773979033651/image.png?ex=67f07ae7&is=67ef2967&hm=ce5621329850007cf23f211fa1ee670c3d2e7bcf0dccd0c2e3df4aefaafbb1d7&=)
+bookmarks.ejs
+![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332530562469948/image.png?ex=67f07aad&is=67ef292d&hm=3e278f9329e7314aa0df5468ee280cbb095c58d9f999581ef8073593e95519b4&=)
   
 **สรุป Retrospective ที่ 3 มีการพูดคุยดังนี้**
 
