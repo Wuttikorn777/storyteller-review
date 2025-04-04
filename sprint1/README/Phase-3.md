@@ -81,7 +81,21 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 | 13<br> | ทดสอบการอัปเดตผู้ใช้ที่ไม่พบในระบบ<br> | updateUser(username, newEmail, newPassword)<br> | ควรคืนค่า null ถ้าไม่พบผู้ใช้<br> | คืนค่า null เนื่องจากไม่พบผู้ใช้<br> | Pass<br> |
 
 <br>
+
+**Dynamic profiling (Structural method)**
+
+เดี๋ยวใส่ตาราง
+
 <br>
+
+![image.png](/.attachments/image-bbb8bfc9-912e-4630-9c09-990084b9e27d.png)
+
+<br>
+
+![Screenshot 2568-04-03 at 23.43.13.png](/.attachments/Screenshot%202568-04-03%20at%2023.43.13-44e3ffa1-e5d1-4f24-b00a-0243eb80bafe.png)
+
+
+
 
 **Process**
 1.  Requirement Analysis (วิเคราะห์ความต้องการ)
