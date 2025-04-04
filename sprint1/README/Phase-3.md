@@ -99,6 +99,27 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 
 <br>
 
+![Screenshot 2568-04-03 at 22.33.46.png](/.attachments/Screenshot%202568-04-03%20at%2022.33.46-f26b9525-b33c-4239-8f02-1061c8b3dead.png)
+
+<br>
+
+![Screenshot 2568-04-03 at 22.34.00.png](/.attachments/Screenshot%202568-04-03%20at%2022.34.00-47ec43b4-d220-4dc1-b88e-ea90dee5a9d2.png)
+
+<br>
+
+![Screenshot 2568-04-03 at 22.34.07.png](/.attachments/Screenshot%202568-04-03%20at%2022.34.07-5433fd36-239b-41e1-b295-b09e76297752.png)
+
+<br>
+
+![Screenshot 2568-04-04 at 13.22.36.png](/.attachments/Screenshot%202568-04-04%20at%2013.22.36-05adfbf2-b7bb-4b33-a76b-d69d2d674859.png)
+
+<br>
+
+![Screenshot 2568-04-04 at 13.22.46.png](/.attachments/Screenshot%202568-04-04%20at%2013.22.46-c4256a07-6638-44d9-ac96-1f99c861671e.png)
+
+<br>
+
+
 **Dynamic profiling (Structural method)**
 
 เดี๋ยวใส่ตาราง
