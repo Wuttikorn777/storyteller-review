@@ -36,11 +36,78 @@
 <br>
 
 
-**อธิบายการทำงานของ data structure**
-- users.json: เก็บข้อมูลของผู้ใช้ที่ลงทะเบียนในระบบ เช่น ชื่อผู้ใช้ (username), อีเมล (email), และรหัสผ่านที่เข้ารหัส (password)
-- movies.json: เก็บข้อมูลของภาพยนตร์ เช่น ชื่อภาพยนตร์, ปีที่ออกฉาย, คำอธิบาย, การจัดอันดับเฉลี่ย, และความคิดเห็นจากผู้ใช้ <br>
-การใช้ไฟล์ JSON เป็น Data Structure ช่วยให้ข้อมูลทั้งหมดสามารถเก็บรักษาได้ในรูปแบบที่อ่านและเขียนง่าย โดยไม่ต้องใช้ฐานข้อมูลภายนอก <br>
-การเรียก API: โค้ดนี้ใช้ Express.js เพื่อสร้าง API สำหรับให้บริการต่าง ๆ มีการเรียก API สำหรับการลงทะเบียนผู้ใช้, การเข้าสู่ระบบ, และการจัดการงาน
+**data structure**
+
+### 1. การทำงานของ Data Structure สำหรับ `movie.json`
+
+ในไฟล์ **movie.json**, ข้อมูลภาพยนตร์ทั้งหมดถูกเก็บใน **Array of Objects** ซึ่งทำให้สามารถเก็บข้อมูลหลายรายการ (ภาพยนตร์หลายเรื่อง) ได้ในลำดับที่จัดเก็บไว้ นอกจากนี้ยังสามารถเข้าถึงข้อมูลของแต่ละภาพยนตร์ได้โดยการอ้างอิงถึง **index** ของ **Array** หรือ **key** ภายใน **Object** ของภาพยนตร์
+
+#### อธิบาย:
+
+*   **Array**: ข้อมูลทั้งหมดของภาพยนตร์จะถูกจัดเก็บใน **Array** เช่น `[]` ซึ่งสามารถเก็บ **Objects** หลายๆ อันได้ เช่น รายชื่อภาพยนตร์ทั้งหมด
+    
+*   **Object**: ในแต่ละ **Object** จะเก็บข้อมูลของภาพยนตร์แต่ละเรื่อง เช่น ชื่อเรื่อง, หมวดหมู่, วันที่เผยแพร่, ฯลฯ
+    
+*   **Key-Value Pairs**: ภายใน **Object** ของแต่ละภาพยนตร์จะมี **key-value pairs** เช่น `"title": "Final Destination: Bloodlines"` ที่ทำให้ข้อมูลที่เก็บใน **Object** นั้นเข้าใจง่ายและเข้าถึงได้สะดวก
+    
+*   **Array of Objects**: ในบาง **Object** อาจมี **Array** ภายใน เช่น `comments`, ซึ่งเก็บความคิดเห็นจากผู้ใช้ ทำให้สามารถจัดเก็บข้อมูลที่เกี่ยวข้องหลายรายการได้อย่างมีระเบียบ
+
+<H3  class="">ตัวอย่างข้อมูลใน <CODE>movie.json</CODE>:</H3>
+<PRE  class="overflow-visible!"><DIV  class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><DIV  class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]"></DIV><DIV  class="sticky top-9"><DIV  class="absolute right-0 bottom-0 flex h-9 items-center pe-2"><DIV  class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><SPAN  class=""></SPAN></DIV></DIV></DIV><DIV  class="overflow-y-auto p-4"  dir="ltr"><CODE  class="whitespace-pre! language-json"><SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
+  </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"id"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"1"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"title"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"Final Destination: Bloodlines"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"poster"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"youtubeId"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"UWMzKXsY9A4"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"genre"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"Action, Horror"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"releaseDate"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"2025"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"duration"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-number">120</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"description"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"A new chapter in the Final Destination franchise where the deadly fate lurks at every corner."</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"averageRating"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-number">4.8</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"totalVotes"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-number">25</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"comments"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
+      </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
+        </SPAN><SPAN><SPAN  class="hljs-attr">"user"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"User1"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+        </SPAN><SPAN><SPAN  class="hljs-attr">"text"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"This movie was amazing! The plot was intense and full of suspense."</SPAN></SPAN><SPAN>
+      </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+      </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
+        </SPAN><SPAN><SPAN  class="hljs-attr">"user"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"User2"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+        </SPAN><SPAN><SPAN  class="hljs-attr">"text"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"Good thriller, but the ending was a bit predictable."</SPAN></SPAN><SPAN>
+      </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-punctuation">]</SPAN></SPAN><SPAN>
+  </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN>
+</SPAN><SPAN><SPAN  class="hljs-punctuation">]</SPAN></SPAN><SPAN>
+</SPAN></SPAN></CODE></DIV></DIV></PRE>
+<H4  class=""></H4>
+
+<H3  class=""><STRONG>การทำงานของ Data Structure สำหรับ <CODE>user.json</CODE></STRONG></H3>
+<P  class="">ในไฟล์ <STRONG>user.json</STRONG>, ข้อมูลเกี่ยวกับผู้ใช้จะถูกเก็บในรูปแบบ <STRONG>Array of Objects</STRONG> เช่นเดียวกับ <STRONG>movie.json</STRONG> แต่ในที่นี้จะเก็บข้อมูลที่เกี่ยวข้องกับ <STRONG>ผู้ใช้</STRONG> เช่น <CODE>username</CODE>, <CODE>email</CODE>, และ <CODE>password</CODE> (ที่แฮชแล้ว)</P>
+<H4  class="">อธิบาย:</H4>
+<UL>
+<LI  class="">
+<P  class=""><STRONG>Array of Objects</STRONG>: ข้อมูลทั้งหมดเกี่ยวกับผู้ใช้จะถูกเก็บใน <STRONG>Array</STRONG> ซึ่งแต่ละ <STRONG>Object</STRONG> จะเป็นข้อมูลของผู้ใช้หนึ่งคน</P>
+</LI>
+<LI  class="">
+<P  class=""><STRONG>Object</STRONG>: ในแต่ละ <STRONG>Object</STRONG> จะมีข้อมูลเกี่ยวกับผู้ใช้ เช่น <CODE>username</CODE>, <CODE>email</CODE>, <CODE>password</CODE></P>
+</LI>
+<LI  class="">
+<P  class=""><STRONG>Key-Value Pair</STRONG>: ใน <STRONG>Object</STRONG> ของผู้ใช้แต่ละคน ข้อมูลจะถูกจัดเก็บในรูปแบบ <STRONG>key-value pairs</STRONG> เช่น <CODE>"username": "inao"</CODE>, <CODE>"email": "newemail@example.com"</CODE></P>
+</LI>
+</UL>
+<H3  class="">ตัวอย่างข้อมูลใน <CODE>user.json</CODE>:</H3>
+<PRE  class="overflow-visible!"><DIV  class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><DIV  class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]"></DIV><DIV  class="sticky top-9"><DIV  class="absolute right-0 bottom-0 flex h-9 items-center pe-2"><DIV  class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><SPAN  class=""></SPAN></DIV></DIV></DIV><DIV  class="overflow-y-auto p-4"  dir="ltr"><CODE  class="whitespace-pre! language-json"><SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
+  </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"username"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"inao"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"email"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"newemail@example.com"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"password"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"$2b$10$PoUSAOLL.L.Tcqk1/aO1oeSn7X6KDYX6MLi6HzvLXN8rgUSb2EIEm"</SPAN></SPAN><SPAN>
+  </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+  </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"username"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"angpao"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"email"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"angpao@gmail.com"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
+    </SPAN><SPAN><SPAN  class="hljs-attr">"password"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"$2b$10$c8gqf/l89xxRVpSGdBN5Wuk.q35gzzZwkWLvhZ4HhJkwVTy9qwan6"</SPAN></SPAN><SPAN>
+  </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN>
+</SPAN><SPAN><SPAN  class="hljs-punctuation">]</SPAN></SPAN></SPAN></CODE></DIV></DIV></PRE>
+
 
 <br>
 
