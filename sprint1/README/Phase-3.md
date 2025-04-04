@@ -85,39 +85,42 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
  
     
 **ตาราง** **Static Profiling**
+    
+| **Metric**<br> | **index.js**<br> | **models.movieData.test.js**<br> | **models.userData.test.js**<br> |
+| --- | --- | --- | --- |
+| **Lines of Code**<br> | 286<br> | 72<br> | 43<br> |
+| **Complexity**<br> | 28<br> | 1<br> | 1<br> |
+| **Estimated Errors**<br> | 2.91<br> | 0.86<br> | 0.43<br> |
+| **Lint Errors**<br> | 51<br> | 28<br> | 13<br> |
+| **Maintainability**<br> | 74.46<br> | 76.07<br> | 77.39<br> |
+| **Difficulty**<br> | 3.00<br> | 1.00<br> | 1.00<br> |
 
 <br>
 
-| **Metric**<br> | **index.js**<br> | **util.js**<br> |
-| --- | --- | --- |
-| **จำนวนบรรทัด** **(Lines of Code)**<br> | 286<br> | 15<br> |
-| **ความซับซ้อน** **(Cyclomatic Complexity)**<br> | 28<br> | 1<br> |
-| **ข้อผิดพลาดที่คาดไว้** **(Estimated Errors)**<br> | 2.91<br> | 0.07<br> |
-| **Lint Errors**<br> | 51<br> | 7<br> |
-| **Maintainability**<br> | 74.46<br> | 72.55<br> |
-| **Difficulty**<br> | 38.05<br> | 4.79<br> |
+![Screenshot 2568-04-04 at 14.06.48.png](/.attachments/Screenshot%202568-04-04%20at%2014.06.48-128a6927-2088-42ad-b644-c56c608f20ea.png)
 
 <br>
 
-![Screenshot 2568-04-03 at 22.33.46.png](/.attachments/Screenshot%202568-04-03%20at%2022.33.46-f26b9525-b33c-4239-8f02-1061c8b3dead.png)
+![Screenshot 2568-04-04 at 14.06.57.png](/.attachments/Screenshot%202568-04-04%20at%2014.06.57-d9e22815-ef66-4be0-ba57-50881fe7808e.png)
 
 <br>
 
-![Screenshot 2568-04-03 at 22.34.00.png](/.attachments/Screenshot%202568-04-03%20at%2022.34.00-47ec43b4-d220-4dc1-b88e-ea90dee5a9d2.png)
+![Screenshot 2568-04-04 at 14.07.03.png](/.attachments/Screenshot%202568-04-04%20at%2014.07.03-ef3fceb8-1142-407e-a551-694c6823cae9.png)
 
 <br>
 
-![Screenshot 2568-04-03 at 22.34.07.png](/.attachments/Screenshot%202568-04-03%20at%2022.34.07-5433fd36-239b-41e1-b295-b09e76297752.png)
+![Screenshot 2568-04-04 at 14.20.03.png](/.attachments/Screenshot%202568-04-04%20at%2014.20.03-e7b34dd2-ff5d-42df-9bdb-11317bb51dcf.png)
 
 <br>
 
-![Screenshot 2568-04-04 at 13.22.36.png](/.attachments/Screenshot%202568-04-04%20at%2013.22.36-05adfbf2-b7bb-4b33-a76b-d69d2d674859.png)
+![Screenshot 2568-04-04 at 14.19.53.png](/.attachments/Screenshot%202568-04-04%20at%2014.19.53-49e71e94-ca16-4fd2-9636-b95500245952.png)
 
 <br>
 
-![Screenshot 2568-04-04 at 13.22.46.png](/.attachments/Screenshot%202568-04-04%20at%2013.22.46-c4256a07-6638-44d9-ac96-1f99c861671e.png)
+![Screenshot 2568-04-04 at 14.20.14.png](/.attachments/Screenshot%202568-04-04%20at%2014.20.14-c3d600ae-6d75-4dd2-b0b5-a1345f74648d.png)
 
 <br>
+
 
 
 **Dynamic profiling (Structural method)**
