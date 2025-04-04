@@ -324,6 +324,7 @@ Test Case 13: ตรวจสอบข้อมูลใน movies.json ที�
 | **Nodes Transferred**<br> | 2,291 – 6,627<br> |
 | **Listeners**<br> | 266 – 692<br> |
 | **Extension Impact**<br> | Extension (significant load time)<br> |
+
 <br>
 
 ![image.png](/.attachments/image-bbb8bfc9-912e-4630-9c09-990084b9e27d.png)
