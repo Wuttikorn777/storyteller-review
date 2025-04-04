@@ -44,15 +44,15 @@
 
 #### อธิบาย:
 
-*   **Array**: ข้อมูลทั้งหมดของภาพยนตร์จะถูกจัดเก็บใน **Array** เช่น `[]` ซึ่งสามารถเก็บ **Objects** หลายๆ อันได้ เช่น รายชื่อภาพยนตร์ทั้งหมด
+*   **Array**: ข้อมูลทั้งหมดของภาพยนตร์จะถูกจัดเก็บใน **Array** เช่น [] ซึ่งสามารถเก็บ **Objects** หลายๆ อันได้ เช่น รายชื่อภาพยนตร์ทั้งหมด
     
 *   **Object**: ในแต่ละ **Object** จะเก็บข้อมูลของภาพยนตร์แต่ละเรื่อง เช่น ชื่อเรื่อง, หมวดหมู่, วันที่เผยแพร่, ฯลฯ
     
-*   **Key-Value Pairs**: ภายใน **Object** ของแต่ละภาพยนตร์จะมี **key-value pairs** เช่น `"title": "Final Destination: Bloodlines"` ที่ทำให้ข้อมูลที่เก็บใน **Object** นั้นเข้าใจง่ายและเข้าถึงได้สะดวก
+*   **Key-Value Pairs**: ภายใน **Object** ของแต่ละภาพยนตร์จะมี **key-value pairs** เช่น "title": "Final Destination: Bloodlines" ที่ทำให้ข้อมูลที่เก็บใน **Object** นั้นเข้าใจง่ายและเข้าถึงได้สะดวก
     
-*   **Array of Objects**: ในบาง **Object** อาจมี **Array** ภายใน เช่น `comments`, ซึ่งเก็บความคิดเห็นจากผู้ใช้ ทำให้สามารถจัดเก็บข้อมูลที่เกี่ยวข้องหลายรายการได้อย่างมีระเบียบ
+*   **Array of Objects**: ในบาง **Object** อาจมี **Array** ภายใน เช่น comments, ซึ่งเก็บความคิดเห็นจากผู้ใช้ ทำให้สามารถจัดเก็บข้อมูลที่เกี่ยวข้องหลายรายการได้อย่างมีระเบียบ
 
-<H3  class="">ตัวอย่างข้อมูลใน <CODE>movie.json</CODE>:</H3>
+<H3  class="">ตัวอย่างข้อมูลใน movie.json:</H3>
 <PRE  class="overflow-visible!"><DIV  class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><DIV  class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]"></DIV><DIV  class="sticky top-9"><DIV  class="absolute right-0 bottom-0 flex h-9 items-center pe-2"><DIV  class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><SPAN  class=""></SPAN></DIV></DIV></DIV><DIV  class="overflow-y-auto p-4"  dir="ltr"><CODE  class="whitespace-pre! language-json"><SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
   </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
     </SPAN><SPAN><SPAN  class="hljs-attr">"id"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"1"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
@@ -82,20 +82,20 @@
 
 <br>
 
-### 2. **การทำงานของ Data Structure สำหรับ `user.json`**
+### 2. **การทำงานของ Data Structure สำหรับ user.json**
 
-ในไฟล์ **user.json**, ข้อมูลเกี่ยวกับผู้ใช้จะถูกเก็บในรูปแบบ **Array of Objects** เช่นเดียวกับ **movie.json** แต่ในที่นี้จะเก็บข้อมูลที่เกี่ยวข้องกับ **ผู้ใช้** เช่น `username`, `email`, และ `password` (ที่แฮชแล้ว)
+ในไฟล์ **user.json**, ข้อมูลเกี่ยวกับผู้ใช้จะถูกเก็บในรูปแบบ **Array of Objects** เช่นเดียวกับ **movie.json** แต่ในที่นี้จะเก็บข้อมูลที่เกี่ยวข้องกับ **ผู้ใช้** เช่น username, email, และ password (ที่แฮชแล้ว)
 
 #### อธิบาย:
 
 *   **Array of Objects**: ข้อมูลทั้งหมดเกี่ยวกับผู้ใช้จะถูกเก็บใน **Array** ซึ่งแต่ละ **Object** จะเป็นข้อมูลของผู้ใช้หนึ่งคน
     
-*   **Object**: ในแต่ละ **Object** จะมีข้อมูลเกี่ยวกับผู้ใช้ เช่น `username`, `email`, `password`
+*   **Object**: ในแต่ละ **Object** จะมีข้อมูลเกี่ยวกับผู้ใช้ เช่น username, email, password
     
-*   **Key-Value Pair**: ใน **Object** ของผู้ใช้แต่ละคน ข้อมูลจะถูกจัดเก็บในรูปแบบ **key-value pairs** เช่น `"username": "inao"`, `"email": "newemail@example.com"`
+*   **Key-Value Pair**: ใน **Object** ของผู้ใช้แต่ละคน ข้อมูลจะถูกจัดเก็บในรูปแบบ **key-value pairs** เช่น "username": "inao", "email": "newemail@example.com"
 
 
-<H3  class="">ตัวอย่างข้อมูลใน <CODE>user.json</CODE>:</H3>
+<H3  class="">ตัวอย่างข้อมูลใน user.json:</H3>
 <PRE  class="overflow-visible!"><DIV  class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><DIV  class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]"></DIV><DIV  class="sticky top-9"><DIV  class="absolute right-0 bottom-0 flex h-9 items-center pe-2"><DIV  class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><SPAN  class=""></SPAN></DIV></DIV></DIV><DIV  class="overflow-y-auto p-4"  dir="ltr"><CODE  class="whitespace-pre! language-json"><SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
   </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
     </SPAN><SPAN><SPAN  class="hljs-attr">"username"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"inao"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
@@ -115,40 +115,47 @@
 **มีการเรียก API ดังนี้**
     
 **1. การจัดการผู้ใช้ (User Management)**
-ในโปรเจกต์ของคุณมีการสร้างเส้นทางที่เกี่ยวข้องกับการลงทะเบียน (register) และการเข้าสู่ระบบ (login) ของผู้ใช้, ซึ่งมีการ **อ่าน/เขียนข้อมูลจากไฟล์ JSON** และทำการตรวจสอบข้อมูลจากไฟล์ **users.json** เพื่อจัดการกับข้อมูลผู้ใช้:
+
+ในโปรเจกต์ของคุณมีการสร้างเส้นทางที่เกี่ยวข้องกับการลงทะเบียน (register) และการเข้าสู่ระบบ (login) ของผู้ใช้, ซึ่งมีการ อ่าน/เขียนข้อมูลจากไฟล์ JSON และทำการตรวจสอบข้อมูลจากไฟล์ users.json เพื่อจัดการกับข้อมูลผู้ใช้:
 
 ####**การลงทะเบียน (Register)**
-*   เมื่อผู้ใช้กรอกข้อมูลในฟอร์มการลงทะเบียนและส่งข้อมูลผ่าน **POST request** ไปยังเส้นทาง /register, ข้อมูลผู้ใช้ที่ได้รับจะถูกแฮช (โดยใช้ **bcrypt**) และเก็บไว้ใน **users.json** ที่มีการจัดเก็บข้อมูลผู้ใช้ทั้งหมด
-*   การตรวจสอบว่า **username** หรือ **email** มีอยู่ในระบบแล้วหรือไม่จะเกิดขึ้นก่อนที่จะทำการบันทึกข้อมูลลงไฟล์ JSON
-• • หากข้อมูลที่ส่งมาไม่ซ้ำซ้อนกับข้อมูลที่มีอยู่ในระบบ ระบบจะทำการ **hash password** และบันทึกข้อมูลผู้ใช้ใหม่ลงในไฟล์ **users.json**
+*   เมื่อผู้ใช้กรอกข้อมูลในฟอร์มการลงทะเบียนและส่งข้อมูลผ่าน POST request ไปยังเส้นทาง /register, ข้อมูลผู้ใช้ที่ได้รับจะถูกแฮช (โดยใช้ bcrypt) และเก็บไว้ใน users.json ที่มีการจัดเก็บข้อมูลผู้ใช้ทั้งหมด
+*   การตรวจสอบว่า username หรือ email มีอยู่ในระบบแล้วหรือไม่จะเกิดขึ้นก่อนที่จะทำการบันทึกข้อมูลลงไฟล์ JSON
+*   หากข้อมูลที่ส่งมาไม่ซ้ำซ้อนกับข้อมูลที่มีอยู่ในระบบ ระบบจะทำการ hash password และบันทึกข้อมูลผู้ใช้ใหม่ลงในไฟล์ users.json
 <br>
 
 
 #### **การเข้าสู่ระบบ (Login)**
 
-*   เมื่อผู้ใช้กรอกข้อมูลในฟอร์มการเข้าสู่ระบบและส่งข้อมูลผ่าน **POST request** ไปยังเส้นทาง `/login`, ระบบจะตรวจสอบข้อมูลที่กรอกมาโดยการ **เทียบ username และ password** กับข้อมูลในไฟล์ **`users.json`**.
+*   เมื่อผู้ใช้กรอกข้อมูลในฟอร์มการเข้าสู่ระบบและส่งข้อมูลผ่าน POST request ไปยังเส้นทาง /login, ระบบจะตรวจสอบข้อมูลที่กรอกมาโดยการ เทียบ username และ password กับข้อมูลในไฟล์ users.json
     
-*   ระบบจะใช้ **bcrypt** ในการตรวจสอบว่า **password** ที่ผู้ใช้กรอกมา **ตรงกับรหัสผ่านที่เก็บไว้** หรือไม่
+*   ระบบจะใช้ bcrypt ในการตรวจสอบว่า password ที่ผู้ใช้กรอกมา ตรงกับรหัสผ่านที่เก็บไว้ หรือไม่
     
-*   หากข้อมูลถูกต้อง, ระบบจะทำการสร้าง **session** สำหรับผู้ใช้และเก็บข้อมูลใน **`req.session`** เพื่อติดตามสถานะการล็อกอิน
+*   หากข้อมูลถูกต้อง, ระบบจะทำการสร้าง session สำหรับผู้ใช้และเก็บข้อมูลใน req.session เพื่อติดตามสถานะการล็อกอิน
 
 
 
 **2. การจัดการ Session และการเข้าถึงข้อมูลสำหรับผู้ใช้ที่ล็อกอินแล้ว**
-หลังจากที่ผู้ใช้ล็อกอินสำเร็จ, ระบบจะใช้ **session** เพื่อเก็บข้อมูลที่เกี่ยวกับผู้ใช้ (เช่น **username** และ **email**) เพื่อไม่ให้ผู้ใช้ต้องล็อกอินใหม่ทุกครั้งที่เข้าถึงหน้าเว็บต่างๆ
+
+หลังจากที่ผู้ใช้ล็อกอินสำเร็จ, ระบบจะใช้ session เพื่อเก็บข้อมูลที่เกี่ยวกับผู้ใช้ (เช่น username และ email) เพื่อไม่ให้ผู้ใช้ต้องล็อกอินใหม่ทุกครั้งที่เข้าถึงหน้าเว็บต่างๆ
+
 **การใช้ session เพื่อเก็บข้อมูลผู้ใช้:**
-*   ข้อมูลผู้ใช้จะถูกเก็บใน **req.session.user** หลังจากผู้ใช้ล็อกอินสำเร็จ
-*   เมื่อผู้ใช้ไปที่หน้า **home**, ระบบจะตรวจสอบว่า **req.session.user** มีข้อมูลหรือไม่ หากไม่มีข้อมูล, ระบบจะให้ผู้ใช้ไปที่หน้า **login** (เพื่อให้ผู้ใช้ล็อกอินใหม่)
-*   ถ้ามีข้อมูลใน **session**, ระบบจะส่งข้อมูลของภาพยนตร์จาก **movies.json** ไปยังหน้า **home** เพื่อแสดงรายการภาพยนตร์
+*   ข้อมูลผู้ใช้จะถูกเก็บใน req.session.user หลังจากผู้ใช้ล็อกอินสำเร็จ
+*   เมื่อผู้ใช้ไปที่หน้า home, ระบบจะตรวจสอบว่า req.session.user มีข้อมูลหรือไม่ หากไม่มีข้อมูล, ระบบจะให้ผู้ใช้ไปที่หน้า login (เพื่อให้ผู้ใช้ล็อกอินใหม่)
+*   ถ้ามีข้อมูลใน session, ระบบจะส่งข้อมูลของภาพยนตร์จาก movies.json ไปยังหน้า home เพื่อแสดงรายการภาพยนตร์
   
 
 **3. การจัดการข้อมูลภาพยนตร์และการบุ๊คมาร์ค**
-ในระบบของคุณ, มีการเก็บ **bookmarks** (รายการหนังที่ผู้ใช้ชอบ) ที่เกี่ยวข้องกับ **session** ของผู้ใช้. ข้อมูล **bookmarks** จะถูกเก็บใน **session** และสามารถเพิ่มหรือลบได้จาก **POST request** ผ่านเส้นทาง /bookmarks/add และ /bookmarks/remove
+ในระบบของคุณ, มีการเก็บ bookmarks (รายการหนังที่ผู้ใช้ชอบ) ที่เกี่ยวข้องกับ session ของผู้ใช้ ข้อมูล bookmarks จะถูกเก็บใน session และสามารถเพิ่มหรือลบได้จาก POST request ผ่านเส้นทาง /bookmarks/add และ /bookmarks/remove
+
 **การเพิ่มภาพยนตร์ใน bookmarks:**
-*   เมื่อผู้ใช้ส่งข้อมูลผ่าน **POST request** ที่ /bookmarks/add, ระบบจะตรวจสอบว่าผู้ใช้ล็อกอินหรือไม่ ถ้ายังไม่ล็อกอิน, ระบบจะตอบกลับด้วยสถานะ **401 Unauthorized**.
-*   หากผู้ใช้ล็อกอิน, ระบบจะเพิ่มข้อมูลภาพยนตร์ที่ผู้ใช้เลือก (เช่น **title** และ **poster**) เข้าไปใน **bookmarks** ของ **session**
+
+*   เมื่อผู้ใช้ส่งข้อมูลผ่าน POST request ที่ /bookmarks/add, ระบบจะตรวจสอบว่าผู้ใช้ล็อกอินหรือไม่ ถ้ายังไม่ล็อกอิน, ระบบจะตอบกลับด้วยสถานะ 401 Unauthorized
+*   หากผู้ใช้ล็อกอิน, ระบบจะเพิ่มข้อมูลภาพยนตร์ที่ผู้ใช้เลือก (เช่น title และ poster) เข้าไปใน bookmarks ของ session
+
 **การลบภาพยนตร์จาก bookmarks:**
-*   เมื่อผู้ใช้ส่งข้อมูลผ่าน **POST request** ที่ /bookmarks/remove, ระบบจะทำการลบภาพยนตร์ที่มีชื่อ (title) ตรงกับข้อมูลที่ส่งมาจาก **bookmarks** ของ **session**.
+
+*   เมื่อผู้ใช้ส่งข้อมูลผ่าน POST request ที่ /bookmarks/remove, ระบบจะทำการลบภาพยนตร์ที่มีชื่อ (title) ตรงกับข้อมูลที่ส่งมาจาก bookmarks ของ session
 
 <br>
 
