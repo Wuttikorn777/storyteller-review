@@ -82,6 +82,23 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 
 <br>
 
+ 
+    
+**ตาราง** **Static Profiling**
+
+<br>
+
+| **Metric**<br> | **index.js**<br> | **util.js**<br> |
+| --- | --- | --- |
+| **จำนวนบรรทัด** **(Lines of Code)**<br> | 286<br> | 15<br> |
+| **ความซับซ้อน** **(Cyclomatic Complexity)**<br> | 28<br> | 1<br> |
+| **ข้อผิดพลาดที่คาดไว้** **(Estimated Errors)**<br> | 2.91<br> | 0.07<br> |
+| **Lint Errors**<br> | 51<br> | 7<br> |
+| **Maintainability**<br> | 74.46<br> | 72.55<br> |
+| **Difficulty**<br> | 38.05<br> | 4.79<br> |
+
+<br>
+
 **Dynamic profiling (Structural method)**
 
 เดี๋ยวใส่ตาราง
