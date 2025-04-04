@@ -125,8 +125,21 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 
 **Dynamic profiling (Structural method)**
 
-เดี๋ยวใส่ตาราง
-
+    
+| **Metric**<br> | **Value**<br> |
+| --- | --- |
+| **Total Time**<br> | 37.38 seconds<br> |
+| **Scripting Time**<br> | 399 ms<br> |
+| **Painting Time**<br> | 157 ms<br> |
+| **Rendering Time**<br> | 148 ms<br> |
+| **Loading Time**<br> | 46 ms<br> |
+| **Memory Usage**<br> | 21.4 MB – 43.8 MB<br> |
+| **JS Heap**<br> | 21.4 MB – 43.8 MB<br> |
+| **Documents Transferred**<br> | 443 kB<br> |
+| **Transfer Time**<br> | 734.8 ms<br> |
+| **Nodes Transferred**<br> | 2,291 – 6,627<br> |
+| **Listeners**<br> | 266 – 692<br> |
+| **Extension Impact**<br> | Extension (significant load time)<br> |
 <br>
 
 ![image.png](/.attachments/image-bbb8bfc9-912e-4630-9c09-990084b9e27d.png)
@@ -135,6 +148,11 @@ javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (e
 
 ![Screenshot 2568-04-03 at 23.43.13.png](/.attachments/Screenshot%202568-04-03%20at%2023.43.13-44e3ffa1-e5d1-4f24-b00a-0243eb80bafe.png)
 
+<br>
+
+![Screenshot 2568-04-04 at 14.30.09.png](/.attachments/Screenshot%202568-04-04%20at%2014.30.09-77eaed80-d07d-4603-a8e0-060914494e57.png)
+
+<br>
 
 
 
