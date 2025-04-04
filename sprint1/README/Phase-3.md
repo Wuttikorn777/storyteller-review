@@ -52,35 +52,34 @@
     
 *   **Array of Objects**: ในบาง **Object** อาจมี **Array** ภายใน เช่น comments, ซึ่งเก็บความคิดเห็นจากผู้ใช้ ทำให้สามารถจัดเก็บข้อมูลที่เกี่ยวข้องหลายรายการได้อย่างมีระเบียบ
 
-<H3  class="">ตัวอย่างข้อมูลใน movie.json:</H3>
-<PRE  class="overflow-visible!"><DIV  class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><DIV  class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]"></DIV><DIV  class="sticky top-9"><DIV  class="absolute right-0 bottom-0 flex h-9 items-center pe-2"><DIV  class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><SPAN  class=""></SPAN></DIV></DIV></DIV><DIV  class="overflow-y-auto p-4"  dir="ltr"><CODE  class="whitespace-pre! language-json"><SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
-  </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"id"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"1"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"title"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"Final Destination: Bloodlines"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"poster"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"youtubeId"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"UWMzKXsY9A4"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"genre"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"Action, Horror"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"releaseDate"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"2025"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"duration"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-number">120</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"description"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"A new chapter in the Final Destination franchise where the deadly fate lurks at every corner."</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"averageRating"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-number">4.8</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"totalVotes"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-number">25</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"comments"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
-      </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
-        </SPAN><SPAN><SPAN  class="hljs-attr">"user"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"User1"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-        </SPAN><SPAN><SPAN  class="hljs-attr">"text"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"This movie was amazing! The plot was intense and full of suspense."</SPAN></SPAN><SPAN>
-      </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-      </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
-        </SPAN><SPAN><SPAN  class="hljs-attr">"user"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"User2"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-        </SPAN><SPAN><SPAN  class="hljs-attr">"text"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"Good thriller, but the ending was a bit predictable."</SPAN></SPAN><SPAN>
-      </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-punctuation">]</SPAN></SPAN><SPAN>
-  </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN>
-</SPAN><SPAN><SPAN  class="hljs-punctuation">]</SPAN></SPAN><SPAN>
-</SPAN></SPAN></CODE></DIV></DIV></PRE>
-<H4  class=""></H4>
+**ตัวอย่างข้อมูลใน movie.json:**
 
-<br>
+```
+[
+  {
+    "id": "1",
+    "title": "Final Destination: Bloodlines",
+    "poster": "https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg",
+    "youtubeId": "UWMzKXsY9A4",
+    "genre": "Action, Horror",
+    "releaseDate": "2025",
+    "duration": 120,
+    "description": "A new chapter in the Final Destination franchise where the deadly fate lurks at every corner.",
+    "averageRating": 4.8,
+    "totalVotes": 25,
+    "comments": [
+      {
+        "user": "User1",
+        "text": "This movie was amazing! The plot was intense and full of suspense."
+      },
+      {
+        "user": "User2",
+        "text": "Good thriller, but the ending was a bit predictable."
+      }
+    ]
+  }
+]
+```
 
 ### 2. **การทำงานของ Data Structure สำหรับ user.json**
 
@@ -95,19 +94,22 @@
 *   **Key-Value Pair**: ใน **Object** ของผู้ใช้แต่ละคน ข้อมูลจะถูกจัดเก็บในรูปแบบ **key-value pairs** เช่น "username": "inao", "email": "newemail@example.com"
 
 
-<H3  class="">ตัวอย่างข้อมูลใน user.json:</H3>
-<PRE  class="overflow-visible!"><DIV  class="contain-inline-size rounded-md border-[0.5px] border-token-border-medium relative bg-token-sidebar-surface-primary"><DIV  class="flex items-center text-token-text-secondary px-4 py-2 text-xs font-sans justify-between h-9 bg-token-sidebar-surface-primary dark:bg-token-main-surface-secondary select-none rounded-t-[5px]"></DIV><DIV  class="sticky top-9"><DIV  class="absolute right-0 bottom-0 flex h-9 items-center pe-2"><DIV  class="bg-token-sidebar-surface-primary text-token-text-secondary dark:bg-token-main-surface-secondary flex items-center rounded-sm px-2 font-sans text-xs"><SPAN  class=""></SPAN></DIV></DIV></DIV><DIV  class="overflow-y-auto p-4"  dir="ltr"><CODE  class="whitespace-pre! language-json"><SPAN><SPAN><SPAN  class="hljs-punctuation">[</SPAN></SPAN><SPAN>
-  </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"username"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"inao"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"email"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"newemail@example.com"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"password"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"$2b$10$PoUSAOLL.L.Tcqk1/aO1oeSn7X6KDYX6MLi6HzvLXN8rgUSb2EIEm"</SPAN></SPAN><SPAN>
-  </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-  </SPAN><SPAN><SPAN  class="hljs-punctuation">{</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"username"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"angpao"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"email"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"angpao@gmail.com"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">,</SPAN></SPAN><SPAN>
-    </SPAN><SPAN><SPAN  class="hljs-attr">"password"</SPAN></SPAN><SPAN><SPAN  class="hljs-punctuation">:</SPAN></SPAN><SPAN> </SPAN><SPAN><SPAN  class="hljs-string">"$2b$10$c8gqf/l89xxRVpSGdBN5Wuk.q35gzzZwkWLvhZ4HhJkwVTy9qwan6"</SPAN></SPAN><SPAN>
-  </SPAN><SPAN><SPAN  class="hljs-punctuation">}</SPAN></SPAN><SPAN>
-</SPAN><SPAN><SPAN  class="hljs-punctuation">]</SPAN></SPAN></SPAN></CODE></DIV></DIV></PRE>
+**ตัวอย่างข้อมูลใน user.json:**
+
+```
+[
+  {
+    "username": "inao",
+    "email": "newemail@example.com",
+    "password": "$2b$10$PoUSAOLL.L.Tcqk1/aO1oeSn7X6KDYX6MLi6HzvLXN8rgUSb2EIEm"
+  },
+  {
+    "username": "angpao",
+    "email": "angpao@gmail.com",
+    "password": "$2b$10$c8gqf/l89xxRVpSGdBN5Wuk.q35gzzZwkWLvhZ4HhJkwVTy9qwan6"
+  }
+]
+```
 
 
 <br>
@@ -160,11 +162,25 @@
 <br>
 
 **มีการคำนวณที่สำคัญ 2 ประเภทในระบบนี้**
-- การแฮชรหัสผ่าน: การใช้ bcrypt ในการ แฮชรหัสผ่าน เป็นการคำนวณที่สำคัญ ซึ่งจะทำให้รหัสผ่านถูกแปลงเป็นรูปแบบที่ไม่สามารถอ่านได้และสามารถนำไปเก็บในไฟล์ได้อย่างปลอดภัย <br>
-javascript Copy bcrypt.hash(password, 10, (err, hashedPassword) => { if (err) return res.status(500).send('Error hashing password'); // Save hashedPassword }); 
-- การตรวจสอบรหัสผ่าน: เมื่อล็อกอิน, ระบบจะใช้ bcrypt.compare() เพื่อตรวจสอบว่า รหัสผ่านที่ผู้ใช้กรอก ตรงกับ รหัสผ่านที่แฮชแล้ว ที่เก็บในไฟล์ users.json หรือไม่: <br>
-javascript Copy bcrypt.compare(password, user.password, (err, result) => { if (err || !result) return res.status(400).send('Invalid credentials'); // Proceed with login });
+- การแฮชรหัสผ่าน: การใช้ bcrypt ในการ แฮชรหัสผ่าน เป็นการคำนวณที่สำคัญ ซึ่งจะทำให้รหัสผ่านถูกแปลงเป็นรูปแบบที่ไม่สามารถอ่านได้และสามารถนำไปเก็บในไฟล์ได้อย่างปลอดภัย 
+ตัวอย่างโค้ดการแฮชรหัสผ่าน:
 
+```
+bcrypt.hash(password, 10, (err, hashedPassword) => {   if (err) return res.status(500).send('Error hashing password');   // Save hashedPassword to users.json });
+````
+
+
+
+- การตรวจสอบรหัสผ่าน: เมื่อล็อกอิน, ระบบจะใช้ bcrypt.compare() เพื่อตรวจสอบว่า รหัสผ่านที่ผู้ใช้กรอก ตรงกับ รหัสผ่านที่แฮชแล้ว ที่เก็บในไฟล์ users.json หรือไม่: 
+
+ตัวอย่างโค้ดการตรวจสอบรหัสผ่าน:
+
+```
+bcrypt.compare(password, user.password, (err, result) => {   if (err || !result) return res.status(400).send('Invalid credentials');   // Proceed with login (user is authenticated) });
+```
+
+
+<br>
 <br>
 <br>
 
@@ -259,7 +275,7 @@ Test Case 13: ตรวจสอบข้อมูลใน movies.json ที�
 
 **Test coverage report**
 
- ![Screenshot 2568-04-03 at 20.51.58.png](/.attachments/Screenshot%202568-04-03%20at%2020.51.58-8fabe5c1-d48d-4cc5-887c-e4167209897d.png)
+![Screenshot 2568-04-04 at 15.25.18.png](/.attachments/Screenshot%202568-04-04%20at%2015.25.18-9dbbc420-ff34-4217-b580-88c2cea72f9c.png)
 
 <br>
 
