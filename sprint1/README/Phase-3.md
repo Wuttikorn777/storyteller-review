@@ -36,7 +36,6 @@
 <br>
 
 
-
 **Data structure**
 
 ### 1. การทำงานของ Data Structure สำหรับ `movie.json`
