@@ -1,226 +1,252 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Details</title>
     <style>
-    /* Global Styles */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom right, #1a1a1a, #2c2c2c);
-    color: white;
-    margin: 0;
-    padding: 0;
-}
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #1a1a1a, #2c2c2c);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 30px;
-    background-color: rgba(17, 17, 17, 0.9);
-    color: #ff69b4;
-    border-bottom: 2px solid #ff69b4;
-    box-shadow: 0 6px 15px rgba(255, 105, 180, 0.1);
-    backdrop-filter: blur(8px);
-}
 
-/* Movie Container */
-.movie-container {
-    display: flex;
-    gap: 40px;
-    padding: 50px 30px;
-    max-width: 1200px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(12px);
-}
+        /* Header */
+        header {
+            text-align: center;
+            padding: 30px;
+            background-color: rgba(17, 17, 17, 0.9);
+            color: #ff69b4;
+            border-bottom: 2px solid #ff69b4;
+            box-shadow: 0 6px 15px rgba(255, 105, 180, 0.1);
+            backdrop-filter: blur(8px);
+        }
 
-/* Poster */
-.movie-poster {
-    width: 40%;
-    border-radius: 15px;
-    overflow: hidden;
-    height: auto;
-}
+        /* Movie Container */
+        .movie-container {
+            display: flex;
+            gap: 40px;
+            padding: 50px 30px;
+            max-width: 1200px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+        }
 
-.movie-poster img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #111;
-}
+        /* Poster */
+        .movie-poster {
+            width: 40%;
+            border-radius: 15px;
+            overflow: hidden;
+            height: auto;
+        }
 
-.movie-poster img:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
-}
+        .movie-poster img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #111;
+        }
 
-/* Info */
-.movie-info {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
+        .movie-poster img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+        }
 
-.movie-title {
-    font-size: 2.7rem;
-    color: #ff69b4;
-    font-weight: 800;
-    margin-top: 15px;
-    letter-spacing: 1.5px;
-}
+        /* Info */
+        .movie-info {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
 
-.movie-info p {
-    font-size: 1.1rem;
-    color: #ddd;
-    margin: 8px 0;
-}
+        .movie-title {
+            font-size: 2.7rem;
+            color: #ff69b4;
+            font-weight: 800;
+            margin-top: 15px;
+            letter-spacing: 1.5px;
+        }
 
-.description {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    line-height: 1.7;
-    color: #f0f0f0;
-}
+        .movie-info p {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin: 8px 0;
+        }
 
-/* Rating */
-.rating {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-.star {
-    color: #ff69b4;
-    cursor: pointer;
-    font-size: 1.6rem;
-    transition: transform 0.2s;
-}
-.star:hover {
-    transform: scale(1.2);
-}
+        .description {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #f0f0f0;
+        }
 
-/* Button */
-.play-button {
-    background-color: #ff69b4;
-    color: white;
-    padding: 12px 28px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-top: 25px;
-    width: fit-content;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
-}
-.play-button:hover {
-    background-color: #e6007e;
-    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
-}
+        /* Rating */
+        .rating {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-/* Video */
-.video-container {
-    margin-top: 20px;
-    border-radius: 15px;
-    overflow: hidden;
-}
-iframe {
-    width: 100%;
-    height: 500px;
-    border: none;
-    border-radius: 10px;
-}
+        .star {
+            color: #ff69b4;
+            cursor: pointer;
+            font-size: 1.6rem;
+            transition: transform 0.2s;
+        }
 
-/* Comment Section */
-.comment-section {
-    margin-top: 40px;
-}
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        /* Button */
+        .play-button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 25px;
+            width: fit-content;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+        }
+
+        .play-button:hover {
+            background-color: #e6007e;
+            box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+        }
+
+        /* Video */
+        .video-container {
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Comment Box */
 .comment-box {
     background-color: #333;
-    padding: 15px;
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* เพิ่มระยะห่างระหว่างปุ่ม */
 }
 
 .comment-box textarea {
     width: 100%;
     height: 100px;
-    border: none;
+    padding: 15px;
     background-color: #444;
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-    resize: none;
-}
-
-.comment-box button {
-    background-color: #ff69b4;
-    color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 10px;
+    border-radius: 8px;
+    resize: none;
+    font-size: 1.1rem;
 }
 
-.comment-box button:hover {
+.post-btn {
+    background-color: #ff69b4;  /* สีชมพู */
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+}
+
+.post-btn:hover {
     background-color: #e6007e;
 }
 
-
-.comments-list {
-    margin-top: 20px;
-}
-.comment {
-    background-color: #2b2b2b;
-    padding: 15px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    color: #eee;
-}
-.comment {
-    background-color: #2c2c2c;
-    padding: 15px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    color: #eee;
-    font-size: 0.95rem;
-}
-.comment strong {
-    color: #ff69b4;
-    font-weight: 600;
+/* Optional: เพิ่มปุ่มอื่นๆ ให้ห่างกันมากขึ้น */
+.comment-box button {
+    margin-top: 10px; /* เพิ่มระยะห่างระหว่างปุ่ม */
 }
 
-.rating-section {
-    margin-top: 25px;
-}
-.rating-stars {
-    display: flex;
-    gap: 8px;
-}
-.rating-stars .star {
-    font-size: 2rem;
-    color: #777;
-    cursor: pointer;
-    transition: color 0.3s, transform 0.2s;
-}
-.rating-stars .star:hover {
-    transform: scale(1.2);
-}
-.rating-display {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    color: #ddd;
-}
-.bookmark-btn {
+        /* Comments Section */
+        .comments-section {
+            margin-top: 40px;
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .comment {
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 1rem;
+        }
+
+        .comment strong {
+            color: #ff69b4;
+            font-size: 1.2rem;
+        }
+
+        .comment p {
+            color: #ddd;
+            font-size: 1rem;
+        }
+
+
+        .rating-section {
+            margin-top: 25px;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 8px;
+        }
+
+        .rating-stars .star {
+            font-size: 2rem;
+            color: #777;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.2s;
+        }
+
+        .rating-stars .star:hover {
+            transform: scale(1.2);
+        }
+
+        .rating-display {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        .bookmark-btn {
             margin-top: 10px;
             padding: 10px 15px;
             font-size: 16px;
@@ -235,21 +261,25 @@ iframe {
             background: gray;
         }
 
-/* Footer */
-footer {
-    width: 100%;
-    padding: 20px;
-    background-color: #111;
-    color: white;
-    text-align: center;
-    font-size: 0.9rem;
-    position: relative;
-    bottom: 0;
-    margin-top: 20px;
-}
+        /* Button to toggle dark/light mode */
+        .mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
+        .mode-toggle:hover {
+            background-color: #e6007e;
+        }
     </style>
 </head>
+
 <body>
     <div class="movie-container">
         <div class="movie-poster">
@@ -258,99 +288,182 @@ footer {
         </div>
         <div class="movie-info">
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/<%= movie.youtubeId %>?autoplay=1" 
-                        title="YouTube video player" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen>
+                <iframe src="https://www.youtube.com/embed/<%= movie.youtubeId %>?autoplay=1"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                 </iframe>
             </div>
-            <h2 class="movie-title"><%= movie.title %></h2>
-            <p><strong>Genre:</strong> <%= movie.genre %></p>
-            <p><strong>Release Date:</strong> <%= movie.releaseDate %></p>
-            <p><strong>Duration:</strong> <%= movie.duration %> minutes</p>
-            <p><strong>Description:</strong> <%= movie.description %></p>
+            <h2 class="movie-title">
+                <%= movie.title %>
+            </h2>
+            <p><strong>Genre:</strong>
+                <%= movie.genre %>
+            </p>
+            <p><strong>Release Date:</strong>
+                <%= movie.releaseDate %>
+            </p>
+            <p><strong>Duration:</strong>
+                <%= movie.duration %> minutes
+            </p>
+            <p><strong>Description:</strong>
+                <%= movie.description %>
+            </p>
             <p>Average Rating: <%= movie.averageRating %> / 5</p>
-            <p>Total Votes: <%= movie.totalVotes %></p>
-    
-            <h3>Comments</h3>
-            <% movie.comments.forEach(function(comment) { %>
-                <div class="comment">
-                    <strong><%= comment.user %>:</strong>
-                    <p><%= comment.text %></p>
-                </div>
-            <% }); %>
-        </div>
-    </div>
-    
-    <footer>
-        <p>&copy; 2025 All Rights Reserved</p>
-    </footer>
+            <p>Total Votes: <%= movie.totalVotes %>
+            </p>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+            <!-- Comment Section -->
+            <h3>Leave a Comment</h3>
+            <div class="comment-box">
+                <textarea id="commentText" placeholder="Write your comment here..." required></textarea>
+                <button id="postCommentBtn">Post Comment</button>
+            </div>
 
-    <script>
-        let totalVotes = 25;
-        let totalScore = 120; // ตัวอย่าง (เฉลี่ย 4.8)
-        
-        document.querySelectorAll('.star').forEach(star => {
-            star.addEventListener('click', function () {
-                const value = parseInt(this.getAttribute('data-value'));
-                totalVotes += 1;
-                totalScore += value;
-        
-                const avg = (totalScore / totalVotes).toFixed(1);
-                document.getElementById('average-rating').innerText = avg;
-                document.getElementById('total-votes').innerText = totalVotes;
-                highlightStars(value);
-            });
-        });
-        
-        function highlightStars(value) {
-            document.querySelectorAll('.star').forEach(star => {
-                const starValue = parseInt(star.getAttribute('data-value'));
-                star.style.color = (starValue <= value) ? '#ff69b4' : '#777';
-            });
-        }
-        </script>
-        <!--bookmarks-->
-        <script>
-            const movie = {
-                 title: "<%= movie.title %>",
-                 poster: "<%= movie.poster %>"
-            };
-    
-            const bookmarkBtn = document.getElementById('bookmark-btn');
-    
-            function loadBookmarkStatus() {
-                let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-                if (bookmarks.some(b => b.title === movie.title)) {
-                    bookmarkBtn.classList.add('bookmarked');
-                    bookmarkBtn.textContent = "✓ Bookmarked";
+            <h3>Comments:</h3>
+            <div id="commentsList">
+                <% if (comments.length> 0) { %>
+                    <% comments.forEach(function(comment) { %>
+                        <div class="comment">
+                            <strong>
+                                <%= comment.username %>
+                            </strong>
+                            </strong>
+                            <p>
+                                <%= comment.comment %>
+                            </p>
+                        </div>
+                        <% }); %>
+                            <% } else { %>
+                                <p>No comments yet.</p>
+                                <% } %>
+            </div>
+
+
+
+
+            <footer>
+                <p>&copy; 2025 All Rights Reserved</p>
+            </footer>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+            <script>
+                // เมื่อผู้ใช้กดปุ่มโพสต์ความคิดเห็น
+                document.getElementById('postCommentBtn').addEventListener('click', function () {
+                    const movieId = "<%= movie.id %>";  // ใช้ ID ของหนังจาก EJS
+                    const username = "<%= currentUser || 'Guest' %>"; // ถ้าไม่มี currentUser, ให้ใช้ 'Guest' แทน
+                    const comment = document.getElementById('commentText').value;
+
+                    // ส่งข้อมูลความคิดเห็นไปยังเซิร์ฟเวอร์
+                    fetch('/api/comments', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ movieId, username, comment }),
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log('Comment posted:', data);
+                            document.getElementById('commentText').value = '';  // เคลียร์ textarea
+
+                            // ดึงข้อมูลคอมเมนต์ใหม่หลังจากโพสต์สำเร็จ
+                            loadComments(); // โหลดความคิดเห็นใหม่จากเซิร์ฟเวอร์
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+
+                // ฟังก์ชันดึงข้อมูลความคิดเห็นใหม่จากเซิร์ฟเวอร์
+                function loadComments() {
+                    const movieId = "<%= movie.id %>"; // ใช้ ID ของหนังจาก EJS
+
+                    // ดึงข้อมูลคอมเมนต์จากเซิร์ฟเวอร์
+                    fetch(`/api/comments/${movieId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            const commentList = document.getElementById('commentsList');
+                            commentList.innerHTML = ''; // ล้างความคิดเห็นเก่า
+
+                            if (data.comments && data.comments.length > 0) {
+                                data.comments.forEach(function (comment) {
+                                    const newCommentElement = document.createElement('div');
+                                    newCommentElement.classList.add('comment');
+                                    newCommentElement.innerHTML = `<strong>${comment.username}</strong><p>${comment.comment}</p>`;
+                                    commentList.appendChild(newCommentElement);
+                                });
+                            } else {
+                                commentList.innerHTML = "<p>No comments yet.</p>";
+                            }
+                        })
+                        .catch(error => console.error('Error fetching comments:', error));
                 }
-            }
-    
-            function toggleBookmark() {
-                let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-                const index = bookmarks.findIndex(b => b.title === movie.title);
-    
-                if (index === -1) {
-                    bookmarks.push(movie);
-                    bookmarkBtn.classList.add('bookmarked');
-                    bookmarkBtn.textContent = "✓ Bookmarked";
-                } else {
-                    bookmarks.splice(index, 1);
-                    bookmarkBtn.classList.remove('bookmarked');
-                    bookmarkBtn.textContent = "★ Bookmark";
+
+                // โหลดความคิดเห็นเมื่อโหลดหน้าเว็บ
+                loadComments();
+            </script>
+
+            <script>
+                let totalVotes = 25;
+                let totalScore = 120; // ตัวอย่าง (เฉลี่ย 4.8)
+
+                document.querySelectorAll('.star').forEach(star => {
+                    star.addEventListener('click', function () {
+                        const value = parseInt(this.getAttribute('data-value'));
+                        totalVotes += 1;
+                        totalScore += value;
+
+                        const avg = (totalScore / totalVotes).toFixed(1);
+                        document.getElementById('average-rating').innerText = avg;
+                        document.getElementById('total-votes').innerText = totalVotes;
+                        highlightStars(value);
+                    });
+                });
+
+                function highlightStars(value) {
+                    document.querySelectorAll('.star').forEach(star => {
+                        const starValue = parseInt(star.getAttribute('data-value'));
+                        star.style.color = (starValue <= value) ? '#ff69b4' : '#777';
+                    });
                 }
-    
-                localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-            }
-    
-            bookmarkBtn.addEventListener('click', toggleBookmark);
-            window.onload = loadBookmarkStatus;
-        </script>
-        
+            </script>
+            <!--bookmarks-->
+            <script>
+                const movie = {
+                    title: "<%= movie.title %>",
+                    poster: "<%= movie.poster %>"
+                };
+
+                const bookmarkBtn = document.getElementById('bookmark-btn');
+
+                function loadBookmarkStatus() {
+                    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+                    if (bookmarks.some(b => b.title === movie.title)) {
+                        bookmarkBtn.classList.add('bookmarked');
+                        bookmarkBtn.textContent = "✓ Bookmarked";
+                    }
+                }
+
+                function toggleBookmark() {
+                    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+                    const index = bookmarks.findIndex(b => b.title === movie.title);
+
+                    if (index === -1) {
+                        bookmarks.push(movie);
+                        bookmarkBtn.classList.add('bookmarked');
+                        bookmarkBtn.textContent = "✓ Bookmarked";
+                    } else {
+                        bookmarks.splice(index, 1);
+                        bookmarkBtn.classList.remove('bookmarked');
+                        bookmarkBtn.textContent = "★ Bookmark";
+                    }
+
+                    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+                }
+
+                bookmarkBtn.addEventListener('click', toggleBookmark);
+                window.onload = loadBookmarkStatus;
+            </script>
+
 </body>
-</html> 
+
+</html>

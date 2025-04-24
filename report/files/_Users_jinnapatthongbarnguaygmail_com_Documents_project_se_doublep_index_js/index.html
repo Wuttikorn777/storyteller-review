@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - /Users/jinnapatthongbarnguaygmail.com/Documents/project_se/doublep/index.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>/Users/jinnapatthongbarnguaygmail.com/Documents/project_se/doublep/index.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">74.46</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">286</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">38.05</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.91</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">const express = require(&#039;express&#039;);
+const session = require(&#039;express-session&#039;);
+const fs = require(&#039;fs&#039;);
+const bcrypt = require(&#039;bcryptjs&#039;);
+const path = require(&#039;path&#039;);
+const taskController = require(&#039;./controllers/taskController&#039;);
+const authController = require(&#039;./controllers/authController&#039;);
+
+// Initialize Express app
+const app = express();
+app.use(express.json());
+
+app.use(express.urlencoded({ extended: true }));
+
+// Set EJS as the templating engine
+app.set(&#039;view engine&#039;, &#039;ejs&#039;);
+app.set(&#039;views&#039;, path.join(__dirname, &#039;views&#039;));
+
+
+// Session middleware
+app.use(session({
+  secret: &#039;secretKey&#039;,
+  resave: false,
+  saveUninitialized: true,
+}));
+
+// Route สำหรับแสดงฟอร์มการลงทะเบียน (GET request)
+app.get(&#039;/register&#039;, (req, res) =&gt; {
+  res.render(&#039;register&#039;);
+});
+
+// Route สำหรับรับข้อมูลจากฟอร์มและบันทึกข้อมูล (POST request)
+app.get(&#039;/register&#039;, (req, res) =&gt; {
+  res.render(&#039;register&#039;);
+});
+
+app.post(&#039;/register&#039;, (req, res) =&gt; {
+  const { username, email, password } = req.body;
+  bcrypt.hash(password, 10, (err, hashedPassword) =&gt; {
+    if (err) return res.status(500).send(&#039;Error hashing password&#039;);
+
+    fs.readFile(&#039;users.json&#039;, &#039;utf8&#039;, (err, data) =&gt; {
+      if (err) return res.status(500).send(&#039;Error reading users data&#039;);
+      let users = data ? JSON.parse(data) : [];
+      const userExists = users.find(user =&gt; user.username === username || user.email === email);
+      if (userExists) return res.status(400).send(&#039;Username หรือ Email นี้ถูกใช้งานแล้ว&#039;);
+
+      const newUser = {
+        username,
+        email,
+        password: hashedPassword,
+      };
+      users.push(newUser);
+
+      fs.writeFile(&#039;users.json&#039;, JSON.stringify(users, null, 2), err =&gt; {
+        if (err) return res.status(500).send(&#039;Error saving user data&#039;);
+        res.redirect(&#039;/login&#039;);
+      });
+    });
+  });
+});
+
+app.post(&#039;/login&#039;, (req, res) =&gt; {
+  const { username, password } = req.body;
+
+  fs.readFile(&#039;users.json&#039;, &#039;utf8&#039;, (err, data) =&gt; {
+    if (err) return res.status(500).send(&#039;โหลดข้อมูลผิดพลาด&#039;);
+    const users = JSON.parse(data);
+    const user = users.find(u =&gt; u.username === username);
+
+    if (!user) return res.status(400).send(&#039;ไม่พบผู้ใช้&#039;);
+
+    bcrypt.compare(password, user.password, (err, match) =&gt; {
+      if (err) return res.status(500).send(&#039;ตรวจสอบรหัสผิดพลาด&#039;);
+      if (!match) return res.status(400).send(&#039;รหัสผิด&#039;);
+
+      req.session.user = {
+        username: user.username,
+        email: user.email
+      };
+      
+
+      console.log(&#039;SESSION:&#039;, req.session.user);
+      res.redirect(&#039;/home&#039;);
+    });
+  });
+});
+
+// ✅ Route ไปหน้า login
+app.get(&quot;/&quot;, (req, res) =&gt; {
+  res.render(&quot;login&quot;);
+});
+
+// ✅ Route ไปหน้า Action Movies
+app.get(&quot;/action&quot;, (req, res) =&gt; {
+  res.render(&quot;action&quot;);
+});
+
+// ✅ Route ไปหน้า Horror Movies
+app.get(&quot;/horror&quot;, (req, res) =&gt; {
+  res.render(&quot;horror&quot;);
+});
+
+// ✅ Route ไปหน้า Comedy Movies
+app.get(&quot;/comedy&quot;, (req, res) =&gt; {
+  res.render(&quot;comedy&quot;);
+});
+
+// ✅ Route ไปหน้า drama Movies
+app.get(&quot;/drama&quot;, (req, res) =&gt; {
+  res.render(&quot;drama&quot;);
+});
+
+
+// Route สำหรับหน้า login
+app.get(&#039;/login&#039;, (req, res) =&gt; {
+  res.render(&#039;login&#039;);  // แสดงหน้า login.ejs
+});
+
+// Route สำหรับการ login (POST request)
+app.post(&#039;/login&#039;, (req, res) =&gt; {
+  const { username, password } = req.body;
+
+  // ตรวจสอบ username และ password จากไฟล์ users.json
+  fs.readFile(path.join(__dirname, &#039;users.json&#039;), &#039;utf8&#039;, (err, data) =&gt; {
+    if (err) {
+      return res.status(500).send(&#039;Error reading user data&#039;);
+    }
+
+    const users = JSON.parse(data);
+    const user = users.find(u =&gt; u.username === username);
+    if (user) {
+      // ตรวจสอบรหัสผ่านที่เข้ารหัส
+      bcrypt.compare(password, user.password, (err, isMatch) =&gt; {
+        if (err) {
+          return res.status(500).send(&#039;Error comparing password&#039;);
+        }
+        if (isMatch) {
+          req.session.username = username; // เก็บข้อมูลใน session
+          res.redirect(&#039;/home&#039;);
+        } else {
+          res.send(&#039;Invalid login credentials&#039;);
+        }
+      });
+    } else {
+      res.send(&#039;Invalid login credentials&#039;);
+    }
+  });
+});
+
+
+app.get(&#039;/home&#039;, (req, res) =&gt; {
+  if (!req.session.user) {
+      return res.redirect(&#039;/login&#039;); // ถ้ายังไม่ได้ login ให้กลับไปหน้า login
+  }
+
+  fs.readFile(path.join(__dirname, &#039;movies.json&#039;), &#039;utf8&#039;, (err, data) =&gt; {
+      if (err) {
+          console.error(&quot;Error reading movie data:&quot;, err);
+          return res.status(500).send(&#039;Error reading movie data&#039;);
+      }
+
+      const movies = JSON.parse(data); // แปลง JSON เป็น array ของหนัง
+      res.render(&#039;home&#039;, { 
+          currentUser: req.session.user.username,  // ✅ ส่ง `currentUser`
+          movies                                   // ✅ ส่ง `movies`
+      });
+  });
+});
+
+app.get(&#039;/bookmarks&#039;, (req, res) =&gt; {
+  if (!req.session.user) {
+    return res.redirect(&#039;/login&#039;); // ถ้ายังไม่ล็อกอิน ให้ไปที่หน้า login
+  }
+
+  console.log(&quot;SESSION DATA:&quot;, req.session.user); // ✅ Debug session
+
+  const movies = req.session.user.bookmarks || []; // เปลี่ยนจาก &#039;bookmarks&#039; เป็น &#039;movies&#039;
+
+  res.render(&#039;bookmarks&#039;, { 
+      currentUser: req.session.user.username, 
+      movies // ส่งค่าบุ๊คมาร์ค (หรือ movies) ไปที่ EJS
+  });
+});
+
+
+
+app.get(&#039;/logout&#039;, authController.logout);
+app.get(&#039;/sort&#039;, authController.authenticate, taskController.sortTasksByPriority);
+app.post(&#039;/add&#039;, authController.authenticate, taskController.addTask);
+app.post(&#039;/delete&#039;, authController.authenticate, taskController.deleteMultipleTasks);
+app.post(&#039;/search&#039;, authController.authenticate, taskController.searchTasksByName);
+
+app.get(&#039;/genre&#039;, (req, res) =&gt; {
+  res.render(&#039;genre&#039;);  // ให้แสดงหน้า genre.ejs
+});
+
+
+// เส้นทางที่รับ id ของภาพยนตร์ใน URL
+app.get(&#039;/moviedetails/:id&#039;, (req, res) =&gt; {
+  const movieId = req.params.id; // รับ ID จาก URL
+
+  fs.readFile(path.join(__dirname, &#039;movies.json&#039;), &#039;utf8&#039;, (err, data) =&gt; {
+    if (err) {
+      console.error(&quot;Error reading movie data:&quot;, err);
+      return res.status(500).send(&#039;Error reading movie data&#039;);
+    }
+
+    const movies = JSON.parse(data);  // แปลง JSON
+    const movie = movies.find(m =&gt; m.id === movieId);  // ค้นหาภาพยนตร์ที่ตรงกับ ID
+
+    if (!movie) {
+      return res.status(404).send(&#039;Movie not found&#039;);
+    }
+
+    // ส่งข้อมูล &#039;movie&#039; ไปที่ EJS
+    res.render(&#039;moviedetails&#039;, { movie });
+  });
+});
+// 📌 Route หน้า Bookmarks
+app.get(&#039;/bookmarks&#039;, (req, res) =&gt; {
+  if (!req.session.user) {
+      return res.redirect(&#039;/login&#039;); // ถ้ายังไม่ล็อกอิน ให้ไปที่หน้า login
+  }
+
+  console.log(&quot;SESSION DATA:&quot;, req.session.user); // ✅ Debug session
+
+  const bookmarks = req.session.user.bookmarks || []; // ดึงบุ๊คมาร์คของ user
+
+  res.render(&#039;bookmarks&#039;, { 
+      currentUser: req.session.user.username, 
+      bookmarks // ส่งค่าบุ๊คมาร์คไปที่ EJS
+  });
+});
+
+
+let bookmarks = []; // เก็บหนังที่บุ๊คมาร์คไว้
+
+// 📌 Route หน้า Home
+app.get(&#039;/&#039;, (req, res) =&gt; {
+    res.render(&#039;home&#039;);
+});
+
+// 📌 Route หน้า Bookmarks
+app.get(&#039;/bookmarks&#039;, (req, res) =&gt; {
+    res.render(&#039;bookmarks&#039;, { bookmarks });
+});
+
+// 📌 เพิ่มหนังเข้า Bookmarks
+app.post(&#039;/bookmarks/add&#039;, (req, res) =&gt; {
+  if (!req.session.user) {
+      return res.status(401).send(&#039;ต้องเข้าสู่ระบบก่อน&#039;);
+  }
+
+  const { title, poster } = req.body;
+  if (!req.session.user.bookmarks) {
+      req.session.user.bookmarks = [];
+  }
+
+  // ป้องกันการเพิ่มซ้ำ
+  if (!req.session.user.bookmarks.some(b =&gt; b.title === title)) {
+      req.session.user.bookmarks.push({ title, poster });
+  }
+
+  res.json({ success: true });
+});
+
+// 📌 ลบหนังออกจาก Bookmarks
+app.post(&#039;/bookmarks/remove&#039;, (req, res) =&gt; {
+  if (!req.session.user) {
+      return res.status(401).send(&#039;ต้องเข้าสู่ระบบก่อน&#039;);
+  }
+
+  const { title } = req.body;
+  req.session.user.bookmarks = req.session.user.bookmarks.filter(b =&gt; b.title !== title);
+
+  res.json({ success: true });
+});
+
+
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () =&gt; {
+  console.log(`Server is running on port ${PORT}`);
+});</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ cyclomatic }} <br>
+    Length : {{ halstead.length }} <br>
+    Difficulty : {{ halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
