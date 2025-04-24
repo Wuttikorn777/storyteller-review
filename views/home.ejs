@@ -480,29 +480,5 @@ dots.forEach((dot, index) => {
     document.querySelector('.next').addEventListener('click', showNextImage);
   </script>
   
-  <% movies.forEach(m => { %>
-    <div class="movie-card">
-      <img src="<%= m.poster %>" alt="<%= m.title %>">
-      <h3><%= m.title %></h3>
-      <button onclick="addBookmark('<%= m.id %>', '<%= m.title %>', '<%= m.poster %>')">
-        📑 Bookmark
-      </button>
-    </div>
-  <% }) %>
-  
-  <script>
-  function addBookmark(id, title, poster) {
-    fetch('/api/bookmarks', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id, title, poster })
-    })
-    .then(r => r.json())
-    .then(res => {
-       if (res.message) alert(res.message);       // optional
-    });
-  }
-  </script>
-  
 </body>
 </html>

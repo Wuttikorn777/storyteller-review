@@ -45,6 +45,9 @@
     <h2>Welcome, <%= currentUser %>!</h2>
     
     <ul id="bookmark-list"></ul>
+    <!-- add remove first -->
+    <button class="remove-first">Remove First Bookmark</button>
+    <button class="remove-last">Remove Last Bookmark</button>
     <a href="/home">⬅ Back to Home</a>
     
     <script>
@@ -58,20 +61,43 @@
         .then(({ bookmarks }) => {
           if (!bookmarks.length) { list.innerHTML = '<p>No bookmarks yet.</p>'; return; }
           list.innerHTML = '';
-          bookmarks.forEach(({ id, title, poster }) => {
+          bookmarks.forEach(({ movieId, title, poster }) => {
             const li = document.createElement('li');
             li.innerHTML = `
               <img src="${poster}" alt="${title}" width="120">
               <span>${title}</span>
-              <button onclick="removeBookmark('${id}')">Remove</button>`;
+              <button onclick="removeBookmark('${movieId}')">Remove</button>`;
             list.appendChild(li);
           });
         });
     }
     
-    function removeBookmark(id) {
-      fetch('/api/bookmarks/' + id, { method: 'DELETE' })
+    function removeBookmark(movieId) {
+      fetch('/api/bookmarks/' + movieId, { method: 'DELETE' })
         .then(loadBookmarks);
+    }
+
+    document.querySelector('.remove-first').addEventListener('click', removeFirstBookmark);
+    document.querySelector('.remove-last').addEventListener('click', removeLastBookmark);
+
+    function removeFirstBookmark() {
+      console.log('Removing first bookmark...');
+      fetch('/api/bookmarks/first', { method: 'POST' })
+        .then(response => {
+          console.log('Response:', response);
+          loadBookmarks();
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function removeLastBookmark() {
+      console.log('Removing last bookmark...');
+      fetch('/api/bookmarks/last', { method: 'POST' })
+        .then(response => {
+          console.log('Response:', response);
+          loadBookmarks();
+        })
+        .catch(error => console.error('Error:', error));
     }
     </script>
     

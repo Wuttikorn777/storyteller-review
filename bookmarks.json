@@ -1,21 +1,14 @@
-{
-  "admin": [
-    {
-      "id": "5",
-      "title": "Joker",
-      "poster": "https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg"
-    },
-    {
-      "id": "4",
-      "title": "Shrek",
-      "poster": "https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg"
-    }
-  ],
-  "adminn": [
-    {
-      "id": "7",
-      "title": "Bad Boys: Ride or Die",
-      "poster": "https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg"
-    }
-  ]
-}
+[
+  {
+    "movieId": "8",
+    "username": "Tle1234",
+    "title": "Nosferatu",
+    "poster": "https://m.media-amazon.com/images/M/MV5BY2FhZGE3NmEtNWJjOC00NDI1LWFhMTQtMjcxNmQzZmEwNGIzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "movieId": "6",
+    "username": "Tle1234",
+    "title": "Ballerina",
+    "poster": "https://i0.wp.com/jediyuth.com/wp-content/uploads/2024/12/Ballerina_Poster_Thai-version.jpg?w=1000&amp;ssl=1"
+  }
+]

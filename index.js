@@ -5,6 +5,8 @@ const bcrypt = require('bcryptjs');
 const path = require('path');
 const http = require('http'); // ใช้สำหรับสร้าง HTTP server
 const socketIo = require('socket.io'); // ใช้สำหรับ socket.io
+const ratingController = require('./controllers/ratingController');
+const bookmarkController = require('./controllers/bookmarkController');
 const taskController = require('./controllers/taskController');
 const authController = require('./controllers/authController');
 
@@ -21,7 +23,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // ✅ Route ไปหน้า login
 app.get("/", (req, res) => {
-  res.render("login");
+  res.redirect("/home");
 });
 
 // ✅ Route ไปหน้า Action Movies
@@ -144,68 +146,41 @@ app.get('/home', (req, res) => {
   });
 });
 
-// หน้า Bookmarks
-const BOOKMARK_FILE = path.join(__dirname, 'bookmarks.json');
-
-function readBookmarks() {
-  if (!fs.existsSync(BOOKMARK_FILE)) return {};
-  return JSON.parse(fs.readFileSync(BOOKMARK_FILE, 'utf8'));
-}
-
-function writeBookmarks(data) {
-  fs.writeFileSync(BOOKMARK_FILE, JSON.stringify(data, null, 2));
-}
-
 //การตรวจสอบการเข้าสู่ระบบ
 app.get('/bookmarks', (req, res) => {
   if (!req.session.user) {
     return res.redirect('/login');
   }
   res.render('bookmarks', {
-    currentUser: req.session.user.username,
-    bookmarks: req.session.user.bookmarks || []
+    currentUser: req.session.user.username
   });
 });
+
 // GET bookmarks ของ user
-app.get('/api/bookmarks', requireLogin, (req, res) => {
-  const username = req.session.user.username;
-  const data = readBookmarks();
-  res.json({ bookmarks: data[username] || [] });
-});
+app.get('/api/bookmarks', requireLogin, bookmarkController.getBookmarksByUser);
 
 // POST add bookmark  { id, title, poster }
-app.post('/api/bookmarks', requireLogin, (req, res) => {
-  const username = req.session.user.username;
-  const { id, title, poster } = req.body;
-  if (!id || !title) return res.status(400).json({ message: 'Missing fields' });
-
-  const data = readBookmarks();
-  data[username] = data[username] || [];
-  if (!data[username].some(m => m.id === id)) {
-    data[username].push({ id, title, poster });
-    writeBookmarks(data);
-  }
-  res.status(201).json({ message: 'Added', bookmarks: data[username] });
-});
+app.post('/api/bookmarks', requireLogin, bookmarkController.addBookmark);
 
 // DELETE /api/bookmarks/:movieId
-app.delete('/api/bookmarks/:movieId', requireLogin, (req, res) => {
-  const username = req.session.user.username;
-  const movieId = req.params.movieId;
+app.delete('/api/bookmarks/:movieId', requireLogin, bookmarkController.deleteBookmark);
 
-  const data = readBookmarks();
-  if (!data[username]) return res.status(404).json({ message: 'No bookmarks' });
+// POST /api/bookmarks/first
+app.post('/api/bookmarks/first', requireLogin, bookmarkController.deleteFirstByUser);
 
-  data[username] = data[username].filter(m => m.id !== movieId);
-  writeBookmarks(data);
-  res.json({ message: 'Removed', bookmarks: data[username] });
-});
+// POST /api/bookmarks/last
+app.post('/api/bookmarks/last', requireLogin, bookmarkController.deleteLastByUser);
 
 
 // เส้นทางที่รับ id ของภาพยนตร์ใน URL
 // Route แสดงรายละเอียดหนัง
 app.get('/moviedetails/:id', (req, res) => {
   const movieId = req.params.id;
+  if (!req.session.user) {
+    return res.redirect('/login'); // ถ้ายังไม่ได้ login ให้กลับไปหน้า login
+  }
+  // Load rating data
+  const ratingData = JSON.parse(fs.readFileSync(path.join(__dirname, 'ratings.json'), 'utf8'));
 
   // 1) อ่านไฟล์หนัง
   fs.readFile(path.join(__dirname, 'movies.json'), 'utf8', (err, movieData) => {
@@ -226,11 +201,16 @@ app.get('/moviedetails/:id', (req, res) => {
       res.render('moviedetails', {
         movie,
         comments,
+        ratingData,
         currentUser: req.session.user ? req.session.user.username : 'Guest'
       });
     });
   });
 });
+
+app.post('/api/rating', ratingController.addRating);
+
+app.get('/api/rating/:movieId', ratingController.getRatingsByMovieId);
 
 // เส้นทางเพื่อดึงข้อมูลความคิดเห็นทั้งหมดสำหรับภาพยนตร์
 app.get('/api/comments/:movieId', (req, res) => {
