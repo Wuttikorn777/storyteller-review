@@ -48,5 +48,15 @@
     "username": "ningning",
     "email": "ningning@gmail.com",
     "password": "$2b$10$FgoQv7yJVH7IVqXLkFuLiOIcGUVyuNhUlLO9x4uNUm6lpihUKVc1."
+  },
+  {
+    "username": "u",
+    "email": "username@example.com",
+    "password": "$2b$10$.I.GMo1ikKUc.FuU7Dxvd.kLswDAYf/kE4Ru1qmFVfuyKUhzP5gNC"
+  },
+  {
+    "username": "adminn",
+    "email": "adminn@example.com",
+    "password": "$2b$10$eYXJZMrL8E2C4CFFOmTU5OlQBGL8nJPxuV4s3s1QN043kNFBIsVO2"
   }
 ]

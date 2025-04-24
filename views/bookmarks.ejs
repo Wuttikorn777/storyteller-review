@@ -41,71 +41,40 @@
 </head>
 <body>
 
-   
     <h1>My Bookmarks</h1>
     <h2>Welcome, <%= currentUser %>!</h2>
-    <p id="user-info"></p>
-    <ul id="bookmark-list" class="bookmark-list"></ul>
-    <a href="/home" class="back-btn">⬅ Back to Home</a>
-    <script>  
-      let currentUser = "<%= currentUser %>";
-
-function getUserBookmarks() {
-    return JSON.parse(localStorage.getItem(`bookmarks_${currentUser}`)) || [];
-}
-
-function saveUserBookmarks(bookmarks) {
-    localStorage.setItem(`bookmarks_${currentUser}`, JSON.stringify(bookmarks));
-} 
-    document.addEventListener("DOMContentLoaded", function () {
-        loadBookmarks();
-      });
-      
-      function loadBookmarks() {
-        let bookmarkList = document.getElementById("bookmark-list");
-        let bookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];
-      
-        if (bookmarks.length === 0) {
-            bookmarkList.innerHTML = "<p>No bookmarks yet.</p>";
-            return;
-        }
-      
-        bookmarkList.innerHTML = ""; // เคลียร์ค่าก่อนโหลดใหม่
-      
-        bookmarks.forEach((movie, index) => {
-            let listItem = document.createElement("li");
-            listItem.innerHTML = `
-                <img src="${movie.poster}" alt="${movie.title}" width="250">
-                <h3>${movie.title}</h3>
-                 <button class="remove-btn" onclick="removeBookmark(${index})">Remove</button>
-                `;
-            bookmarkList.appendChild(listItem);
+    
+    <ul id="bookmark-list"></ul>
+    <a href="/home">⬅ Back to Home</a>
+    
+    <script>
+    const list = document.getElementById('bookmark-list');
+    
+    document.addEventListener('DOMContentLoaded', loadBookmarks);
+    
+    function loadBookmarks() {
+      fetch('/api/bookmarks')
+        .then(r => r.json())
+        .then(({ bookmarks }) => {
+          if (!bookmarks.length) { list.innerHTML = '<p>No bookmarks yet.</p>'; return; }
+          list.innerHTML = '';
+          bookmarks.forEach(({ id, title, poster }) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+              <img src="${poster}" alt="${title}" width="120">
+              <span>${title}</span>
+              <button onclick="removeBookmark('${id}')">Remove</button>`;
+            list.appendChild(li);
+          });
         });
-      }
-      </script>
-<script>
-    function addBookmark(title, poster) {
-        let bookmarks = getUserBookmarks();
-        if (!bookmarks.some(b => b.title === title)) {
-            bookmarks.push({ title, poster });
-            saveUserBookmarks(bookmarks);
-        }
-        loadBookmarks();
     }
-
-    function removeBookmark(index) {
-            let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-            bookmarks.splice(index, 1);
-            localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-            loadBookmarks();
-        }
-
-        window.onload = loadBookmarks;
-
-
-</script>
-
-
-
+    
+    function removeBookmark(id) {
+      fetch('/api/bookmarks/' + id, { method: 'DELETE' })
+        .then(loadBookmarks);
+    }
+    </script>
+    
+    
 </body>
 </html>

@@ -428,41 +428,40 @@
             </script>
             <!--bookmarks-->
             <script>
-                const movie = {
-                    title: "<%= movie.title %>",
-                    poster: "<%= movie.poster %>"
-                };
-
-                const bookmarkBtn = document.getElementById('bookmark-btn');
-
-                function loadBookmarkStatus() {
-                    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-                    if (bookmarks.some(b => b.title === movie.title)) {
-                        bookmarkBtn.classList.add('bookmarked');
-                        bookmarkBtn.textContent = "✓ Bookmarked";
-                    }
+                const movieId   = "<%= movie.id %>";
+                const movieTitle= "<%= movie.title %>";
+                const moviePoster = "<%= movie.poster %>";
+                const btn = document.getElementById('bookmark-btn');
+                
+                // 1. เช็กว่าเรื่องนี้อยู่ใน Bookmarks หรือไม่
+                function refreshStatus() {
+                  fetch('/api/bookmarks')
+                    .then(r => r.json())
+                    .then(({ bookmarks }) => {
+                      const found = bookmarks.some(b => b.id === movieId);
+                      btn.classList.toggle('bookmarked', found);
+                      btn.textContent = found ? '✓ Bookmarked' : '★ Bookmark';
+                    });
                 }
-
-                function toggleBookmark() {
-                    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-                    const index = bookmarks.findIndex(b => b.title === movie.title);
-
-                    if (index === -1) {
-                        bookmarks.push(movie);
-                        bookmarkBtn.classList.add('bookmarked');
-                        bookmarkBtn.textContent = "✓ Bookmarked";
-                    } else {
-                        bookmarks.splice(index, 1);
-                        bookmarkBtn.classList.remove('bookmarked');
-                        bookmarkBtn.textContent = "★ Bookmark";
-                    }
-
-                    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-                }
-
-                bookmarkBtn.addEventListener('click', toggleBookmark);
-                window.onload = loadBookmarkStatus;
-            </script>
+                
+                // 2. สลับ bookmark เมื่อกด
+                btn.addEventListener('click', () => {
+                  if (btn.classList.contains('bookmarked')) {
+                    // ลบ
+                    fetch('/api/bookmarks/' + movieId, { method: 'DELETE' })
+                      .then(refreshStatus);
+                  } else {
+                    // เพิ่ม
+                    fetch('/api/bookmarks', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ id: movieId, title: movieTitle, poster: moviePoster })
+                    }).then(refreshStatus);
+                  }
+                });
+                
+                document.addEventListener('DOMContentLoaded', refreshStatus);
+                </script>
 
 </body>
 

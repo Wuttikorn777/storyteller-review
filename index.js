@@ -59,6 +59,12 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+//middleware เช็คการ login
+function requireLogin(req, res, next) {
+  if (!req.session.user) return res.status(401).json({ message: 'Not logged in' });
+  next();
+}
+
 // Route สำหรับแสดงฟอร์มการลงทะเบียน (GET request)
 app.get('/register', (req, res) => {
   res.render('register');
@@ -93,7 +99,7 @@ app.post('/register', (req, res) => {
 
 // Route สำหรับการ login (POST request)
 app.post('/login', (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, bookmarks} = req.body;
 
   fs.readFile('users.json', 'utf8', (err, data) => {
     if (err) return res.status(500).send('โหลดข้อมูลผิดพลาด');
@@ -108,7 +114,8 @@ app.post('/login', (req, res) => {
 
       req.session.user = {
         username: user.username,
-        email: user.email
+        email: user.email,
+        bookmarks: user.bookmarks || []
       };
 
       console.log('SESSION:', req.session.user);
@@ -138,51 +145,84 @@ app.get('/home', (req, res) => {
 });
 
 // หน้า Bookmarks
+const BOOKMARK_FILE = path.join(__dirname, 'bookmarks.json');
+
+function readBookmarks() {
+  if (!fs.existsSync(BOOKMARK_FILE)) return {};
+  return JSON.parse(fs.readFileSync(BOOKMARK_FILE, 'utf8'));
+}
+
+function writeBookmarks(data) {
+  fs.writeFileSync(BOOKMARK_FILE, JSON.stringify(data, null, 2));
+}
+
+//การตรวจสอบการเข้าสู่ระบบ
 app.get('/bookmarks', (req, res) => {
   if (!req.session.user) {
-    return res.redirect('/login'); // ถ้ายังไม่ล็อกอิน ให้ไปที่หน้า login
+    return res.redirect('/login');
   }
-
-  console.log("SESSION DATA:", req.session.user); // ✅ Debug session
-
-  const movies = req.session.user.bookmarks || []; // เปลี่ยนจาก 'bookmarks' เป็น 'movies'
-
   res.render('bookmarks', {
     currentUser: req.session.user.username,
-    movies // ส่งค่าบุ๊คมาร์ค (หรือ movies) ไปที่ EJS
+    bookmarks: req.session.user.bookmarks || []
   });
 });
+// GET bookmarks ของ user
+app.get('/api/bookmarks', requireLogin, (req, res) => {
+  const username = req.session.user.username;
+  const data = readBookmarks();
+  res.json({ bookmarks: data[username] || [] });
+});
+
+// POST add bookmark  { id, title, poster }
+app.post('/api/bookmarks', requireLogin, (req, res) => {
+  const username = req.session.user.username;
+  const { id, title, poster } = req.body;
+  if (!id || !title) return res.status(400).json({ message: 'Missing fields' });
+
+  const data = readBookmarks();
+  data[username] = data[username] || [];
+  if (!data[username].some(m => m.id === id)) {
+    data[username].push({ id, title, poster });
+    writeBookmarks(data);
+  }
+  res.status(201).json({ message: 'Added', bookmarks: data[username] });
+});
+
+// DELETE /api/bookmarks/:movieId
+app.delete('/api/bookmarks/:movieId', requireLogin, (req, res) => {
+  const username = req.session.user.username;
+  const movieId = req.params.movieId;
+
+  const data = readBookmarks();
+  if (!data[username]) return res.status(404).json({ message: 'No bookmarks' });
+
+  data[username] = data[username].filter(m => m.id !== movieId);
+  writeBookmarks(data);
+  res.json({ message: 'Removed', bookmarks: data[username] });
+});
+
 
 // เส้นทางที่รับ id ของภาพยนตร์ใน URL
-// Route สำหรับการแสดงรายละเอียดของหนัง
+// Route แสดงรายละเอียดหนัง
 app.get('/moviedetails/:id', (req, res) => {
   const movieId = req.params.id;
 
-  // ดึงข้อมูลหนังจาก movies.json
+  // 1) อ่านไฟล์หนัง
   fs.readFile(path.join(__dirname, 'movies.json'), 'utf8', (err, movieData) => {
-    if (err) {
-      console.error("Error reading movie data:", err);
-      return res.status(500).send('Error reading movie data');
-    }
+    if (err) return res.status(500).send('Error reading movie data');
 
     const movies = JSON.parse(movieData);
     const movie = movies.find(m => m.id === movieId);
+    if (!movie) return res.status(404).send('Movie not found');
 
-    if (!movie) {
-      return res.status(404).send('Movie not found');
-    }
-
-    // อ่านความคิดเห็นจาก comments.json
-    const commentsFilePath = path.join(__dirname, 'comments.json');
-    fs.readFile(commentsFilePath, 'utf8', (err, commentsData) => {
-      if (err) {
-        console.error("Error reading comments data:", err);
-        return res.status(500).send('Error reading comments data');
+    // 2) อ่านไฟล์คอมเมนต์
+    fs.readFile(path.join(__dirname, 'comments.json'), 'utf8', (err, commentsData) => {
+      let comments = [];
+      if (!err) {
+        const all = JSON.parse(commentsData);
+        comments = all[movieId] || [];
       }
-
-      const comments = JSON.parse(commentsData)[movieId] || [];
-
-      // ส่งข้อมูลทั้งหมดไปยัง EJS (รวมถึง movie และ comments)
+      // 3) render ครั้งเดียว หลังได้ทุกอย่าง
       res.render('moviedetails', {
         movie,
         comments,
@@ -249,8 +289,6 @@ app.post('/api/comments', (req, res) => {
     });
   });
 });
-
-
 
 
 // Start server

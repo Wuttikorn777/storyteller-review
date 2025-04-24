@@ -1,0 +1,21 @@
+{
+  "admin": [
+    {
+      "id": "5",
+      "title": "Joker",
+      "poster": "https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Shrek",
+      "poster": "https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg"
+    }
+  ],
+  "adminn": [
+    {
+      "id": "7",
+      "title": "Bad Boys: Ride or Die",
+      "poster": "https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg"
+    }
+  ]
+}
