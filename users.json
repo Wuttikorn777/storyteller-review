@@ -58,5 +58,10 @@
     "username": "adminn",
     "email": "adminn@example.com",
     "password": "$2b$10$eYXJZMrL8E2C4CFFOmTU5OlQBGL8nJPxuV4s3s1QN043kNFBIsVO2"
+  },
+  {
+    "username": "Tle1234",
+    "email": "wuttikorn.jantawises@g.swu.ac.th",
+    "password": "$2b$10$p2oN8eKf9vkP3lhUSykCVeF9/pgkdFv5WojWJjzZbs8EyNGVgViw6"
   }
 ]

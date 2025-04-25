@@ -1,80 +1,246 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookmarks - STORYTELLER</title>
-    <style>
-        body {
-            background: #121212;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .bookmark-list {
-            list-style: none;
-            padding: 0;
-        }
-        .bookmark-list li {
-            background: #222;
-            margin: 10px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .remove-btn {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background: #ff69b4;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Bookmarks - STORYTELLER</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+
+      /* Light pink background */
+      color: #d7d7d7;
+      /* Dark gray text for readability */
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .bookmark-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bookmark-list li {
+      background: #ffd4db;
+      /* Soft pink background */
+      margin: 10px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.856);
+      /* Subtle shadow */
+    }
+
+    .remove-btn {
+      background-color: #ff69b4;
+      /* Hot pink */
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .remove-btn:hover {
+      background-color: #ff1493;
+      /* Darker pink on hover */
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #ff69b4;
+      /* Hot pink */
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .back-btn:hover {
+      background: #292929;
+      /* Darker pink on hover */
+    }
+
+    button {
+      background-color: #ff69b4;
+      /* Hot pink */
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+      /* Darker pink on hover */
+    }
+
+    #searchInput {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ff69b4;
+      /* Pink border */
+      border-radius: 8px;
+      font-size: 14px;
+      width: 250px;
+    }
+
+    #bookmark-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    #bookmark-list li {
+      padding: 15px;
+      margin: 10px 0;
+      background-color: #ffc0cb;
+      /* Soft pink */
+      border: 1px solid #ff69b4;
+      /* Pink border */
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      /* Subtle shadow */
+    }
+
+    #bookmark-list li span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #4a4a4a;
+      /* Dark gray text */
+    }
+
+    #bookmark-list li button {
+      background-color: #ff69b4;
+      /* Hot pink */
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    #bookmark-list li button:hover {
+      background-color: #ff1493;
+      /* Darker pink on hover */
+    }
+  </style>
 </head>
+
 <body>
 
-    <h1>My Bookmarks</h1>
-    <h2>Welcome, <%= currentUser %>!</h2>
-    
-    <ul id="bookmark-list"></ul>
-    <a href="/home">⬅ Back to Home</a>
-    
-    <script>
+  <h1>My Bookmarks</h1>
+  <h2>Welcome, <%= currentUser %>!</h2>
+
+  <div>
+    <button onclick="sortBookmarksByTitle()">Sort Ascending</button>
+    <button onclick="sortBookmarksByTitleDesc()">Sort Descending</button>
+    <input type="text" id="searchInput" placeholder="Search by title">
+    <button onclick="searchBookmarks()">Search</button>
+  </div>
+
+
+
+  <script>
+    function sortBookmarksByTitle() {
+      const list = document.getElementById('bookmark-list');
+      const items = Array.from(list.children);
+      items.sort((a, b) => a.querySelector('span').innerText.localeCompare(b.querySelector('span').innerText));
+      list.innerHTML = '';
+      items.forEach(item => list.appendChild(item));
+    }
+
+    function sortBookmarksByTitleDesc() {
+      const list = document.getElementById('bookmark-list');
+      const items = Array.from(list.children);
+      items.sort((a, b) => b.querySelector('span').innerText.localeCompare(a.querySelector('span').innerText));
+      list.innerHTML = '';
+      items.forEach(item => list.appendChild(item));
+    }
+
+    function searchBookmarks() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const list = document.getElementById('bookmark-list');
+      const items = Array.from(list.children);
+      items.forEach(item => {
+        const title = item.querySelector('span').innerText.toLowerCase();
+        item.style.display = title.includes(input) ? '' : 'none';
+      });
+    }
+
+
+  </script>
+
+  <ul id="bookmark-list"></ul>
+  <!-- add remove first -->
+  <button class="remove-first">Remove First Bookmark</button>
+  <button class="remove-last">Remove Last Bookmark</button>
+  <a href="/home">⬅ Back to Home</a>
+
+  <script>
     const list = document.getElementById('bookmark-list');
-    
+
     document.addEventListener('DOMContentLoaded', loadBookmarks);
-    
+
     function loadBookmarks() {
       fetch('/api/bookmarks')
         .then(r => r.json())
         .then(({ bookmarks }) => {
           if (!bookmarks.length) { list.innerHTML = '<p>No bookmarks yet.</p>'; return; }
           list.innerHTML = '';
-          bookmarks.forEach(({ id, title, poster }) => {
+          bookmarks.forEach(({ movieId, title, poster }) => {
             const li = document.createElement('li');
             li.innerHTML = `
               <img src="${poster}" alt="${title}" width="120">
               <span>${title}</span>
-              <button onclick="removeBookmark('${id}')">Remove</button>`;
+              <button onclick="removeBookmark('${movieId}')">Remove</button>`;
             list.appendChild(li);
           });
         });
     }
-    
-    function removeBookmark(id) {
-      fetch('/api/bookmarks/' + id, { method: 'DELETE' })
+
+    function removeBookmark(movieId) {
+      fetch('/api/bookmarks/' + movieId, { method: 'DELETE' })
         .then(loadBookmarks);
     }
-    </script>
-    
-    
+
+    document.querySelector('.remove-first').addEventListener('click', removeFirstBookmark);
+    document.querySelector('.remove-last').addEventListener('click', removeLastBookmark);
+
+    function removeFirstBookmark() {
+      console.log('Removing first bookmark...');
+      fetch('/api/bookmarks/first', { method: 'POST' })
+        .then(response => {
+          console.log('Response:', response);
+          loadBookmarks();
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function removeLastBookmark() {
+      console.log('Removing last bookmark...');
+      fetch('/api/bookmarks/last', { method: 'POST' })
+        .then(response => {
+          console.log('Response:', response);
+          loadBookmarks();
+        })
+        .catch(error => console.error('Error:', error));
+    }
+  </script>
+
+
 </body>
+
 </html>

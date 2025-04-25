@@ -220,30 +220,36 @@
         }
 
 
-        .rating-section {
-            margin-top: 25px;
+        #rating-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
         }
-
-        .rating-stars {
-            display: flex;
-            gap: 8px;
+        .modal-content {
+            background: #222;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
         }
-
-        .rating-stars .star {
-            font-size: 2rem;
-            color: #777;
+        .rating-btn {
+            padding: 8px 12px;
+            font-size: 18px;
+            background: #ff69b4;
+            border: none;
+            border-radius: 5px;
+            color: white;
             cursor: pointer;
-            transition: color 0.3s, transform 0.2s;
         }
-
-        .rating-stars .star:hover {
-            transform: scale(1.2);
-        }
-
-        .rating-display {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            color: #ddd;
+        .rating-btn:hover {
+            background-color: #ff85c1 !important;
+            transform: scale(1.1);
         }
 
         .bookmark-btn {
@@ -309,9 +315,15 @@
             <p><strong>Description:</strong>
                 <%= movie.description %>
             </p>
-            <p>Average Rating: <%= movie.averageRating %> / 5</p>
-            <p>Total Votes: <%= movie.totalVotes %>
-            </p>
+            
+            <div class="rating-section">
+                <h3>ให้คะแนนหนังเรื่องนี้</h3>
+                <button class="bookmark-btn" id="open-rating-modal">★ ให้คะแนน</button>
+                <div class="rating-display">
+                    คะแนนเฉลี่ย: <span id="average-rating">-</span> / 5 |
+                    จำนวนโหวต: <span id="total-votes">-</span>
+                </div>
+            </div>
 
             <!-- Comment Section -->
             <h3>Leave a Comment</h3>
@@ -339,7 +351,20 @@
                                 <% } %>
             </div>
 
-
+            <!-- Rating Modal -->
+            <div id="rating-modal">
+                <div class="modal-content">
+                    <h3>เลือกคะแนน (0.5 - 5 ดาว)</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 10px 0;">
+                        <script>
+                            for (let i = 0.5; i <= 5.0; i += 0.5) {
+                                document.write(`<button class="rating-btn" data-value="${i}">${i} ★</button>`);
+                            }
+                        </script>
+                    </div>
+                    <button onclick="closeRatingModal()" class="bookmark-btn" style="background: gray;">ปิด</button>
+                </div>
+            </div>
 
 
             <footer>
@@ -403,28 +428,47 @@
             </script>
 
             <script>
-                let totalVotes = 25;
-                let totalScore = 120; // ตัวอย่าง (เฉลี่ย 4.8)
+                function updateRatingDisplay() {
+                    fetch('/api/rating/<%= movie.id %>')
+                        .then(response => response.json())
+                        .then(data => {
+                            const averageRating = data.averageRating || 0;
+                            const totalVotes = data.totalVotes || 0;
+                            document.getElementById('average-rating').textContent = averageRating.toFixed(1);
+                            document.getElementById('total-votes').textContent = totalVotes;
+                        })
+                        .catch(error => console.error('Error fetching rating:', error));
+                }
 
-                document.querySelectorAll('.star').forEach(star => {
-                    star.addEventListener('click', function () {
-                        const value = parseInt(this.getAttribute('data-value'));
-                        totalVotes += 1;
-                        totalScore += value;
+                function openRatingModal() {
+                    document.getElementById('rating-modal').style.display = 'flex';
+                }
 
-                        const avg = (totalScore / totalVotes).toFixed(1);
-                        document.getElementById('average-rating').innerText = avg;
-                        document.getElementById('total-votes').innerText = totalVotes;
-                        highlightStars(value);
-                    });
+                function closeRatingModal() {
+                    document.getElementById('rating-modal').style.display = 'none';
+                }
+
+                document.getElementById('open-rating-modal').addEventListener('click', openRatingModal);
+
+                document.addEventListener('click', function (e) {
+                    if (e.target.classList.contains('rating-btn')) {
+                        const value = parseFloat(e.target.getAttribute('data-value'));
+                        // ส่งคะแนนไปยังเซิร์ฟเวอร์
+                        fetch('/api/rating', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ movieId: "<%= movie.id %>", rating: value }),
+                        })
+                        updateRatingDisplay();
+                        closeRatingModal();
+                    }
                 });
 
-                function highlightStars(value) {
-                    document.querySelectorAll('.star').forEach(star => {
-                        const starValue = parseInt(star.getAttribute('data-value'));
-                        star.style.color = (starValue <= value) ? '#ff69b4' : '#777';
-                    });
-                }
+                window.addEventListener('load', () => {
+                    updateRatingDisplay();
+                });
             </script>
             <!--bookmarks-->
             <script>
@@ -435,14 +479,14 @@
                 
                 // 1. เช็กว่าเรื่องนี้อยู่ใน Bookmarks หรือไม่
                 function refreshStatus() {
-                  fetch('/api/bookmarks')
-                    .then(r => r.json())
-                    .then(({ bookmarks }) => {
-                      const found = bookmarks.some(b => b.id === movieId);
-                      btn.classList.toggle('bookmarked', found);
-                      btn.textContent = found ? '✓ Bookmarked' : '★ Bookmark';
-                    });
-                }
+                    fetch('/api/bookmarks')
+                        .then(r => r.json())
+                        .then(({ bookmarks }) => {
+                        const isBookmarked = bookmarks.some(b => b.movieId === movieId);
+                        btn.classList.toggle('bookmarked', isBookmarked);
+                        btn.textContent = isBookmarked ? '★ Bookmarked' : '★ Bookmark';
+                        });
+                    }
                 
                 // 2. สลับ bookmark เมื่อกด
                 btn.addEventListener('click', () => {
@@ -455,7 +499,7 @@
                     fetch('/api/bookmarks', {
                       method: 'POST',
                       headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ id: movieId, title: movieTitle, poster: moviePoster })
+                      body: JSON.stringify({ movieId: movieId, title: movieTitle, poster: moviePoster })
                     }).then(refreshStatus);
                   }
                 });

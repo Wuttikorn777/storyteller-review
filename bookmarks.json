@@ -1,21 +1,26 @@
-{
-  "admin": [
-    {
-      "id": "5",
-      "title": "Joker",
-      "poster": "https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg"
-    },
-    {
-      "id": "4",
-      "title": "Shrek",
-      "poster": "https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg"
-    }
-  ],
-  "adminn": [
-    {
-      "id": "7",
-      "title": "Bad Boys: Ride or Die",
-      "poster": "https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg"
-    }
-  ]
-}
+[
+  {
+    "movieId": "6",
+    "username": "kimwinter",
+    "title": "Ballerina",
+    "poster": "https://i0.wp.com/jediyuth.com/wp-content/uploads/2024/12/Ballerina_Poster_Thai-version.jpg?w=1000&amp;ssl=1"
+  },
+  {
+    "movieId": "5",
+    "username": "kimwinter",
+    "title": "Joker",
+    "poster": "https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg"
+  },
+  {
+    "movieId": "7",
+    "username": "kimwinter",
+    "title": "Bad Boys: Ride or Die",
+    "poster": "https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg"
+  },
+  {
+    "movieId": "3",
+    "username": "kimwinter",
+    "title": "Adolescence",
+    "poster": "https://resizing.flixster.com/UAU9F6CrWLvjFOArCiUGe_sQpkw=/206x305/v2/https://resizing.flixster.com/xHBOCtYwNN39zZJ5ljhZjxm0pEA=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMWJmZmY2YzAtYmQ3ZC00MmZmLWIxOTYtZmZiMzVkMzg2Mzg3LmpwZw=="
+  }
+]
