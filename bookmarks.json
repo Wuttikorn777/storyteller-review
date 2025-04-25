@@ -28,5 +28,29 @@
     "username": "angpao",
     "title": "Severance",
     "poster": "https://m.media-amazon.com/images/M/MV5BZDI5YzJhODQtMzQyNy00YWNmLWIxMjUtNDBjNjA5YWRjMzExXkEyXkFqcGc@._V1_.jpg"
+  },
+  {
+    "movieId": "9",
+    "username": "karina",
+    "title": "พนอ",
+    "poster": "https://lh3.googleusercontent.com/6qK91RhkYF5CGu_a1Rul7_gSQv4H5vr3tyCNxUZ7hHEQOuDcqQPD3iqLrQlZUAnmVUODx8KfVQs84hC6JCeZOHGV5jTXEgCc0w=s0"
+  },
+  {
+    "movieId": "8",
+    "username": "karina",
+    "title": "Nosferatu",
+    "poster": "https://m.media-amazon.com/images/M/MV5BY2FhZGE3NmEtNWJjOC00NDI1LWFhMTQtMjcxNmQzZmEwNGIzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+  },
+  {
+    "movieId": "7",
+    "username": "giselle",
+    "title": "Bad Boys: Ride or Die",
+    "poster": "https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg"
+  },
+  {
+    "movieId": "1",
+    "username": "giselle",
+    "title": "Final Destination: Bloodlines",
+    "poster": "https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg"
   }
 ]

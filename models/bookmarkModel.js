@@ -16,7 +16,7 @@ class Bookmark {
     // Get all bookmarks
     getAllBookmarks() {
         //return this.bookmarks;
-        return this.bookmarks.map();
+        return this.bookmarks;
     }
 
     getBookmarksByUser(username) {
@@ -75,8 +75,14 @@ class Bookmark {
     // Load bookmarks from a file
     loadBookmarksFromFile(filePath) {
         if (fs.existsSync(filePath)) {
-            const data = fs.readFileSync(filePath);
-            this.bookmarks = JSON.parse(data);
+            const data = fs.readFileSync(filePath, 'utf8');
+            try {
+                this.bookmarks = JSON.parse(data || '[]'); // Handle empty file
+            } catch (error) {
+                throw new SyntaxError('Invalid JSON format in bookmarks file');
+            }
+        } else {
+            this.bookmarks = [];
         }
     }
 }

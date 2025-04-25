@@ -15,8 +15,7 @@ class Rating {
 
   // Get all ratings
   getAllRatings() {
-    //return this.ratings;
-    return this.ratings.map();
+    return this.ratings; // คืนค่ารายการทั้งหมด
   }
 
   getRatingsByMovieId(movieId) {
@@ -31,8 +30,10 @@ class Rating {
   // Load ratings from a file
   loadRatingsFromFile(filePath) {
     if (fs.existsSync(filePath)) {
-      const data = fs.readFileSync(filePath);
-      this.ratings = JSON.parse(data);
+      const data = fs.readFileSync(filePath, 'utf8');
+      this.ratings = JSON.parse(data || '[]');
+    } else {
+      this.ratings = [];
     }
   }
 }

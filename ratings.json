@@ -58,5 +58,57 @@
   {
     "movieId": "5",
     "rating": 4
+  },
+  {
+    "movieId": "1",
+    "rating": 3
+  },
+  {
+    "movieId": "1",
+    "rating": 4
+  },
+  {
+    "movieId": "6",
+    "rating": 4.5
+  },
+  {
+    "movieId": "6",
+    "rating": 4
+  },
+  {
+    "movieId": "7",
+    "rating": 3.5
+  },
+  {
+    "movieId": "9",
+    "rating": 5
+  },
+  {
+    "movieId": "8",
+    "rating": 3.5
+  },
+  {
+    "movieId": "4",
+    "rating": 3
+  },
+  {
+    "movieId": "7",
+    "rating": 4.5
+  },
+  {
+    "movieId": "5",
+    "rating": 5
+  },
+  {
+    "movieId": "5",
+    "rating": 4
+  },
+  {
+    "movieId": "6",
+    "rating": 4.5
+  },
+  {
+    "movieId": "7",
+    "rating": 4.5
   }
 ]

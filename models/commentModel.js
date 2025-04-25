@@ -10,7 +10,13 @@ class CommentModel {
         fs.readFile(commentsFilePath, 'utf8', (err, data) => {
             if (err) return callback(err, null);
 
-            const comments = JSON.parse(data || '{}');
+            let comments;
+            try {
+                comments = JSON.parse(data || '{}');
+            } catch (parseError) {
+                return callback(parseError, null);
+            }
+
             callback(null, comments[movieId] || []);
         });
     }

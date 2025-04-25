@@ -63,5 +63,10 @@
     "username": "Tle1234",
     "email": "wuttikorn.jantawises@g.swu.ac.th",
     "password": "$2b$10$p2oN8eKf9vkP3lhUSykCVeF9/pgkdFv5WojWJjzZbs8EyNGVgViw6"
+  },
+  {
+    "username": "giselle",
+    "email": "giselle@gmail.com",
+    "password": "$2b$10$DAXTy4BkoYEzo4J9s6B/OOufIfR2AiTGOuPq2DmrmkfsBvE1XoJ1i"
   }
 ]
