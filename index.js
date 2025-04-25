@@ -9,6 +9,7 @@ const ratingController = require('./controllers/ratingController');
 const bookmarkController = require('./controllers/bookmarkController');
 const taskController = require('./controllers/taskController');
 const authController = require('./controllers/authController');
+const commentController = require('./controllers/commentController'); // ✅ นำเข้า commentController
 
 // Initialize Express app
 const app = express();
@@ -213,62 +214,13 @@ app.post('/api/rating', ratingController.addRating);
 app.get('/api/rating/:movieId', ratingController.getRatingsByMovieId);
 
 // เส้นทางเพื่อดึงข้อมูลความคิดเห็นทั้งหมดสำหรับภาพยนตร์
-app.get('/api/comments/:movieId', (req, res) => {
-  const movieId = req.params.movieId;
-
-  // อ่านข้อมูลคอมเมนต์จาก comments.json
-  fs.readFile(path.join(__dirname, 'comments.json'), 'utf8', (err, commentsData) => {
-    if (err) {
-      return res.status(500).json({ message: "Error reading comments file." });
-    }
-
-    const comments = JSON.parse(commentsData);
-    const movieComments = comments[movieId] || [];
-
-    res.json({ comments: movieComments });
-  });
-});
-
+app.get('/api/comments/:movieId', commentController.getCommentsByMovieId); // ✅ ใช้ commentController
 
 // เพิ่มความคิดเห็นใหม่ (API)
-app.post('/api/comments', (req, res) => {
-  const { movieId, username, comment } = req.body;
+app.post('/api/comments', commentController.addComment); // ✅ ใช้ commentController
 
-  // ตรวจสอบว่าผู้ใช้ล็อกอินหรือไม่
-  if (!req.session.user) {
-    return res.status(401).json({ message: "User not logged in." });
-  }
 
-  // ตรวจสอบว่ามีข้อมูลครบหรือไม่
-  if (!movieId || !username || !comment) {
-    return res.status(400).json({ message: "Missing required fields." });
-  }
 
-  // อ่านความคิดเห็นจาก comments.json
-  fs.readFile(path.join(__dirname, 'comments.json'), 'utf8', (err, commentsData) => {
-    if (err) {
-      return res.status(500).json({ message: "Error reading comments file." });
-    }
-
-    let comments = JSON.parse(commentsData);
-    if (!comments[movieId]) {
-      comments[movieId] = [];
-    }
-
-    // เพิ่มความคิดเห็นใหม่
-    comments[movieId].push({ username, comment });
-
-    // เขียนข้อมูลความคิดเห็นกลับไปที่ไฟล์
-    fs.writeFile(path.join(__dirname, 'comments.json'), JSON.stringify(comments, null, 2), 'utf8', (err) => {
-      if (err) {
-        return res.status(500).json({ message: "Error writing comments data." });
-      }
-
-      // ส่งข้อมูลความคิดเห็นใหม่กลับมา
-      res.status(201).json({ message: 'Comment added successfully' });
-    });
-  });
-});
 
 
 // Start server
