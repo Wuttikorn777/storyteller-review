@@ -48,9 +48,15 @@
     "poster": "https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg"
   },
   {
-    "movieId": "1",
+    "movieId": "6",
     "username": "giselle",
-    "title": "Final Destination: Bloodlines",
-    "poster": "https://upload.wikimedia.org/wikipedia/en/a/ab/Final_Destination_Bloodlines_%282025%29_poster.jpg"
+    "title": "Ballerina",
+    "poster": "https://i0.wp.com/jediyuth.com/wp-content/uploads/2024/12/Ballerina_Poster_Thai-version.jpg?w=1000&amp;ssl=1"
+  },
+  {
+    "movieId": "4",
+    "username": "ningning",
+    "title": "Shrek",
+    "poster": "https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg"
   }
 ]
