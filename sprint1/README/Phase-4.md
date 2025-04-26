@@ -112,37 +112,30 @@ User จะสามารถทำการ
 9. drama.ejs
 10. horror.ejs <br>
 2.folder controller <br><br>
-![image.png](/.attachments/image-095da60e-b614-43eb-a24e-51ae145a1034.png)<br><br>
+![Screenshot 2568-04-26 at 16.43.15.png](/.attachments/Screenshot%202568-04-26%20at%2016.43.15-d96c25d3-eb6a-4b8d-a774-ffb88fb66d7b.png)
+<br><br>
 3.folder models <br><br>
 ![image.png](/.attachments/image-904175cd-2dc4-494a-b7d9-eec099991d71.png)<br><br>
 4.ไฟล์ต่าง ๆ <br><br>
-![image.png](/.attachments/image-9ec3161f-facf-41a8-bb14-c676971fab5f.png)<br><br>
+![Screenshot 2568-04-26 at 16.44.05.png](/.attachments/Screenshot%202568-04-26%20at%2016.44.05-8a827d7e-c1f4-4721-b43c-10335736ab6c.png)
+<br><br>
 5.folder test <br><br>
-![image.png](/.attachments/image-db1bb690-5901-485c-b9dc-71c198c9f425.png)<br><br>
+![Screenshot 2568-04-26 at 16.42.22.png](/.attachments/Screenshot%202568-04-26%20at%2016.42.22-fff710dd-110a-4179-bc83-6801c86dd08c.png)
+<br><br>
+![Screenshot 2568-04-26 at 16.41.26.png](/.attachments/Screenshot%202568-04-26%20at%2016.41.26-61ee7af3-ff7d-4b9c-ad6e-3ed11e09f1ed.png)
+<br><br>
 
 ## แก้ Data structure
 <br>
 
-**Linked List**
-- ใช้เก็บความคิดเห็นที่มีการเชื่อมโยงกัน เช่น ความคิดเห็นที่ตอบกลับกันในรีวิว 
-- ใช้แสดงผลข้อมูลที่มีการเรียงลำดับตามลำดับเวลาของการโพสต์
-
-**Queue**
-- จัดการรีวิวที่มีการเพิ่มใหม่ในระบบ เช่น การแสดงรีวิวที่ถูกเพิ่มเข้ามาล่าสุดในคิว
-
-<br>
-
-**Trie** 
-- ใช้ในการค้นหาชื่อหนังอย่างรวดเร็ว
-
-**Matrix** 
-- ใช้จัดเก็บคะแนนการรีวิวของหนังในแต่ละหมวดหมู่ เช่น คะแนนการรีวิวแยกตามประเภทต่างๆ
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ระบบนี้ใช้ JSON เป็นโครงสร้างข้อมูลหลักเพื่อจัดเก็บข้อมูลสำคัญในระบบ ดังนี้: 
+**Sorted arraylist**
+- มีฟังก์ชัน deleteFirstBookmarkByUser ซึ่งสามารถลบ bookmark แรกใน array ได้
+- มีฟังก์ชัน deleteLastBookmarkByUser ซึ่งสามารถลบ bookmark สุดท้ายใน array ได้
+- มีฟังก์ชัน sortBookmarksByTitleDesc ซึ่งจัดเรียงตามชื่อ (title) ในลำดับจากมากไปน้อย
+- มีฟังก์ชัน sortBookmarksByTitle ซึ่งจัดเรียงตามชื่อ (title) ในลำดับจากมากไปน้อย
 
 
-<br>
-<br>
+
 <br>
 
   
