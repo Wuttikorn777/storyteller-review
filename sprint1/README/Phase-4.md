@@ -131,8 +131,9 @@ User จะสามารถทำการ
 **Sorted arraylist**
 - มีฟังก์ชัน deleteFirstBookmarkByUser ซึ่งสามารถลบ bookmark แรกใน array ได้
 - มีฟังก์ชัน deleteLastBookmarkByUser ซึ่งสามารถลบ bookmark สุดท้ายใน array ได้
-- มีฟังก์ชัน sortBookmarksByTitleDesc ซึ่งจัดเรียงตามชื่อ (title) ในลำดับจากมากไปน้อย
-- มีฟังก์ชัน sortBookmarksByTitle ซึ่งจัดเรียงตามชื่อ (title) ในลำดับจากมากไปน้อย
+- มีฟังก์ชัน sortBookmarksByTitleDesc ซึ่งจัดเรียงตามชื่อ (title) ในลำดับจากมากไปน้อย (ไม่แน่ใจ)
+- มีฟังก์ชัน sortBookmarksByTitle ซึ่งจัดเรียงตามชื่อ (title) ในลำดับจากมากไปน้อย (ไม่แน่ใจ)
+- มีฟังก์ชัน deleteBookmark ซึ่งจะลบ bookmarks ออกจากรายการ bookmarks (ไม่แน่ใจ)
 
 
 
