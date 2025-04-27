@@ -249,5 +249,22 @@ home page <br>
 moviedetails page <br>
 ![image.png](/.attachments/image-503dcdfa-58a8-4155-9676-7c7ba2ef7189.png)<br>
 <br>
-
+bookmarks page <br>
+![image.png](/.attachments/image-1e93926e-84f6-450c-aa49-b36680cb8a4c.png)<br>
+<br>
+genre page <br>
+![image.png](/.attachments/image-2a35b7e3-0ed5-4aec-8154-41001ec39496.png)<br>
+<br>
+genre - action page <br>
+![image.png](/.attachments/image-44021e98-8aaa-413a-b5ec-f0a080bda0c7.png)
+<br>
+<br>
+genre - comedy page <br>
+![image.png](/.attachments/image-61605791-69ff-4ff5-9032-c461f07d3c8c.png)<br>
+<br>
+genre - drama page <br>
+![image.png](/.attachments/image-9e672895-bc57-4525-965c-f2ec85336119.png)
+<br>
+<br>
+genre - horror page <br>
 
