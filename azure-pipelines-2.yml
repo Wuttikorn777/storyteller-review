@@ -1,0 +1,22 @@
+trigger:
+  - main   # หรือ master / develop ตาม branch ที่ต้องการ trigger
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  # 1. ติดตั้ง Node.js
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+    displayName: 'Install Node.js'
+
+  # 2. ติดตั้ง dependencies
+  - script: |
+      npm install
+    displayName: 'Install dependencies'
+
+  # 3. รันทดสอบด้วย Jest
+  - script: |
+      npm run test
+    displayName: 'Run unit tests'
