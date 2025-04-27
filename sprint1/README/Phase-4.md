@@ -236,38 +236,86 @@
 
 **Website screenshot**<br>
 
-login page <br>
-<br>
-![image.png](/.attachments/image-88128fbe-26c0-4d43-8723-cf447a0d1f9c.png) <br>
-<br>
-register page <br>
-![image.png](/.attachments/image-f23688c9-5893-45b6-9696-49d8951eee2a.png)<br>
-<br>
-home page <br>
-![image.png](/.attachments/image-b1fc6b91-e8d7-4253-87fa-f44520392d61.png)<br>
-<br>
-moviedetails page <br>
-![image.png](/.attachments/image-503dcdfa-58a8-4155-9676-7c7ba2ef7189.png)<br>
-<br>
-bookmarks page <br>
-![image.png](/.attachments/image-1e93926e-84f6-450c-aa49-b36680cb8a4c.png)<br>
-<br>
-genre page <br>
-![image.png](/.attachments/image-2a35b7e3-0ed5-4aec-8154-41001ec39496.png)<br>
-<br>
-genre - action page <br>
-![image.png](/.attachments/image-44021e98-8aaa-413a-b5ec-f0a080bda0c7.png)
-<br>
-<br>
-genre - comedy page <br>
-![image.png](/.attachments/image-61605791-69ff-4ff5-9032-c461f07d3c8c.png)<br>
-<br>
-genre - drama page <br>
-![image.png](/.attachments/image-9e672895-bc57-4525-965c-f2ec85336119.png)
-<br>
-<br>
-genre - horror page <br>
+login page 
 
+<br>
+
+![screencapture-localhost-3000-login-2025-04-27-14_39_37.png](/.attachments/screencapture-localhost-3000-login-2025-04-27-14_39_37-e9d06b79-ddb4-449c-a32c-4d7ec1e1cd7b.png)
+
+<br>
+
+register page 
+
+<br>
+
+![screencapture-localhost-3000-register-2025-04-27-14_40_14.png](/.attachments/screencapture-localhost-3000-register-2025-04-27-14_40_14-d82340c2-bdf4-45ee-8844-0fb94f2e4b54.png)
+
+<br>
+
+home page 
+
+<br>
+
+![screencapture-localhost-3000-home-2025-04-27-14_40_48.png](/.attachments/screencapture-localhost-3000-home-2025-04-27-14_40_48-b66e9752-f422-4818-90d5-08710e6848bf.png)
+
+<br>
+
+moviedetails page 
+
+<br>
+
+![screencapture-localhost-3000-moviedetails-1-2025-04-27-14_41_37.png](/.attachments/screencapture-localhost-3000-moviedetails-1-2025-04-27-14_41_37-e945ccd0-518c-439c-b217-12258a5262c2.png)
+
+<br>
+
+bookmarks page 
+
+<br>
+
+![screencapture-localhost-3000-bookmarks-2025-04-27-14_48_34.png](/.attachments/screencapture-localhost-3000-bookmarks-2025-04-27-14_48_34-92ca838e-baf2-405a-b331-2fc5f1f8b943.png)
+
+<br>
+
+genre page 
+
+<br>
+
+![screencapture-localhost-3000-genre-2025-04-27-14_44_30 (1).png](/.attachments/screencapture-localhost-3000-genre-2025-04-27-14_44_30%20(1)-ca70a3e0-15d7-441c-9616-6ee2e8527422.png)
+
+<br>
+
+genre - action page
+
+<br>
+
+![screencapture-localhost-3000-action-2025-04-28-00_51_57.png](/.attachments/screencapture-localhost-3000-action-2025-04-28-00_51_57-0606a89f-a828-42d8-ad0a-ecd738a656c1.png)
+
+
+<br>
+
+genre - comedy page 
+
+<br>
+
+![screencapture-localhost-3000-comedy-2025-04-28-00_52_07.png](/.attachments/screencapture-localhost-3000-comedy-2025-04-28-00_52_07-9f94f8ba-f307-45aa-a88b-b28f2d50807a.png)
+
+<br>
+
+genre - drama page
+
+<br>
+
+![screencapture-localhost-3000-drama-2025-04-28-00_52_16.png](/.attachments/screencapture-localhost-3000-drama-2025-04-28-00_52_16-62184a4f-27f9-4a1b-9c00-01906913efcf.png)
+
+<br>
+
+genre - horror page 
+
+<br>
+
+![screencapture-localhost-3000-horror-2025-04-27-14_48_21.png](/.attachments/screencapture-localhost-3000-horror-2025-04-27-14_48_21-259e5c9e-5454-469a-930d-b16a79e3230c.png)
+
+<br>
 
 **สิ่งที่ต้องใส่*
 *   ผล profiling (Static profiling และ Dynamic profiling) เทีบยกับ phase 3
