@@ -5,32 +5,41 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+# 1. ติดตั้ง Node.js
 - task: NodeTool@0
   inputs:
     versionSpec: '20.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-  displayName: 'Install dependencies'
+# 2. ติดตั้ง dependencies จาก package.json
+- script: npm install
+  displayName: 'Install npm dependencies'
 
+# 3. (สำรอง) ติดตั้ง selenium-webdriver เพิ่ม
+- script: npm install selenium-webdriver
+  displayName: 'Ensure selenium-webdriver installed'
+
+# 4. ติดตั้ง Chrome + ChromeDriver ใน VM
 - script: |
-    npm install selenium-webdriver
-  displayName: 'Install selenium-webdriver (manual)'
-  
+    sudo apt-get update
+    sudo apt-get install -y chromium-browser chromium-chromedriver
+    sudo ln -sf /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+  displayName: 'Install Chromium & ChromeDriver'
+
+# 5. สตาร์ทเซิร์ฟเวอร์ background
 - script: |
     npm run start &
-    sleep 10  # รอ 10 วิให้เว็บ start เสร็จก่อน
+    echo "Waiting for server to be ready..."
+    sleep 10
   displayName: 'Start server in background'
 
-- script: |
-    npm run selenium-test
-  displayName: 'Run Selenium Tests'
+# 6. รัน Selenium UI tests
+- script: node test.ui.js
+  displayName: 'Run Selenium UI Tests'
 
-# (optional) ถ้า selenium เทสเสร็จแล้ว อยากเก็บ coverage ด้วยก็ทำต่อได้
-- script: |
-    npm run test -- --coverage
-  displayName: 'Run Unit Tests and generate coverage'
+# --- ต่อถ้าต้องการ Unit Tests + Coverage ---
+- script: npm run test -- --coverage
+  displayName: 'Run Unit Tests & Generate Coverage'
 
 - task: PublishCodeCoverageResults@1
   inputs:
