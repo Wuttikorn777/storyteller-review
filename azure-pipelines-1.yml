@@ -17,6 +17,5 @@ steps:
 
 - script: |
     npm install
-    npm run start
     npm run test -- --coverage
-  displayName: 'npm install and start and run tests with coverage'
+  displayName: 'npm install and run tests with coverage'
