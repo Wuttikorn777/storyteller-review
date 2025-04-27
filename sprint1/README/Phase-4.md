@@ -234,3 +234,20 @@
 <br>
 <br>
 
+**Website screenshot**<br>
+
+login page <br>
+<br>
+![image.png](/.attachments/image-88128fbe-26c0-4d43-8723-cf447a0d1f9c.png) <br>
+<br>
+register page <br>
+![image.png](/.attachments/image-f23688c9-5893-45b6-9696-49d8951eee2a.png)<br>
+<br>
+home page <br>
+![image.png](/.attachments/image-b1fc6b91-e8d7-4253-87fa-f44520392d61.png)<br>
+<br>
+moviedetails page <br>
+![image.png](/.attachments/image-503dcdfa-58a8-4155-9676-7c7ba2ef7189.png)<br>
+<br>
+
+
