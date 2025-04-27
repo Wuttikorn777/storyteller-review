@@ -2,17 +2,19 @@ const { Builder, By, Key, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
 async function runTests() {
-  // เซ็ตให้ Chrome รันในโหมด headless + ปิด sandbox
-  let options = new chrome.Options()
-    .headless()               
-    .addArguments('--no-sandbox')
-    .addArguments('--disable-dev-shm-usage')
-    .addArguments('--window-size=1920,1080');
+  // สร้าง ChromeOptions โดยใช้ addArguments แทน headless()
+  let options = new chrome.Options().addArguments(
+    '--headless',
+    '--no-sandbox',
+    '--disable-dev-shm-usage',
+    '--window-size=1920,1080'
+  );
 
   let driver = await new Builder()
     .forBrowser('chrome')
     .setChromeOptions(options)
     .build();
+    
     try {
         // 1. ไปที่หน้า login
         await driver.get('http://localhost:3000/login');
