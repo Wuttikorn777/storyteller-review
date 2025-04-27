@@ -26,7 +26,8 @@
     "coverageReporters": [
       "text",
       "html",
-      "lcov"
+      "lcov",
+      "cobertura"
     ]
   }
 }
