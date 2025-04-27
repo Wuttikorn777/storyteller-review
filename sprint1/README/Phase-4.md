@@ -145,11 +145,33 @@
 
 <br>
 
+
+
 <br>**Architectural design**</br>
 ![Screenshot 2568-04-27 at 13.45.46.png](/.attachments/Screenshot%202568-04-27%20at%2013.45.46-26191376-3320-46ab-a173-3b8723bfe97b.png)
-- ภายในโปรเจคประกอบด้วย folder และ file ดังนี้<br><br>
-1.folder view  <br><br>
-![image.png](/.attachments/image-5929d815-53f4-4ce4-b2a4-55b9d01d63c7.png)<br><br>
+
+<br>**UI design**</br>
+![image.png](/.attachments/image-13b2cf3a-ad25-424d-9b9d-0a17d01f2215.png)
+<center>ภาพของหน้า Homepage และ movie </center>
+
+![image.png](/.attachments/image-5db48d40-bff5-4cd0-8c65-567f12f3aff7.png)
+<center>ภาพของหน้า login และ bookmarks </center>
+
+![image.png](/.attachments/image-87653636-c807-470c-98b4-f425ce4dc43d.png)
+<center>ภาพของหน้า Genre </center>
+
+<br>
+
+
+##ภายในโปรเจคประกอบด้วย folder และ file ดังนี้
+<br>
+
+##1. folder view 
+
+![image.png](/.attachments/image-5929d815-53f4-4ce4-b2a4-55b9d01d63c7.png)
+
+<br>
+
 ประกอบไปด้วยไฟล์ 
 1. login.ejs 
 2. register.ejs
@@ -160,21 +182,35 @@
 7. comedy.ejs
 8. action.ejs
 9. drama.ejs
-10. horror.ejs <br>
-2.folder controller <br><br>
-![Screenshot 2568-04-26 at 16.43.15.png](/.attachments/Screenshot%202568-04-26%20at%2016.43.15-d96c25d3-eb6a-4b8d-a774-ffb88fb66d7b.png)
-<br><br>
-3.folder models <br><br>
-![image.png](/.attachments/image-904175cd-2dc4-494a-b7d9-eec099991d71.png)<br><br>
-4.ไฟล์ต่าง ๆ <br><br>
-![Screenshot 2568-04-26 at 16.44.05.png](/.attachments/Screenshot%202568-04-26%20at%2016.44.05-8a827d7e-c1f4-4721-b43c-10335736ab6c.png)
-<br><br>
-5.folder test <br><br>
-![Screenshot 2568-04-26 at 16.42.22.png](/.attachments/Screenshot%202568-04-26%20at%2016.42.22-fff710dd-110a-4179-bc83-6801c86dd08c.png)
-<br><br>
-![Screenshot 2568-04-26 at 16.41.26.png](/.attachments/Screenshot%202568-04-26%20at%2016.41.26-61ee7af3-ff7d-4b9c-ad6e-3ed11e09f1ed.png)
-<br><br>
+10. horror.ejs 
+<br>
 
+##2. folder controller 
+
+![Screenshot 2568-04-26 at 16.43.15.png](/.attachments/Screenshot%202568-04-26%20at%2016.43.15-d96c25d3-eb6a-4b8d-a774-ffb88fb66d7b.png)
+
+<br>
+
+##3.folder models 
+
+![image.png](/.attachments/image-904175cd-2dc4-494a-b7d9-eec099991d71.png)
+
+<br>
+
+##4.ไฟล์ต่าง ๆ 
+
+![Screenshot 2568-04-26 at 16.44.05.png](/.attachments/Screenshot%202568-04-26%20at%2016.44.05-8a827d7e-c1f4-4721-b43c-10335736ab6c.png)
+
+<br>
+
+##5.folder test
+
+![Screenshot 2568-04-26 at 16.42.22.png](/.attachments/Screenshot%202568-04-26%20at%2016.42.22-fff710dd-110a-4179-bc83-6801c86dd08c.png)
+
+![Screenshot 2568-04-26 at 16.41.26.png](/.attachments/Screenshot%202568-04-26%20at%2016.41.26-61ee7af3-ff7d-4b9c-ad6e-3ed11e09f1ed.png)
+
+<br>
+<br>
 
 
 
@@ -316,6 +352,9 @@ genre - horror page
 ![screencapture-localhost-3000-horror-2025-04-27-14_48_21.png](/.attachments/screencapture-localhost-3000-horror-2025-04-27-14_48_21-259e5c9e-5454-469a-930d-b16a79e3230c.png)
 
 <br>
+
+
+
 
 **สิ่งที่ต้องใส่*
 *   ผล profiling (Static profiling และ Dynamic profiling) เทีบยกับ phase 3
