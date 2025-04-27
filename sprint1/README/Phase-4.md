@@ -181,7 +181,7 @@
 <br>
 
   
-##อธิบายกระบวนการทำงาน โดยใช้ process, methods, and tools
+## แก้ อธิบายกระบวนการทำงาน โดยใช้ process, methods, and tools
 <br>
 
 **Process**
@@ -268,3 +268,12 @@ genre - drama page <br>
 <br>
 genre - horror page <br>
 
+
+**สิ่งที่ต้องใส่*
+*   ผล profiling (Static profiling และ Dynamic profiling) เทีบยกับ phase 3
+    
+*   อธิบายการทำ CI/CD ที่ใช้ในการทำ product โดยที่ CI (Pipeline) ให้ใช้ script ที่มีให้ (จำเป็นต้องมี free tier parallel job)
+*   **testcases**
+* **เพิ่มเติมจาก phase 1,2 and 3 เช่น การบริหาร project, การ monitor build, การจัดการ bugs**
+    
+**
