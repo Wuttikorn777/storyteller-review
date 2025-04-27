@@ -2,13 +2,14 @@ const { Builder, By, Key, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
 async function runTests() {
-  // สร้าง ChromeOptions โดยใช้ addArguments แทน headless()
-  let options = new chrome.Options().addArguments(
-    '--headless',
-    '--no-sandbox',
-    '--disable-dev-shm-usage',
-    '--window-size=1920,1080'
-  );
+  let options = new chrome.Options()
+    .setChromeBinaryPath('/usr/bin/chromium-browser')
+    .addArguments(
+      '--headless',
+      '--no-sandbox',
+      '--disable-dev-shm-usage',
+      '--window-size=1920,1080'
+    );
 
   let driver = await new Builder()
     .forBrowser('chrome')
