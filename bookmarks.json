@@ -58,5 +58,17 @@
     "username": "ningning",
     "title": "Shrek",
     "poster": "https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_.jpg"
+  },
+  {
+    "movieId": "7",
+    "username": "inao",
+    "title": "Bad Boys: Ride or Die",
+    "poster": "https://www.siamzone.com/movie/pic/2024/badboysrideordie/poster1.jpg"
+  },
+  {
+    "movieId": "8",
+    "username": "inao",
+    "title": "Nosferatu",
+    "poster": "https://m.media-amazon.com/images/M/MV5BY2FhZGE3NmEtNWJjOC00NDI1LWFhMTQtMjcxNmQzZmEwNGIzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
   }
 ]
