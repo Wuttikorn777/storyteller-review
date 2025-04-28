@@ -702,7 +702,7 @@ bookmarks.ejs
 ##<center>Phase 4
 
 ##สิ่งที่มีการแก้ไขใน Phase 4
-**Sorted arraylist**
+**การเปลี่ยนแปลง Data Structure (Sorted arraylist)**
 
 - มีฟังก์ชัน deleteFirstBookmarkByUser ซึ่งสามารถลบ bookmark แรกใน array ได้
 - มีฟังก์ชัน deleteLastBookmarkByUser ซึ่งสามารถลบ bookmark สุดท้ายใน array ได้
@@ -767,47 +767,98 @@ bookmarks.ejs
 
 
 
-##<center>ภาคผนวก
 
-<br> </br>
+**ตาราง** **Unit Test Case** **ที่ทดสอบ** **Data Structure** 
 
-Show screenshot and explanation of the following page ไว้ใน report
-<br> </br>
+    
+| **Test ID**<br> | **Test Case Description**<br> | **ฟังก์ชันที่ทดสอบ**<br> | **Expected Result**<br> | **Actual Result**<br> | **Status**<br> |
+| --- | --- | --- | --- | --- | --- |
+| TC001<br> | เพิ่ม bookmark ใหม่<br> | addBookmark()<br> | Bookmark ใหม่ถูกเพิ่มและอยู่ในรายการ<br> | Bookmark ใหม่อยู่ใน getAllBookmarks()<br> | Pass<br> |
+| TC002<br> | ลบ bookmark เฉพาะของ user และ movieId<br> | deleteBookmark(username, movieId)<br> | Bookmark ถูกลบออกจากรายการ<br> | Bookmark ถูกลบออกจริง จาก getAllBookmarks()<br> | Pass<br> |
+| TC003<br> | ค้นหา bookmark ตามชื่อเรื่อง<br> | searchBookmarksByTitle(title)<br> | คืนค่ารายการ bookmark ที่ตรงกับ keyword ที่ค้นหา<br> | ได้ค่าตรงกับที่ค้นหา<br> | Pass<br> |
+| TC004<br> | โหลด bookmark จากไฟล์ที่ไม่มีอยู่จริง<br> | loadBookmarksFromFile(filename)<br> | คืนค่าเป็น array ว่างเปล่า ไม่มี error<br> | ได้ array ว่างเปล่า<br> | Pass<br> |
+| TC005<br> | อ่านคอมเมนต์ทั้งหมดของหนัง ID 1<br> | getAllComments(movieId)<br> | คืนค่า [ { username: 'user1', comment: 'Great movie!' } ]<br> | ได้ค่าตรงกับที่คาดไว้<br> | Pass<br> |
+| TC006<br> | เพิ่มคอมเมนต์ใหม่ในหนัง ID 1<br> | addComment(movieId, user, comment)<br> | ไม่มี error และไฟล์ถูกเขียนใหม่พร้อมคอมเมนต์ใหม่<br> | ไม่มี error และไฟล์ถูกเขียนใหม่ถูกต้อง<br> | Pass<br> |
+| TC007<br> | จัดการกรณีอ่านไฟล์คอมเมนต์แล้วพบ JSON ไม่ถูกต้อง<br> | getAllComments(movieId)<br> | โยน SyntaxError และ comments เป็น null<br> | ได้ SyntaxError และ comments เป็น null<br> | Pass<br> |
+| TC008<br> | คืนค่าคอมเมนต์เป็น [] เมื่อไม่มีคอมเมนต์ของหนัง ID 3<br> | getAllComments(movieId)<br> | คืนค่าเป็น array ว่าง: []<br> | ได้ array ว่าง: []<br> | Pass<br> |
+| TC009<br> | เพิ่มคะแนนใหม่ลงในระบบ<br> | addRating(rating)<br> | คะแนนใหม่ถูกเพิ่มและอยู่ในรายการ getAllRatings()<br> | คะแนนใหม่อยู่ใน getAllRatings()<br> | Pass<br> |
+| TC010<br> | อ่านคะแนนทั้งหมดของหนัง ID 1<br> | getRatingsByMovieId(movieId)<br> | คืนค่าคะแนนเฉพาะของหนัง ID 1 จากรายการที่มีอยู่<br> | คืนค่าคะแนนของหนัง ID 1 ได้ถูกต้อง<br> | Pass<br> |
+| TC011<br> | โหลดคะแนนจากไฟล์ JSON ที่ไม่มีอยู่<br> | loadRatingsFromFile(filePath)<br> | คืนค่ารายการว่างเปล่า ไม่มี error<br> | ได้รายการว่างเปล่า ไม่มี error<br> | Pass<br> |
+| TC012<br> | โหลดไฟล์ JSON ที่มีข้อมูลผิดพลาด (Invalid JSON Format)<br> | loadRatingsFromFile(filePath)<br> | โยน SyntaxError<br> | ได้ SyntaxError<br> | Pass<br> |
 
-**Product backlog** : Work items ที่มีการใช้ Epic (optional) and Issue (User story) 
-
-
-![Screenshot 2025-02-03 210820.png](/.attachments/Screenshot%202025-02-03%20210820-0abd83e5-533c-455f-a940-ca3acab66432.png)
-
-<br> </br>
-
-**Sprint backlog** : มีการกำหนดเวลาและวางแผน work item สำหรับ Sprint1 (Sprint 1 อาจเป็นแค่งานการเขียน report และการกำหนด requirement)
-
-![Screenshot 2568-02-03 at 21.58.00.png](/.attachments/Screenshot%202568-02-03%20at%2021.58.00-34e9414e-46a5-46e4-8174-1edf13163ee7.png)
-
-<br> </br>
-
-**ต้วอย่าง detail ของ work item ชนิด user story**
-
-![image.png](/.attachments/image-e8f673d8-6026-4a44-a8c7-877fe069a7f2.png)
-
-<br> </br>
-**ต้วอย่าง detail ของ work item ชนิด Epic (optional)** 
-
-![image.png](/.attachments/image-b45af4d7-4c6a-4f00-a3ca-8c3542dfdbf6.png)
-
-
-<br>**UI design**</br>
-![image.png](/.attachments/image-13b2cf3a-ad25-424d-9b9d-0a17d01f2215.png)
-<center>ภาพของหน้า Homepage และ movie </center>
-
-![image.png](/.attachments/image-5db48d40-bff5-4cd0-8c65-567f12f3aff7.png)
-<center>ภาพของหน้า login และ bookmarks </center>
-
-![image.png](/.attachments/image-87653636-c807-470c-98b4-f425ce4dc43d.png)
-<center>ภาพของหน้า Genre </center>
 
 <br>
+<br>
+
+
+**test case code**
+
+Test Case 1
+ทดสอบว่าการเพิ่ม bookmark ใหม่ทำงานถูกต้อง โดยเช็คว่า bookmark นั้นปรากฏในผลลัพธ์ของ getAllBookmarks()
+
+![Screenshot 2568-04-28 at 16.48.33.png](/.attachments/Screenshot%202568-04-28%20at%2016.48.33-aaf634b4-64c9-487d-9e7e-0d152346ad21.png)
+
+Test Case 2
+ทดสอบว่าการลบ bookmark เฉพาะของผู้ใช้ (user1, movieId: 1) ทำงานถูกต้อง เช็คว่าเหลือเฉพาะ bookmark ที่ไม่ถูกลบ
+
+![Screenshot 2568-04-28 at 16.49.03.png](/.attachments/Screenshot%202568-04-28%20at%2016.49.03-e5f82db2-f99c-45ce-bf5f-335d68a6a6e7.png)
+
+
+Test Case 3
+ทดสอบการค้นหาด้วยคำว่า "Matrix" เช็คว่าผลลัพธ์คืนมาเฉพาะ bookmark ที่ชื่อเรื่องมีคำว่า "Matrix"
+
+![Screenshot 2568-04-28 at 16.50.37.png](/.attachments/Screenshot%202568-04-28%20at%2016.50.37-fba246ca-821c-42c0-bfe6-16512a24809c.png)
+
+Test Case 4 
+ทดสอบว่าเมื่อไฟล์ไม่พบ (fs.existsSync คืนค่า false) ฟังก์ชันจะจัดการโดยคืนค่าเป็น array ว่างเปล่า
+
+![Screenshot 2568-04-28 at 16.56.28.png](/.attachments/Screenshot%202568-04-28%20at%2016.56.28-bb0df066-5702-409e-97ef-46875862dbfb.png)
+
+Test Case 5
+ทดสอบการดึงคอมเมนต์ของหนัง ID 1 เมื่อระบบอ่านไฟล์สำเร็จก็จะคืนค่าคอมเมนต์เฉพาะที่ตรงกับหนัง ID 1
+
+![Screenshot 2568-04-28 at 16.57.06.png](/.attachments/Screenshot%202568-04-28%20at%2016.57.06-223a2327-5353-4659-a025-15f618a6e3bf.png)
+
+Test Case 6
+ทดสอบว่าเมื่อเพิ่มคอมเมนต์ใหม่ให้กับหนัง ID 1 คอมเมนต์ถูกเพิ่มเข้าระบบ และไม่มี error
+
+![Screenshot 2568-04-28 at 16.58.29.png](/.attachments/Screenshot%202568-04-28%20at%2016.58.29-cc703acd-db1e-45ef-8d63-7a7ac8aa1ff0.png)
+
+Test Case 7 
+ทดสอบการรับมือกับ JSON ผิดพลาดจำลองสถานการณ์ที่ไฟล์คอมเมนต์มีข้อมูลเสีย ฟังก์ชันควรจับ error และไม่คืนค่าใดๆ
+
+![Screenshot 2568-04-28 at 16.58.58.png](/.attachments/Screenshot%202568-04-28%20at%2016.58.58-344e885d-0b8b-44dd-b8d9-a1eb7f6b35c8.png)
+
+Test Case 8
+ทดสอบว่าเมื่อ movieId 3 ไม่มีคอมเมนต์ ระบบควรคืนค่าเป็น array ว่างเปล่า
+ฟังก์ชันไม่ควร error และคืนค่า [] สำหรับหนัง ID ที่ไม่มีคอมเมนต์
+
+![Screenshot 2568-04-28 at 17.01.09.png](/.attachments/Screenshot%202568-04-28%20at%2017.01.09-d84353e3-9645-4ebb-b7e8-68f390dd739c.png)
+
+Test Case 9
+ทดสอบว่าเมื่อเพิ่ม rating ใหม่เข้าไประบบจะเก็บข้อมูลไว้ใน getAllRatings() ได้ถูกต้อง
+
+![Screenshot 2568-04-28 at 17.02.40.png](/.attachments/Screenshot%202568-04-28%20at%2017.02.40-2bd86bbc-7865-4a71-b6b6-99e410fe2899.png)
+
+Test Case 10
+ทดสอบการดึงคะแนนทั้งหมดของหนังเรื่องหนึ่งจากระบบ (movieId = 1)
+
+![Screenshot 2568-04-28 at 17.05.20.png](/.attachments/Screenshot%202568-04-28%20at%2017.05.20-c991bce3-19f9-4b7c-be9d-c7c30d114d20.png)
+
+Test Case 11
+ทดสอบว่าเมื่อไฟล์ไม่พบ (existsSync คืนค่า false) ระบบไม่ error และคืนค่าข้อมูลว่าง ([])
+
+![Screenshot 2568-04-28 at 17.06.34.png](/.attachments/Screenshot%202568-04-28%20at%2017.06.34-5a463a23-f31c-401d-a1e5-9094fcbdc6df.png)
+
+Test Case 12
+ทดสอบสถานการณ์ที่มีไฟล์คะแนนมีข้อมูล JSON ที่ไม่ถูกต้องควรโยน SyntaxError เพื่อแจ้งปัญหา
+
+![Screenshot 2568-04-28 at 17.07.47.png](/.attachments/Screenshot%202568-04-28%20at%2017.07.47-ed9608b4-d21f-422b-bdd1-018ce92b4efe.png)
+
+
+<br>
+
+
 
 
 ##ภายในโปรเจคประกอบด้วย folder และ file ดังนี้
@@ -949,94 +1000,6 @@ Tools (เครื่องมือที่ใช้)
 
 <br>
 <br>
-
-
-**ตาราง** **Unit Test Case** **ที่ทดสอบ** **Data Structure** 
-
-    
-| **Test ID**<br> | **Test Case Description**<br> | **ฟังก์ชันที่ทดสอบ**<br> | **Expected Result**<br> | **Actual Result**<br> | **Status**<br> |
-| --- | --- | --- | --- | --- | --- |
-| TC001<br> | เพิ่ม bookmark ใหม่<br> | addBookmark()<br> | Bookmark ใหม่ถูกเพิ่มและอยู่ในรายการ<br> | Bookmark ใหม่อยู่ใน getAllBookmarks()<br> | Pass<br> |
-| TC002<br> | ลบ bookmark เฉพาะของ user และ movieId<br> | deleteBookmark(username, movieId)<br> | Bookmark ถูกลบออกจากรายการ<br> | Bookmark ถูกลบออกจริง จาก getAllBookmarks()<br> | Pass<br> |
-| TC003<br> | ค้นหา bookmark ตามชื่อเรื่อง<br> | searchBookmarksByTitle(title)<br> | คืนค่ารายการ bookmark ที่ตรงกับ keyword ที่ค้นหา<br> | ได้ค่าตรงกับที่ค้นหา<br> | Pass<br> |
-| TC004<br> | โหลด bookmark จากไฟล์ที่ไม่มีอยู่จริง<br> | loadBookmarksFromFile(filename)<br> | คืนค่าเป็น array ว่างเปล่า ไม่มี error<br> | ได้ array ว่างเปล่า<br> | Pass<br> |
-| TC005<br> | อ่านคอมเมนต์ทั้งหมดของหนัง ID 1<br> | getAllComments(movieId)<br> | คืนค่า [ { username: 'user1', comment: 'Great movie!' } ]<br> | ได้ค่าตรงกับที่คาดไว้<br> | Pass<br> |
-| TC006<br> | เพิ่มคอมเมนต์ใหม่ในหนัง ID 1<br> | addComment(movieId, user, comment)<br> | ไม่มี error และไฟล์ถูกเขียนใหม่พร้อมคอมเมนต์ใหม่<br> | ไม่มี error และไฟล์ถูกเขียนใหม่ถูกต้อง<br> | Pass<br> |
-| TC007<br> | จัดการกรณีอ่านไฟล์คอมเมนต์แล้วพบ JSON ไม่ถูกต้อง<br> | getAllComments(movieId)<br> | โยน SyntaxError และ comments เป็น null<br> | ได้ SyntaxError และ comments เป็น null<br> | Pass<br> |
-| TC008<br> | คืนค่าคอมเมนต์เป็น [] เมื่อไม่มีคอมเมนต์ของหนัง ID 3<br> | getAllComments(movieId)<br> | คืนค่าเป็น array ว่าง: []<br> | ได้ array ว่าง: []<br> | Pass<br> |
-| TC009<br> | เพิ่มคะแนนใหม่ลงในระบบ<br> | addRating(rating)<br> | คะแนนใหม่ถูกเพิ่มและอยู่ในรายการ getAllRatings()<br> | คะแนนใหม่อยู่ใน getAllRatings()<br> | Pass<br> |
-| TC010<br> | อ่านคะแนนทั้งหมดของหนัง ID 1<br> | getRatingsByMovieId(movieId)<br> | คืนค่าคะแนนเฉพาะของหนัง ID 1 จากรายการที่มีอยู่<br> | คืนค่าคะแนนของหนัง ID 1 ได้ถูกต้อง<br> | Pass<br> |
-| TC011<br> | โหลดคะแนนจากไฟล์ JSON ที่ไม่มีอยู่<br> | loadRatingsFromFile(filePath)<br> | คืนค่ารายการว่างเปล่า ไม่มี error<br> | ได้รายการว่างเปล่า ไม่มี error<br> | Pass<br> |
-| TC012<br> | โหลดไฟล์ JSON ที่มีข้อมูลผิดพลาด (Invalid JSON Format)<br> | loadRatingsFromFile(filePath)<br> | โยน SyntaxError<br> | ได้ SyntaxError<br> | Pass<br> |
-
-
-<br>
-<br>
-
-
-**test case code**
-
-Test Case 1
-ทดสอบว่าการเพิ่ม bookmark ใหม่ทำงานถูกต้อง โดยเช็คว่า bookmark นั้นปรากฏในผลลัพธ์ของ getAllBookmarks()
-
-![Screenshot 2568-04-28 at 16.48.33.png](/.attachments/Screenshot%202568-04-28%20at%2016.48.33-aaf634b4-64c9-487d-9e7e-0d152346ad21.png)
-
-Test Case 2
-ทดสอบว่าการลบ bookmark เฉพาะของผู้ใช้ (user1, movieId: 1) ทำงานถูกต้อง เช็คว่าเหลือเฉพาะ bookmark ที่ไม่ถูกลบ
-
-![Screenshot 2568-04-28 at 16.49.03.png](/.attachments/Screenshot%202568-04-28%20at%2016.49.03-e5f82db2-f99c-45ce-bf5f-335d68a6a6e7.png)
-
-
-Test Case 3
-ทดสอบการค้นหาด้วยคำว่า "Matrix" เช็คว่าผลลัพธ์คืนมาเฉพาะ bookmark ที่ชื่อเรื่องมีคำว่า "Matrix"
-
-![Screenshot 2568-04-28 at 16.50.37.png](/.attachments/Screenshot%202568-04-28%20at%2016.50.37-fba246ca-821c-42c0-bfe6-16512a24809c.png)
-
-Test Case 4 
-ทดสอบว่าเมื่อไฟล์ไม่พบ (fs.existsSync คืนค่า false) ฟังก์ชันจะจัดการโดยคืนค่าเป็น array ว่างเปล่า
-
-![Screenshot 2568-04-28 at 16.56.28.png](/.attachments/Screenshot%202568-04-28%20at%2016.56.28-bb0df066-5702-409e-97ef-46875862dbfb.png)
-
-Test Case 5
-ทดสอบการดึงคอมเมนต์ของหนัง ID 1 เมื่อระบบอ่านไฟล์สำเร็จก็จะคืนค่าคอมเมนต์เฉพาะที่ตรงกับหนัง ID 1
-
-![Screenshot 2568-04-28 at 16.57.06.png](/.attachments/Screenshot%202568-04-28%20at%2016.57.06-223a2327-5353-4659-a025-15f618a6e3bf.png)
-
-Test Case 6
-ทดสอบว่าเมื่อเพิ่มคอมเมนต์ใหม่ให้กับหนัง ID 1 คอมเมนต์ถูกเพิ่มเข้าระบบ และไม่มี error
-
-![Screenshot 2568-04-28 at 16.58.29.png](/.attachments/Screenshot%202568-04-28%20at%2016.58.29-cc703acd-db1e-45ef-8d63-7a7ac8aa1ff0.png)
-
-Test Case 7 
-ทดสอบการรับมือกับ JSON ผิดพลาดจำลองสถานการณ์ที่ไฟล์คอมเมนต์มีข้อมูลเสีย ฟังก์ชันควรจับ error และไม่คืนค่าใดๆ
-
-![Screenshot 2568-04-28 at 16.58.58.png](/.attachments/Screenshot%202568-04-28%20at%2016.58.58-344e885d-0b8b-44dd-b8d9-a1eb7f6b35c8.png)
-
-Test Case 8
-ทดสอบว่าเมื่อ movieId 3 ไม่มีคอมเมนต์ ระบบควรคืนค่าเป็น array ว่างเปล่า
-ฟังก์ชันไม่ควร error และคืนค่า [] สำหรับหนัง ID ที่ไม่มีคอมเมนต์
-
-![Screenshot 2568-04-28 at 17.01.09.png](/.attachments/Screenshot%202568-04-28%20at%2017.01.09-d84353e3-9645-4ebb-b7e8-68f390dd739c.png)
-
-Test Case 9
-ทดสอบว่าเมื่อเพิ่ม rating ใหม่เข้าไประบบจะเก็บข้อมูลไว้ใน getAllRatings() ได้ถูกต้อง
-
-![Screenshot 2568-04-28 at 17.02.40.png](/.attachments/Screenshot%202568-04-28%20at%2017.02.40-2bd86bbc-7865-4a71-b6b6-99e410fe2899.png)
-
-Test Case 10
-ทดสอบการดึงคะแนนทั้งหมดของหนังเรื่องหนึ่งจากระบบ (movieId = 1)
-
-![Screenshot 2568-04-28 at 17.05.20.png](/.attachments/Screenshot%202568-04-28%20at%2017.05.20-c991bce3-19f9-4b7c-be9d-c7c30d114d20.png)
-
-Test Case 11
-ทดสอบว่าเมื่อไฟล์ไม่พบ (existsSync คืนค่า false) ระบบไม่ error และคืนค่าข้อมูลว่าง ([])
-
-![Screenshot 2568-04-28 at 17.06.34.png](/.attachments/Screenshot%202568-04-28%20at%2017.06.34-5a463a23-f31c-401d-a1e5-9094fcbdc6df.png)
-
-Test Case 12
-ทดสอบสถานการณ์ที่มีไฟล์คะแนนมีข้อมูล JSON ที่ไม่ถูกต้องควรโยน SyntaxError เพื่อแจ้งปัญหา
-
-![Screenshot 2568-04-28 at 17.07.47.png](/.attachments/Screenshot%202568-04-28%20at%2017.07.47-ed9608b4-d21f-422b-bdd1-018ce92b4efe.png)
 
 <br>
 <br>
@@ -1428,3 +1391,37 @@ Genre - Horror page
 **สิ่งที่ทำได้ดีใน phase นี้**
 *   **การแบ่งงานกันภายในทีม** เนื่องจากทุกคนมีความชัดเจนในหน้าที่ และรับผิดชอบงานที่ตัวเองได้รับมอบหมาย ทำให้การทำงานภายในทีมดำเนินไปอย่างราบรื่นและไม่ซับซ้อน ทุกสมาชิกสามารถโฟกัสที่งานของตัวเองได้อย่างเต็มที่ โดยไม่ต้องกังวลเกี่ยวกับการทำงานของคนอื่น และในสัปดาห์นี้ทุกคนร่วมกันแก้ปัญหาทำให้งานผ่านไปได้
 *   **สอบถามผู้รู้** กลุ่มของพวกเรามักทำผิดพลาดจากที่กำหนดไว้ จึงมีการสอบถามคนอื่นมากขึ้นในสัปดาห์นี้
+
+
+
+
+##<center>ภาคผนวก
+
+<br> </br>
+
+Show screenshot and explanation of the following page ไว้ใน report
+<br> </br>
+
+**Product backlog** : Work items ที่มีการใช้ Epic (optional) and Issue (User story) 
+
+
+![Screenshot 2025-02-03 210820.png](/.attachments/Screenshot%202025-02-03%20210820-0abd83e5-533c-455f-a940-ca3acab66432.png)
+
+<br> </br>
+
+**Sprint backlog** : มีการกำหนดเวลาและวางแผน work item สำหรับ Sprint1 (Sprint 1 อาจเป็นแค่งานการเขียน report และการกำหนด requirement)
+
+![Screenshot 2568-02-03 at 21.58.00.png](/.attachments/Screenshot%202568-02-03%20at%2021.58.00-34e9414e-46a5-46e4-8174-1edf13163ee7.png)
+
+<br> </br>
+
+**ต้วอย่าง detail ของ work item ชนิด user story**
+
+![image.png](/.attachments/image-e8f673d8-6026-4a44-a8c7-877fe069a7f2.png)
+
+<br> </br>
+**ต้วอย่าง detail ของ work item ชนิด Epic (optional)** 
+
+![image.png](/.attachments/image-b45af4d7-4c6a-4f00-a3ca-8c3542dfdbf6.png)
+
+
