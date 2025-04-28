@@ -321,42 +321,59 @@ Tools (เครื่องมือที่ใช้)
 | TC011<br> | โหลดคะแนนจากไฟล์ JSON ที่ไม่มีอยู่<br> | loadRatingsFromFile(filePath)<br> | คืนค่ารายการว่างเปล่า ไม่มี error<br> | ได้รายการว่างเปล่า ไม่มี error<br> | Pass<br> |
 | TC012<br> | โหลดไฟล์ JSON ที่มีข้อมูลผิดพลาด (Invalid JSON Format)<br> | loadRatingsFromFile(filePath)<br> | โยน SyntaxError<br> | ได้ SyntaxError<br> | Pass<br> |
 
+
+<br>
+<br>
+
+
 **test case code**
 
 Test Case 1
-ทดสอบว่าการเพิ่ม bookmark ใหม่ทำงานถูกต้อง โดยเช็คว่า bookmark นั้นปรากฏในผลลัพธ์ของ `getAllBookmarks()`
+ทดสอบว่าการเพิ่ม bookmark ใหม่ทำงานถูกต้อง โดยเช็คว่า bookmark นั้นปรากฏในผลลัพธ์ของ getAllBookmarks()
 
-![Screenshot 2568-04-28 at 01.14.36.png](/.attachments/Screenshot%202568-04-28%20at%2001.14.36-b187b030-e257-4f4e-84a0-decf81e6a34d.png)
+![Screenshot 2568-04-28 at 16.48.33.png](/.attachments/Screenshot%202568-04-28%20at%2016.48.33-aaf634b4-64c9-487d-9e7e-0d152346ad21.png)
 
 Test Case 2
-ทดสอบว่าการลบ bookmark เฉพาะของผู้ใช้ (`user1`, `movieId: 1`) ทำงานถูกต้อง เช็คว่าเหลือเฉพาะ bookmark ที่ไม่ถูกลบ
+ทดสอบว่าการลบ bookmark เฉพาะของผู้ใช้ (user1, movieId: 1) ทำงานถูกต้อง เช็คว่าเหลือเฉพาะ bookmark ที่ไม่ถูกลบ
 
-![Screenshot 2568-04-28 at 01.15.07.png](/.attachments/Screenshot%202568-04-28%20at%2001.15.07-d6b028cb-9179-4aa5-ba76-de96429d8e6a.png)
+![Screenshot 2568-04-28 at 16.49.03.png](/.attachments/Screenshot%202568-04-28%20at%2016.49.03-e5f82db2-f99c-45ce-bf5f-335d68a6a6e7.png)
+
 
 Test Case 3
 ทดสอบการค้นหาด้วยคำว่า "Matrix" เช็คว่าผลลัพธ์คืนมาเฉพาะ bookmark ที่ชื่อเรื่องมีคำว่า "Matrix"
 
-![Screenshot 2568-04-28 at 16.32.41.png](/.attachments/Screenshot%202568-04-28%20at%2016.32.41-19f99135-506f-4586-8fb2-b7a77e49d373.png)
+![Screenshot 2568-04-28 at 16.50.37.png](/.attachments/Screenshot%202568-04-28%20at%2016.50.37-fba246ca-821c-42c0-bfe6-16512a24809c.png)
 
 Test Case 4 
-ทดสอบว่าเมื่อไฟล์ไม่พบ (`fs.existsSync` คืนค่า `false`) ฟังก์ชันจะจัดการโดยคืนค่าเป็น array ว่างเปล่า
+ทดสอบว่าเมื่อไฟล์ไม่พบ (fs.existsSync คืนค่า false) ฟังก์ชันจะจัดการโดยคืนค่าเป็น array ว่างเปล่า
 
-![Screenshot 2568-04-28 at 16.37.17.png](/.attachments/Screenshot%202568-04-28%20at%2016.37.17-20af3b4a-6652-461f-a9db-513fcea40d9d.png)
+![Screenshot 2568-04-28 at 16.56.28.png](/.attachments/Screenshot%202568-04-28%20at%2016.56.28-bb0df066-5702-409e-97ef-46875862dbfb.png)
 
 Test Case 5
 ทดสอบการดึงคอมเมนต์ของหนัง ID 1 เมื่อระบบอ่านไฟล์สำเร็จก็จะคืนค่าคอมเมนต์เฉพาะที่ตรงกับหนัง ID 1
 
-![Screenshot 2568-04-28 at 16.39.15.png](/.attachments/Screenshot%202568-04-28%20at%2016.39.15-8b2d7bc4-1d64-4dc2-b62a-7aee10332947.png)
+![Screenshot 2568-04-28 at 16.57.06.png](/.attachments/Screenshot%202568-04-28%20at%2016.57.06-223a2327-5353-4659-a025-15f618a6e3bf.png)
 
 Test Case 6
 ทดสอบว่าเมื่อเพิ่มคอมเมนต์ใหม่ให้กับหนัง ID 1 คอมเมนต์ถูกเพิ่มเข้าระบบ และไม่มี error
 
-![Screenshot 2568-04-28 at 16.41.58.png](/.attachments/Screenshot%202568-04-28%20at%2016.41.58-ade2e003-833d-402c-ac7b-3f66ddacdb53.png)
+![Screenshot 2568-04-28 at 16.58.29.png](/.attachments/Screenshot%202568-04-28%20at%2016.58.29-cc703acd-db1e-45ef-8d63-7a7ac8aa1ff0.png)
 
-Test Case 7
+Test Case 7 
+ทดสอบการรับมือกับ JSON ผิดพลาดจำลองสถานการณ์ที่ไฟล์คอมเมนต์มีข้อมูลเสีย ฟังก์ชันควรจับ error และไม่คืนค่าใดๆ
 
+![Screenshot 2568-04-28 at 16.58.58.png](/.attachments/Screenshot%202568-04-28%20at%2016.58.58-344e885d-0b8b-44dd-b8d9-a1eb7f6b35c8.png)
 
+Test Case 8
+ทดสอบว่าเมื่อ movieId 3 ไม่มีคอมเมนต์ ระบบควรคืนค่าเป็น array ว่างเปล่า
+ฟังก์ชันไม่ควร error และคืนค่า [] สำหรับหนัง ID ที่ไม่มีคอมเมนต์
 
+![Screenshot 2568-04-28 at 17.01.09.png](/.attachments/Screenshot%202568-04-28%20at%2017.01.09-d84353e3-9645-4ebb-b7e8-68f390dd739c.png)
+
+Test Case 9
+ทดสอบว่าเมื่อเพิ่ม rating ใหม่เข้าไประบบจะเก็บข้อมูลไว้ใน getAllRatings() ได้ถูกต้อง
+
+![Screenshot 2568-04-28 at 17.02.40.png](/.attachments/Screenshot%202568-04-28%20at%2017.02.40-2bd86bbc-7865-4a71-b6b6-99e410fe2899.png)
 
 
 **Website screenshot**<br>
