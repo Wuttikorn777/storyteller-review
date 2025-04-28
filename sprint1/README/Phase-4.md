@@ -375,10 +375,28 @@ Test Case 9
 
 ![Screenshot 2568-04-28 at 17.02.40.png](/.attachments/Screenshot%202568-04-28%20at%2017.02.40-2bd86bbc-7865-4a71-b6b6-99e410fe2899.png)
 
+Test Case 10
+ทดสอบการดึงคะแนนทั้งหมดของหนังเรื่องหนึ่งจากระบบ (movieId = 1)
+
+![Screenshot 2568-04-28 at 17.05.20.png](/.attachments/Screenshot%202568-04-28%20at%2017.05.20-c991bce3-19f9-4b7c-be9d-c7c30d114d20.png)
+
+Test Case 11
+ทดสอบว่าเมื่อไฟล์ไม่พบ (existsSync คืนค่า false) ระบบไม่ error และคืนค่าข้อมูลว่าง ([])
+
+![Screenshot 2568-04-28 at 17.06.34.png](/.attachments/Screenshot%202568-04-28%20at%2017.06.34-5a463a23-f31c-401d-a1e5-9094fcbdc6df.png)
+
+Test Case 12
+ทดสอบสถานการณ์ที่มีไฟล์คะแนนมีข้อมูล JSON ที่ไม่ถูกต้องควรโยน SyntaxError เพื่อแจ้งปัญหา
+
+![Screenshot 2568-04-28 at 17.07.47.png](/.attachments/Screenshot%202568-04-28%20at%2017.07.47-ed9608b4-d21f-422b-bdd1-018ce92b4efe.png)
+
+<br>
+<br>
+
 
 **Website screenshot**<br>
 
-login page 
+Login page 
 
 <br>
 
@@ -386,7 +404,7 @@ login page
 
 <br>
 
-register page 
+Register page 
 
 <br>
 
@@ -394,7 +412,7 @@ register page
 
 <br>
 
-home page 
+Home page 
 
 <br>
 
@@ -402,7 +420,7 @@ home page
 
 <br>
 
-moviedetails page 
+Moviedetails page 
 
 <br>
 
@@ -410,7 +428,7 @@ moviedetails page
 
 <br>
 
-bookmarks page 
+Bookmarks page 
 
 <br>
 
@@ -418,7 +436,7 @@ bookmarks page
 
 <br>
 
-genre page 
+Genre page 
 
 <br>
 
@@ -426,7 +444,7 @@ genre page
 
 <br>
 
-genre - action page
+Genre - Action page
 
 <br>
 
@@ -435,7 +453,7 @@ genre - action page
 
 <br>
 
-genre - comedy page 
+Genre - Comedy page 
 
 <br>
 
@@ -443,7 +461,7 @@ genre - comedy page
 
 <br>
 
-genre - drama page
+Genre - Drama page
 
 <br>
 
@@ -451,7 +469,7 @@ genre - drama page
 
 <br>
 
-genre - horror page 
+Genre - Horror page 
 
 <br>
 
