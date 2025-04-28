@@ -244,6 +244,25 @@ Process
 ทำการทดสอบระบบด้วยเครื่องมือเช่น **Jest** สำหรับ Unit Testing และ Integration Testing  
 ทดสอบ API ด้วย **Postman** และดำเนินการทดสอบเชิงโหลด (Load Testing) รวมถึงการตรวจสอบความปลอดภัย (Security Testing) เพื่อให้มั่นใจว่าระบบมีเสถียรภาพ<br>
 
+ **ตาราง** **Unit Test Case** **ที่ทดสอบ** **Data Structure** 
+
+    
+| **Test ID**<br> | **Test Case Description**<br> | **ฟังก์ชันที่ทดสอบ**<br> | **Expected Result**<br> | **Actual Result**<br> | **Status**<br> |
+| --- | --- | --- | --- | --- | --- |
+| TC001<br> | เพิ่ม bookmark ใหม่<br> | addBookmark()<br> | Bookmark ใหม่ถูกเพิ่ม และอยู่ในรายการ<br> | Bookmark ใหม่อยู่ใน getAllBookmarks()<br> | Pass<br> |
+| TC002<br> | ลบ bookmark เฉพาะของ user และ movieId<br> | deleteBookmark(username, movieId)<br> | Bookmark ถูกลบออกจากรายการ<br> | Bookmark ถูกลบออกจริง จาก getAllBookmarks()<br> | Pass<br> |
+| TC003<br> | ค้นหา bookmark ตามชื่อเรื่อง<br> | searchBookmarksByTitle(title)<br> | คืนค่ารายการ bookmark ที่ชื่อเรื่องตรงกับ keyword ที่ค้นหา<br> | คืนค่าถูกต้อง มีเฉพาะรายการที่มีคำว่า "Matrix"<br> | Pass<br> |
+| TC004<br> | โหลด bookmark จากไฟล์ที่ไม่มีอยู่จริง<br> | loadBookmarksFromFile(filename)<br> | คืนค่ารายการว่างเปล่า ([])<br> | ได้รายการว่างเปล่า ไม่มี error<br> | Pass<br> |
+| TC005<br> | อ่านคอมเมนต์ทั้งหมดของหนัง ID 1<br> | getAllComments(movieId)<br> | คืนค่า: [ { username: 'user1', comment: 'Great movie!' } ]<br> | ได้ค่าตรงกับที่คาดไว้: [ { username: 'user1', comment: 'Great movie!' } ]<br> | Pass<br> |
+| TC006<br> | เพิ่มคอมเมนต์ใหม่ในหนัง ID 1<br> | addComment(movieId, user, comment)<br> | ไม่มี error และไฟล์ถูกเขียนใหม่ด้วยคอมเมนต์ใหม่ถูกเพิ่มเข้าไป<br> | ไม่มี error และไฟล์ถูกเขียนใหม่ถูกต้อง<br> | Pass<br> |
+| TC007<br> | จัดการกรณีอ่านไฟล์คอมเมนต์แล้วพบ JSON ไม่ถูกต้อง<br> | getAllComments(movieId)<br> | โยน SyntaxError และ comments เป็น null<br> | ได้ SyntaxError และ comments เป็น null<br> | Pass<br> |
+| TC008<br> | คืนค่าคอมเมนต์เป็น [] เมื่อไม่มีคอมเมนต์ของหนัง ID 3<br> | getAllComments(movieId)<br> | คืนค่าเป็น array ว่าง: []<br> | ได้ array ว่าง: []<br> | Pass<br> |
+| TC009<br> | เพิ่มคะแนนใหม่ลงในระบบ<br> | addRating(rating)<br> | คะแนนใหม่ถูกเพิ่มและอยู่ในรายการ getAllRatings()<br> | คะแนนใหม่อยู่ใน getAllRatings()<br> | Pass<br> |
+| TC010<br> | อ่านคะแนนทั้งหมดของหนัง ID 1<br> | getRatingsByMovieId(movieId)<br> | คืนค่าคะแนนเฉพาะของหนัง ID 1 จากรายการที่มีอยู่<br> | คืนค่าคะแนนของหนัง ID 1 ได้ถูกต้อง<br> | Pass<br> |
+| TC011<br> | โหลดคะแนนจากไฟล์ JSON ที่ไม่มีอยู่<br> | loadRatingsFromFile(filePath)<br> | คืนค่ารายการว่างเปล่า ไม่มี error<br> | ได้รายการว่างเปล่า ไม่มี error<br> | Pass<br> |
+| TC012<br> | โหลดไฟล์ JSON ที่มีข้อมูลผิดพลาด (Invalid JSON Format)<br> | loadRatingsFromFile(filePath)<br> | โยน SyntaxError<br> | ได้ SyntaxError<br> | Pass<br> |
+
+
 **5. Maintenance & Updates (ดูแลและอัปเดตระบบ)**  
 ดูแลและตรวจสอบระบบอย่างต่อเนื่อง ทำการ Debug และแก้ไขข้อผิดพลาด (Bugs)  
 อัปเดตระบบและเพิ่มคุณสมบัติใหม่ตามความต้องการของผู้ใช้งาน<br>
