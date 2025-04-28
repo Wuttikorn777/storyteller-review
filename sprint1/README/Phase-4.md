@@ -474,7 +474,7 @@ Desktop
 
 <br>
 
-**Dynamic profiling (Structural method)**
+**Dynamic profiling (Structural method) Phase 4**
 
     
     
@@ -593,7 +593,7 @@ Desktop
 **สรุป**: ดูเหมือนว่าในทั้งสอง Phase ไม่ได้ระบุผลกระทบจาก Extension อย่างชัดเจน แต่การทดสอบใน **Incognito Mode** อาจช่วยแยกแยะผลกระทบจาก Extensions ได้
 
 
-## สรุปผลการเปรียบเทียบ:
+## สรุปผลการเปรียบเทียบ Dynamic profiling:
 
 *   **Phase 4** มี **เวลาในการประมวลผลสูงกว่า** ในหลายๆ ด้าน โดยเฉพาะในเรื่องของ **Painting** และ **Rendering** ที่ช้ากว่า **Phase 3**
     
