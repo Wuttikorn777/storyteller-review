@@ -195,13 +195,11 @@
 4. ทำ Retrospective โดยใช้ Zoom หรือ Microsoft Teams สำหรับการประชุมออนไลน์
 
 <br>
-<br>
 
 ##กระบวนการในการพัฒนา Software ของโครงการ
 <br> กระบวนการทำงานใน Sprint ที่ 1 </br>
 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ในการพัฒนา Software ของกลุ่ม douplep ในครั้งนี้นั้น ผู้พัฒนาได้มีการพูดคุยเรื่องโครงงานผ่านทาง Line และ Discord เพื่อแลกเปลี่ยนความเข้าใจและกำหนดแนวทางของโครงงาน ใช้วิธีการ Agile process model ในการการวิเคราะห์และแบ่งย่อย Requirement โดยทำบนเว็บ Azure DevOps ในการช่วยวางแผนการทำงาน และมีการทำ Retrospectives ในช่วงสุดท้ายของ Sprint </br>
 
-<br>
 <br>
 
 ##สรุปการประชุม Retrospective
