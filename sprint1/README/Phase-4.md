@@ -471,6 +471,91 @@ Desktop
 
 ![Screenshot_2568-04-26_at_00.18.45.png](/.attachments/Screenshot_2568-04-26_at_00.18.45-26a4d58b-3b2a-46e8-aea7-999b435d38ac.png)
 
+<br>
+
+**ผลการเปรียบเทียบ Static Profiling ระหว่าง Phase 3 และ Phase 4**
+    
+**1. Lines of Code**
+| **File**<br> | **Phase 3**<br> | **Phase 4**<br> |
+| --- | --- | --- |
+| **index.js**<br> | 286<br> | -<br> |
+| **models.movieData.test.js**<br> | 72<br> | -<br> |
+| **models.userData.test.js**<br> | 43<br> | -<br> |
+| **bookmarkModel.js**<br> | -<br> | 90<br> |
+| **commentModel.js**<br> | -<br> | 44<br> |
+| **ratingModel.js**<br> | -<br> | 41<br> |
+
+**สรุป**: ใน Phase 3 จะเห็นว่ามีไฟล์หลัก (เช่น index.js) ที่มีขนาดโค้ดเยอะกว่า Phase 4 ซึ่งแสดงว่าใน Phase 3 มีการทำงานหรือฟังก์ชันที่ซับซ้อนกว่า ใน Phase 4 จะมีโค้ดที่มีขนาดเล็กลงและแบ่งออกเป็น โมเดลที่เน้นทำงานในแต่ละฟังก์ชัน
+  
+
+**2. Complexity**
+| **File**<br> | **Phase 3**<br> | **Phase 4**<br> |
+| --- | --- | --- |
+| **index.js**<br> | 28<br> | -<br> |
+| **models.movieData.test.js**<br> | 1<br> | -<br> |
+| **models.userData.test.js**<br> | 1<br> | -<br> |
+| **bookmarkModel.js**<br> | -<br> | 9<br> |
+| **commentModel.js**<br> | -<br> | 8<br> |
+| **ratingModel.js**<br> | -<br> | 3<br> |
+
+**สรุป**: ความ complexity ของโค้ดใน Phase 3 ดูเหมือนจะสูงกว่า โดยเฉพาะใน index.js ที่มี complexity ถึง 28 ซึ่งแสดงถึงความซับซ้อนของโค้ด ในขณะที่ Phase 4 มี complexity ที่ค่อนข้างต่ำกว่า ซึ่งอาจจะหมายถึงโค้ดที่ถูกแบ่งแยกออกเป็นฟังก์ชันย่อยและทำให้การจัดการง่ายขึ้น
+  
+
+**3. Estimated Errors**
+| **File**<br> | **Phase 3**<br> | **Phase 4**<br> |
+| --- | --- | --- |
+| **index.js**<br> | 2.91<br> | -<br> |
+| **models.movieData.test.js**<br> | 0.86<br> | -<br> |
+| **models.userData.test.js**<br> | 0.43<br> | -<br> |
+| **bookmarkModel.js**<br> | -<br> | 0.68<br> |
+| **commentModel.js**<br> | -<br> | 0.29<br> |
+| **ratingModel.js**<br> | -<br> | 0.21<br> |
+
+**สรุป**: Phase 3 คาดว่าจะมี errors มากกว่า Phase 4 โดยเฉพาะใน index.js ที่มี 2.91 errors ค่อนข้างสูง ในขณะที่ Phase 4 มี errors ต่ำกว่า แสดงว่าโค้ดใน Phase 4 อาจมีการปรับปรุงและแก้ไขข้อผิดพลาดให้ดีขึ้น
+  
+
+**4. Lint Errors**
+| **File**<br> | **Phase 3**<br> | **Phase 4**<br> |
+| --- | --- | --- |
+| **index.js**<br> | 51<br> | -<br> |
+| **models.movieData.test.js**<br> | 28<br> | -<br> |
+| **models.userData.test.js**<br> | 13<br> | -<br> |
+| **bookmarkModel.js**<br> | -<br> | 12<br> |
+| **commentModel.js**<br> | -<br> | 11<br> |
+| **ratingModel.js**<br> | -<br> | 5<br> |
+
+**สรุป**: Lint errors ใน Phase 3 สูงกว่าใน Phase 4 มาก โดยเฉพาะใน index.js ที่มี 51 lint errors ซึ่งแสดงถึงโค้ดที่ยังไม่ได้รับการจัดรูปแบบที่ดีใน Phase 3 ในขณะที่ Phase 4 มี lint errors ที่น้อยกว่าในไฟล์ใหม่ๆ
+  
+
+**5. Maintainability**
+| **File**<br> | **Phase 3**<br> | **Phase 4**<br> |
+| --- | --- | --- |
+| **index.js**<br> | 74.46<br> | -<br> |
+| **models.movieData.test.js**<br> | 76.07<br> | -<br> |
+| **models.userData.test.js**<br> | 77.39<br> | -<br> |
+| **bookmarkModel.js**<br> | -<br> | 85.29<br> |
+| **commentModel.js**<br> | -<br> | 72.43<br> |
+| **ratingModel.js**<br> | -<br> | 86.56<br> |
+
+**สรุป**: Maintainability ใน Phase 4 ดีขึ้นอย่างเห็นได้ชัดในหลายๆ ไฟล์ เช่น bookmarkModel.js และ ratingModel.js ที่มีค่า maintainability สูงกว่า Phase 3 ซึ่งอาจบ่งบอกถึงโค้ดที่สามารถดูแลและแก้ไขได้ง่ายขึ้นใน Phase 4
+  
+
+**6. Difficulty**
+| **File**<br> | **Phase 3**<br> | **Phase 4**<br> |
+| --- | --- | --- |
+| **index.js**<br> | 3.00<br> | -<br> |
+| **models.movieData.test.js**<br> | 1.00<br> | -<br> |
+| **models.userData.test.js**<br> | 1.00<br> | -<br> |
+| **bookmarkModel.js**<br> | -<br> | 1.00<br> |
+| **commentModel.js**<br> | -<br> | 1.00<br> |
+| **ratingModel.js**<br> | -<br> | 1.00<br> |
+
+**สรุป**: Phase 3 มี difficulty ที่สูงกว่าซึ่งแสดงถึงโค้ดที่มีความซับซ้อนและยากต่อการจัดการ ในขณะที่ Phase 4 ลดระดับ difficulty ลงซึ่งแสดงถึงโค้ดที่สามารถเข้าใจและทำงานได้ง่ายขึ้น
+  
+
+**สรุปผลการเปรียบเทียบ Static Profiling ระหว่าง Phase 3 และ Phase 4:**
+*   **Phase 4** มี **ความซับซ้อนต่ำกว่า**, **errors น้อยกว่า**, และ **maintainability ดีกว่า** เนื่องจากมีการแยกโค้ดออกเป็นโมดูลและสามารถดูแลได้ง่ายขึ้น
+*   **Phase 3** มี **ความซับซ้อนสูงกว่า**, **errors มากกว่า**, และ **lint errors สูงกว่า**, อาจจะต้องการการปรับปรุงในด้านการจัดรูปแบบและลดความซับซ้อนของโค้ด
 
 <br>
 
