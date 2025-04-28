@@ -501,10 +501,9 @@ Desktop
 
 <br>
 
-**ผลการเปรียบเทียบระหว่าง Phase 3 และ Phase 4**
------------------------------------------------
+**ผลการเปรียบเทียบ Dynamic profiling ระหว่าง Phase 3 และ Phase 4**
 
-### **1. Total Time**
+## 1. Total Time
 
 *   **Phase 3:** 37.38 seconds
     
@@ -513,7 +512,7 @@ Desktop
 **สรุป**: Total time ใน Phase 4 ใช้เวลานานกว่า Phase 3 ประมาณ **2 เท่า** ซึ่งหมายความว่า Performance ของ Phase 4 อาจจะช้ากว่า Phase 3
 
 
-### **2. Scripting Time**
+## 2. Scripting Time
 
 *   **Phase 3:** 399 ms
     
@@ -522,7 +521,7 @@ Desktop
 **สรุป**: **Scripting time** ใน Phase 4 ต่ำกว่า Phase 3 เล็กน้อย (~24 ms) ซึ่งแสดงว่า Phase 4 มีการประมวลผล JavaScript ที่มีประสิทธิภาพมากขึ้น
 
 
-### **3. Painting Time**
+## 3. Painting Time
 
 *   **Phase 3:** 157 ms
     
@@ -531,7 +530,7 @@ Desktop
 **สรุป**: **Painting time** ใน Phase 4 สูงกว่ามาก ซึ่งอาจบ่งบอกถึงปัญหาที่เกี่ยวข้องกับการแสดงผลของหน้าเว็บ เช่น การวาด UI, การจัดการภาพ และ Layout ที่ซับซ้อนขึ้น
 
 
-### **4. Rendering Time**
+## 4. Rendering Time
 
 *   **Phase 3:** 148 ms
     
@@ -540,7 +539,7 @@ Desktop
 **สรุป**: **Rendering time** ใน Phase 4 สูงขึ้นอย่างเห็นได้ชัด ซึ่งแสดงถึงการคำนวณ Layout และการจัดตำแหน่งขององค์ประกอบที่มากขึ้นหรือซับซ้อนขึ้นใน Phase 4
 
 
-### **5. Loading Time**
+## 5. Loading Time
 
 *   **Phase 3:** 46 ms
     
@@ -549,7 +548,7 @@ Desktop
 **สรุป**: **Loading time** ใน Phase 4 น้อยกว่า Phase 3 เล็กน้อย แต่ความแตกต่างไม่มากนัก
 
 
-### **6. Memory Usage**
+## 6. Memory Usage
 
 *   **Phase 3:** 21.4 MB – 43.8 MB
     
@@ -558,7 +557,7 @@ Desktop
 **สรุป**: **Memory Usage** ใน Phase 3 สูงกว่า Phase 4 ซึ่งแสดงว่า Phase 3 ใช้หน่วยความจำมากขึ้น อาจจะมีการโหลดข้อมูลหรือคอนเทนต์ที่หนักกว่าใน Phase 3
 
 
-### **7. Documents Transferred**
+## 7. Documents Transferred
 
 *   **Phase 3:** 9 – 45
     
@@ -567,7 +566,7 @@ Desktop
 **สรุป**: จำนวน **documents transferred** ใน Phase 3 มากกว่า Phase 4 ซึ่งอาจแสดงถึงการโหลดเนื้อหามากขึ้นใน Phase 3
 
 
-### **8. Nodes Transferred**
+## 8. Nodes Transferred
 
 *   **Phase 3:** 2,291 – 6,627
     
@@ -576,7 +575,7 @@ Desktop
 **สรุป**: **Nodes transferred** ใน Phase 4 ต่ำกว่า Phase 3 แสดงว่า Phase 4 อาจจะโหลด DOM น้อยลงและทำให้ประสิทธิภาพดีขึ้น
 
 
-### **9. Listeners**
+## 9. Listeners
 
 *   **Phase 3:** 266 – 692
     
@@ -585,7 +584,7 @@ Desktop
 **สรุป**: **Listeners** ใน Phase 4 น้อยกว่า Phase 3 อย่างมาก แสดงถึงการใช้ event listeners ที่น้อยลง ซึ่งอาจทำให้โหลดหน้าเร็วขึ้นและลดการประมวลผล
 
 
-### **10. Extension Impact**
+## 10. Extension Impact
 
 *   **Phase 3:** Extension Impact ไม่ระบุในภาพ
     
@@ -594,7 +593,7 @@ Desktop
 **สรุป**: ดูเหมือนว่าในทั้งสอง Phase ไม่ได้ระบุผลกระทบจาก Extension อย่างชัดเจน แต่การทดสอบใน **Incognito Mode** อาจช่วยแยกแยะผลกระทบจาก Extensions ได้
 
 
-### **สรุปผลการเปรียบเทียบ:**
+## สรุปผลการเปรียบเทียบ:
 
 *   **Phase 4** มี **เวลาในการประมวลผลสูงกว่า** ในหลายๆ ด้าน โดยเฉพาะในเรื่องของ **Painting** และ **Rendering** ที่ช้ากว่า **Phase 3**
     
