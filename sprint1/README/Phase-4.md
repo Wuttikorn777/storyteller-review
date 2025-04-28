@@ -610,7 +610,7 @@ Test Case 13: ตรวจสอบข้อมูลใน movies.json ที�
 2.  System Design (ออกแบบระบบ)
 ออกแบบโครงสร้าง UI/UX และการทำงานของเว็บไซต์ วางระบบ API และ Backend Logic
 3.  Development (พัฒนาและเขียนโค้ด)
-พัฒนาเว็บไซต์โดยใช้ HTML เป็นโครงสร้างหลัก, CSS ในการออกแบบ และ JavaScript สำหรับการทดสอบ ใช้ Git และ Azure DevOps ในการจัดการโค้ด เขียน Unit Test
+พัฒนาเว็บไซต์โดยใช้ JavaScript เป็นโครงสร้างหลัก, CSS ในการออกแบบ และ JavaScript สำหรับการทดสอบ ใช้ Git และ Azure DevOps ในการจัดการโค้ด เขียน Unit Test
 4.  Testing (ทดสอบระบบ)
 ทดสอบการทำงานของระบบด้วย Jest ตรวจสอบ API, ฟังก์ชันหลัก, Load Testing และ Security Testing
 5.  Deployment (นำระบบขึ้นใช้งานจริง)
@@ -943,7 +943,7 @@ Process
 *   **CSS** สำหรับออกแบบและตกแต่งหน้าตาเว็บไซต์
     
 *   **JavaScript** สำหรับพัฒนาฟังก์ชันฝั่ง Client และทำการทดสอบ  
-    ในส่วน Backend ใช้ **Node.js** และ **Express.js** เพื่อสร้าง RESTful APIs  <br>
+    ในส่วน Backend ใช้ **index.js** และ **Express.js** เพื่อสร้าง RESTful APIs  <br>
 
     ควบคุมการจัดการซอร์สโค้ดด้วย **Git** และ **Azure DevOps** รวมถึงการเขียน **Unit Test** รองรับแนวทาง Test-Driven Development (TDD)
     
@@ -982,7 +982,7 @@ Tools (เครื่องมือที่ใช้)
     
 *   **Express.js** : ใช้สร้าง REST API
     
-*   **HTML/CSS/JavaScript** : ใช้พัฒนา Frontend ฝั่งผู้ใช้งาน
+*   **CSS/JavaScript** : ใช้พัฒนา Frontend ฝั่งผู้ใช้งาน
     
 **2. Version Control & Collaboration**
 *   **Git** และ **GitHub / Azure DevOps** : ใช้สำหรับควบคุมเวอร์ชันซอร์สโค้ด และร่วมมือกันพัฒนาโค้ด
