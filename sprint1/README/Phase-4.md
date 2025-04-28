@@ -353,7 +353,11 @@ genre - horror page
 
 <br>
 
+**5  UI TESTCASE** <br><br>
 
+![image.png](/.attachments/image-8a954746-a43f-4ef9-99a4-e05048427fc8.png)<br><br>
+**RESULTS**<br><br>
+![image.png](/.attachments/image-0901e443-e9f4-4216-b9f3-33ea8ea43422.png)
 
 
 **สิ่งที่ต้องใส่*
