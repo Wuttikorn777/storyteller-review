@@ -358,11 +358,34 @@ genre - horror page
 
 **สิ่งที่ต้องใส่*
 *   ผล profiling (Static profiling และ Dynamic profiling) เทีบยกับ phase 3
-    
-*   อธิบายการทำ CI/CD ที่ใช้ในการทำ product โดยที่ CI (Pipeline) ให้ใช้ script ที่มีให้ (จำเป็นต้องมี free tier parallel job)
 *   **testcases**
 * **เพิ่มเติมจาก phase 1,2 and 3 เช่น การบริหาร project, การ monitor build, การจัดการ bugs**
-    
+  
+**การทำ Continuous Integration (CI)** 
+สำหรับ Product นี้ มีการออกแบบ CI Pipeline ซึ่งทำงานอัตโนมัติบน Azure DevOps
+1. Trigger และสภาพแวดล้อมการทำงาน Pipeline ถูกกำหนดให้ทำงานทันทีเมื่อมีการ push code เข้าสาขา main รัน pipeline ใช้ virtual machine บน Ubuntu ล่าสุด เพื่อให้ได้สภาพแวดล้อมที่สะอาด ลดปัญหาความแตกต่างของเครื่องพัฒนาแต่ละคน
+2. ขั้นตอนการทำงานใน Pipeline <br>
+- ติดตั้ง Node.js เวอร์ชัน 20.x เพื่อให้พร้อมสำหรับการรันแอปพลิเคชันและการทดสอบ
+- ติดตั้ง Dependencies จาก package.json ทั้งหมดผ่านคำสั่ง npm install <br>
+สำรองการติดตั้ง selenium-webdriver สำหรับทำ UI Testing
+- ติดตั้งเบราว์เซอร์และ Driver สำหรับ UI Testing
+- ติดตั้ง Chromium Browser และ ChromeDriver ใน VM ผ่าน Selenium <br>
+- สตาร์ทเซิร์ฟเวอร์ด้วย npm run start เพื่อให้เซิร์ฟเวอร์เริ่มทำงานก่อนการทดสอบ <br>
+- จากนั้นรัน Selenium UI Tests ผ่านสคริปต์ test.ui.js เพื่อจำลองการทำงานของผู้ใช้ <br>
+- รัน Unit Tests โดยใช้ npm run test -- --coverage เพื่อทดสอบแต่ละฟังก์ชันหรือโมดูลย่อยของระบบ และวัดอัตราการครอบคลุมของโค้ด (Code Coverage) <br>
+- สร้างและเผยแพร่รายงาน Coverage <br>
+ใช้ PublishCodeCoverageResults เพื่อเผยแพร่ข้อมูลการครอบคลุมโค้ดในรูปแบบ Cobertura XML ช่วยให้ทีมพัฒนาสามารถประเมินคุณภาพของชุดทดสอบได้จาก Pipeline
+3. ผลลัพธ์จากการทำ CI <br>
+- Line Coverage อยู่ที่ 93.4% (86 lines covered จาก 92 lines coverable)<br>
+- Branch Coverage อยู่ที่ 100% (32 branches covered จาก 32 branches)<br>
+- ไฟล์โมเดล (bookmarkModel.js, commentModel.js, ratingModel.js) มี coverage 100% ทั้งหมด
+<br><br>
+![image.png](/.attachments/image-afc0d6b3-b0c8-4d35-b63b-5a3470ba6f8e.png)
+<br><br>
+![image.png](/.attachments/image-213aa727-f0a3-4230-96c4-de84cb35060a.png)
+
+
+  
 **
 **สรุป Retrospective ที่ 4 มีการพูดคุยดังนี้**
 ลิงค์คลิปการประชุม : https://www.youtube.com/watch?v=syjDkv9wl4E<br><br>
