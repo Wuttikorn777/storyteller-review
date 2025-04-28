@@ -781,8 +781,8 @@ Genre - Horror page
 
 
 **สิ่งที่ต้องใส่*
-*   ผล profiling (Static profiling และ Dynamic profiling) เทีบยกับ phase 3
-*   **testcases**
+*   ผล profiling (Static profiling และ Dynamic profiling) เทีบยกับ phase 3 ใส่แล้ว
+*   **testcases** ใส่แล้ว
 * **เพิ่มเติมจาก phase 1,2 and 3 เช่น การบริหาร project, การ monitor build, การจัดการ bugs**
   
 **การทำ Continuous Integration (CI)** 
