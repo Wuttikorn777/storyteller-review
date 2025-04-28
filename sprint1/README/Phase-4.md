@@ -461,6 +461,13 @@ Test Case 12
 ![Screenshot_2568-04-26_at_00.14.00.png](/.attachments/Screenshot_2568-04-26_at_00.14.00-8b88d34b-34c9-4324-9945-a4da2b427ac1.png)
 
 
+Mobile
+
+![Screenshot_2568-04-26_at_00.18.21.png](/.attachments/Screenshot_2568-04-26_at_00.18.21-8c9eb044-25f4-488a-9837-213c61a78132.png)
+
+Desktop
+
+![Screenshot_2568-04-26_at_00.18.45.png](/.attachments/Screenshot_2568-04-26_at_00.18.45-26a4d58b-3b2a-46e8-aea7-999b435d38ac.png)
 
 <br>
 
