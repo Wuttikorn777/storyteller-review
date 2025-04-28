@@ -447,6 +447,8 @@ Test Case 12
 | commentModel.js<br> | 44<br> | 8<br> | 0.29<br> | 11<br> | 72.43<br> |
 | ratingModel.js<br> | 41<br> | 3<br> | 0.21<br> | 5<br> | 86.56<br> |
 
+<br>
+
 ![Screenshot_2568-04-26_at_00.11.21.png](/.attachments/Screenshot_2568-04-26_at_00.11.21-fe1ab2e6-0b7d-4fc0-bf07-5ec8d5fda0cd.png)
 
 ![Screenshot_2568-04-26_at_00.11.30.png](/.attachments/Screenshot_2568-04-26_at_00.11.30-aceace5e-2569-4dbf-a3c4-939cfd874f4b.png)
@@ -469,8 +471,30 @@ Desktop
 
 ![Screenshot_2568-04-26_at_00.18.45.png](/.attachments/Screenshot_2568-04-26_at_00.18.45-26a4d58b-3b2a-46e8-aea7-999b435d38ac.png)
 
-![Screenshot 2568-04-04 at 14.30.09.png](/.attachments/Screenshot%202568-04-04%20at%2014.30.09-77eaed80-d07d-4603-a8e0-060914494e57.png)
 
+<br>
+
+**Dynamic profiling (Structural method)**
+
+    
+| **Metric**<br> | **Value**<br> |
+| --- | --- |
+| **Total Time**<br> | 29.46 seconds<br> |
+| **Scripting Time**<br> | 258 ms<br> |
+| **Painting Time**<br> | 603 ms<br> |
+| **Rendering Time**<br> | 560 ms<br> |
+| **Loading Time**<br> | 35 ms<br> |
+| **Memory Usage**<br> | - (ไม่ได้ระบุในภาพนี้)<br> |
+| **JS Heap**<br> | 17.7 MB – 66.3 MB<br> |
+| **Documents Transferred**<br> | 169 kB (localhost 1st party)<br> |
+| **Transfer Time**<br> | 3,922.5 ms<br> |
+| **Nodes Transferred**<br> | 509 – 2,975<br> |
+| **Listeners**<br> | 494 – 1,058<br> |
+| **Extension Impact**<br> | ไม่มีข้อมูล extension ในภาพนี้<br> |
+
+<br>
+
+![messageImage_1745839253409.jpg](/.attachments/messageImage_1745839253409-8c9b1084-5e8b-41db-8db4-cffa78798c9f.jpg)
 
 <br>
 
