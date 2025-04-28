@@ -610,7 +610,7 @@ Test Case 13: ตรวจสอบข้อมูลใน movies.json ที�
 2.  System Design (ออกแบบระบบ)
 ออกแบบโครงสร้าง UI/UX และการทำงานของเว็บไซต์ วางระบบ API และ Backend Logic
 3.  Development (พัฒนาและเขียนโค้ด)
-พัฒนาเว็บไซต์โดยใช้ HTML เป็นโครงสร้างหลัก, CSS ในการออกแบบ และ JavaScript สำหรับการทดสอบ ใช้ Git และ Azure DevOps ในการจัดการโค้ด เขียน Unit Test และ Integration Test
+พัฒนาเว็บไซต์โดยใช้ HTML เป็นโครงสร้างหลัก, CSS ในการออกแบบ และ JavaScript สำหรับการทดสอบ ใช้ Git และ Azure DevOps ในการจัดการโค้ด เขียน Unit Test
 4.  Testing (ทดสอบระบบ)
 ทดสอบการทำงานของระบบด้วย Jest ตรวจสอบ API, ฟังก์ชันหลัก, Load Testing และ Security Testing
 5.  Deployment (นำระบบขึ้นใช้งานจริง)
@@ -628,7 +628,7 @@ Test Case 13: ตรวจสอบข้อมูลใน movies.json ที�
 
 2.Test-Driven Development (TDD)
 *   เขียน Test ก่อนพัฒนาโค้ดจริง
-*   ใช้ Unit Test, Integration Test และ End-to-End Test
+*   ใช้ Unit Test
 
 3.Continuous Integration & Continuous Deployment (CI/CD)
 *   ใช้ Azure DevOps Pipelines ในการ Automate Deployment
@@ -640,7 +640,7 @@ Test Case 13: ตรวจสอบข้อมูลใน movies.json ที�
 1.Development Tools Node.js :
 ใช้เป็น Backend Framework Express.js : ใช้สร้าง REST API Json : ใช้พัฒนา Frontend 
 
-2.Version Control & Collaboration Git & GitHub / Azure DevOps : ใช้จัดการโค้ดและติดตามการเปลี่ยนแปลง Postman : ใช้ทดสอบ API
+2.Version Control & Collaboration Git & GitHub / Azure DevOps : ใช้จัดการโค้ดและติดตามการเปลี่ยนแปลง
 
 3.Testing & CI/CD Jest : ใช้ทดสอบโค้ด Azure DevOps Pipelines : ใช้ Automate Deployment
 
@@ -948,11 +948,11 @@ Process
 *   **JavaScript** สำหรับพัฒนาฟังก์ชันฝั่ง Client และทำการทดสอบ  
     ในส่วน Backend ใช้ **Node.js** และ **Express.js** เพื่อสร้าง RESTful APIs  <br>
 
-    ควบคุมการจัดการซอร์สโค้ดด้วย **Git** และ **Azure DevOps** รวมถึงการเขียน **Unit Test** และ **Integration Test** รองรับแนวทาง Test-Driven Development (TDD)
+    ควบคุมการจัดการซอร์สโค้ดด้วย **Git** และ **Azure DevOps** รวมถึงการเขียน **Unit Test** รองรับแนวทาง Test-Driven Development (TDD)
     
 **4. Testing (ทดสอบระบบ)**  
-ทำการทดสอบระบบด้วยเครื่องมือเช่น **Jest** สำหรับ Unit Testing และ Integration Testing  
-ทดสอบ API ด้วย **Postman** และดำเนินการทดสอบเชิงโหลด (Load Testing) รวมถึงการตรวจสอบความปลอดภัย (Security Testing) เพื่อให้มั่นใจว่าระบบมีเสถียรภาพ<br>
+ทำการทดสอบระบบด้วยเครื่องมือเช่น **Jest** สำหรับ Unit Testing 
+เพื่อให้มั่นใจว่าระบบมีเสถียรภาพ<br>
 
 **5. Maintenance & Updates (ดูแลและอัปเดตระบบ)**  
 ดูแลและตรวจสอบระบบอย่างต่อเนื่อง ทำการ Debug และแก้ไขข้อผิดพลาด (Bugs)  
@@ -970,7 +970,7 @@ Method
 นำแนวคิด **Scrum** มาใช้ในการบริหารโครงการ โดยมีการจัด Sprint Planning, Daily Standup, Sprint Review และ Sprint Retrospective อย่างต่อเนื่อง เพื่อปรับตัวตามสถานการณ์อย่างรวดเร็ว<br>
 
 **2. Test-Driven Development (TDD)**  
-เน้นการเขียน **Unit Tests** และ **Integration Tests** ก่อนลงมือเขียนโค้ดจริง เพื่อให้มั่นใจว่าโค้ดที่เขียนมีคุณภาพและสามารถรองรับการเปลี่ยนแปลงได้ง่าย<br>
+เน้นการเขียน **Unit Tests** ก่อนลงมือเขียนโค้ดจริง เพื่อให้มั่นใจว่าโค้ดที่เขียนมีคุณภาพและสามารถรองรับการเปลี่ยนแปลงได้ง่าย<br>
 
 **3. Continuous Integration (CI)**  
 นำกระบวนการ CI มาใช้ผ่าน **Azure DevOps Pipelines** เพื่อตรวจสอบคุณภาพโค้ดแบบอัตโนมัติทุกครั้งที่มีการเปลี่ยนแปลง และทำการทดสอบโดยอัตโนมัติก่อนนำขึ้นสู่ Repository
@@ -990,10 +990,9 @@ Tools (เครื่องมือที่ใช้)
 **2. Version Control & Collaboration**
 *   **Git** และ **GitHub / Azure DevOps** : ใช้สำหรับควบคุมเวอร์ชันซอร์สโค้ด และร่วมมือกันพัฒนาโค้ด
     
-*   **Postman** : ใช้สำหรับทดสอบและจำลองการเรียก API
     
 **3. Testing & Continuous Integration**
-*   **Jest** : ใช้เขียนและรัน Unit Test และ Integration Test
+*   **Jest** : ใช้เขียนและรัน Unit Test
     
 *   **Azure DevOps Pipelines** : ใช้รันกระบวนการ CI/CD อัตโนมัติ<br>
 
