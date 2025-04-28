@@ -680,6 +680,17 @@ bookmarks.ejs
 ![](https://cdn.discordapp.com/attachments/1334407474488279110/1357332530562469948/image.png?ex=67f07aad&is=67ef292d&hm=3e278f9329e7314aa0df5468ee280cbb095c58d9f999581ef8073593e95519b4&=)
   
 
+
+##กระบวนการในการพัฒนา Software ของโครงการ
+  
+**กระบวนการทำงานใน Sprint ที่ 3**
+
+มีการพูดคุยเรื่องโครงงานผ่านทาง Line และ Discord
+ร่างเค้าโครงของ website และเริ่มมีการ coding
+ใช้ javascript เป็นโครงสร้างหลัก, CSS ในการออกแบบ และ JavaScript สำหรับการทดสอบ ใช้ Git และ Azure DevOps ในการจัดการโค้ด เขียน Unit Test , Static profiling และ Dynamic profiling (Structural method)
+
+<br>
+
 **สรุป Retrospective ที่ 3 มีการพูดคุยดังนี้**
 
 ลิงค์คลิปการประชุม : https://youtu.be/VciA6gndCV4 
@@ -1338,10 +1349,15 @@ Genre - Horror page
 <br><br>
 ![image.png](/.attachments/image-213aa727-f0a3-4230-96c4-de84cb35060a.png)
 
+<br>
 
+
+##กระบวนการในการพัฒนา Software ของโครงการ
   
-**
-**สรุป Retrospective ที่ 4 มีการพูดคุยดังนี้**
+**กระบวนการทำงานใน Sprint ที่ 4**
+
+ใน Phase 4 นี้ การพัฒนาระบบได้มีการปรับปรุงจาก Phase 3  โดยใช้ Azure DevOps ในการจัดการงานและพัฒนาฟีเจอร์ต่างๆ ซึ่งช่วยให้ทีมสามารถ ตรวจสอบและติดตามงานได้อย่างมีประสิทธิภาพ การทำงานร่วมกันผ่าน Line และ Discord ทำให้การสื่อสารภายในทีมเป็นไปอย่างรวดเร็วและมีประสิทธิภาพ โดยมีการใช้ CI/CD pipeline สำหรับการทดสอบและ deploy ที่รวดเร็ว รวมทั้งการตรวจสอบผล profiling เพื่อให้ระบบทำงานได้ดีขึ้น
+สรุป Retrospective ที่ 4 มีการพูดคุยดังนี้
 ลิงค์คลิปการประชุม : https://www.youtube.com/watch?v=syjDkv9wl4E<br><br>
 **สิ่งที่เปลี่ยนแปลง**
 * การแก้ไข data structure ตามที่อาจารย์กำหนด เราเพิ่มส่วนนี้ไปในส่วนของการทำงานของ bookmark และมีการเพิ่ม testcase เพื่อทดสอบการทำงาน
