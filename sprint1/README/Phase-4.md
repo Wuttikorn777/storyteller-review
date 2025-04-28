@@ -267,7 +267,7 @@ Process
 **3. Development (พัฒนาและเขียนโค้ด)**  <br>
 
 พัฒนาเว็บไซต์และระบบ Backend โดยใช้:
-*   **HTML** สำหรับโครงสร้างหน้าจอ (Frontend)
+
     
 *   **CSS** สำหรับออกแบบและตกแต่งหน้าตาเว็บไซต์
     
@@ -778,12 +778,6 @@ Genre - Horror page
 ![image.png](/.attachments/image-8a954746-a43f-4ef9-99a4-e05048427fc8.png)<br><br>
 **RESULTS**<br><br>
 ![image.png](/.attachments/image-0901e443-e9f4-4216-b9f3-33ea8ea43422.png)
-
-
-**สิ่งที่ต้องใส่*
-*   ผล profiling (Static profiling และ Dynamic profiling) เทีบยกับ phase 3 ใส่แล้ว
-*   **testcases** ใส่แล้ว
-* **เพิ่มเติมจาก phase 1,2 and 3 เช่น การบริหาร project, การ monitor build, การจัดการ bugs**
   
 **การทำ Continuous Integration (CI)** 
 สำหรับ Product นี้ มีการออกแบบ CI Pipeline ซึ่งทำงานอัตโนมัติบน Azure DevOps
