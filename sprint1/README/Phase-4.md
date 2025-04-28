@@ -484,13 +484,11 @@ Desktop
 | **Painting Time**<br> | 603 ms<br> |
 | **Rendering Time**<br> | 560 ms<br> |
 | **Loading Time**<br> | 35 ms<br> |
-| **Memory Usage**<br> | - (ไม่ได้ระบุในภาพนี้)<br> |
 | **JS Heap**<br> | 17.7 MB – 66.3 MB<br> |
 | **Documents Transferred**<br> | 169 kB (localhost 1st party)<br> |
 | **Transfer Time**<br> | 3,922.5 ms<br> |
 | **Nodes Transferred**<br> | 509 – 2,975<br> |
 | **Listeners**<br> | 494 – 1,058<br> |
-| **Extension Impact**<br> | ไม่มีข้อมูล extension ในภาพนี้<br> |
 
 <br>
 
