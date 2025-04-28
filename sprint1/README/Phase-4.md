@@ -477,22 +477,130 @@ Desktop
 **Dynamic profiling (Structural method)**
 
     
+    
 | **Metric**<br> | **Value**<br> |
 | --- | --- |
-| **Total Time**<br> | 29.46 seconds<br> |
-| **Scripting Time**<br> | 258 ms<br> |
-| **Painting Time**<br> | 603 ms<br> |
-| **Rendering Time**<br> | 560 ms<br> |
-| **Loading Time**<br> | 35 ms<br> |
-| **JS Heap**<br> | 17.7 MB – 66.3 MB<br> |
-| **Documents Transferred**<br> | 169 kB (localhost 1st party)<br> |
-| **Transfer Time**<br> | 3,922.5 ms<br> |
-| **Nodes Transferred**<br> | 509 – 2,975<br> |
-| **Listeners**<br> | 494 – 1,058<br> |
+| **Total Time**<br> | 75.532 seconds<br> |
+| **Scripting Time**<br> | 375 ms<br> |
+| **Painting Time**<br> | 1,144 ms<br> |
+| **Rendering Time**<br> | 806 ms<br> |
+| **Loading Time**<br> | 45 ms<br> |
+| **Memory Usage**<br> | 1.7 MB – 8.9 MB<br> |
+| **JS Heap**<br> | 1.7 MB – 8.9 MB<br> |
+| **Documents Transferred**<br> | 4 – 18<br> |
+| **Transfer Size**<br> | 1.2 MB (WordPress), 14.3 MB (media-amazon.com)<br> |
+| **Nodes Transferred**<br> | 626 – 1,754<br> |
+| **Listeners**<br> | 0 – 54<br> |
+| **Main Thread Time**<br> | 3,383 ms<br> |
+| **3rd Party Impact**<br> | WordPress, media-amazon.com, Siamzone, isanook.com, kapook.com<br> |
+
 
 <br>
 
 ![messageImage_1745839253409.jpg](/.attachments/messageImage_1745839253409-8c9b1084-5e8b-41db-8db4-cffa78798c9f.jpg)
+
+<br>
+
+**ผลการเปรียบเทียบระหว่าง Phase 3 และ Phase 4**
+-----------------------------------------------
+
+### **1. Total Time**
+
+*   **Phase 3:** 37.38 seconds
+    
+*   **Phase 4:** 75.532 seconds
+    
+**สรุป**: Total time ใน Phase 4 ใช้เวลานานกว่า Phase 3 ประมาณ **2 เท่า** ซึ่งหมายความว่า Performance ของ Phase 4 อาจจะช้ากว่า Phase 3
+
+
+### **2. Scripting Time**
+
+*   **Phase 3:** 399 ms
+    
+*   **Phase 4:** 375 ms
+    
+**สรุป**: **Scripting time** ใน Phase 4 ต่ำกว่า Phase 3 เล็กน้อย (~24 ms) ซึ่งแสดงว่า Phase 4 มีการประมวลผล JavaScript ที่มีประสิทธิภาพมากขึ้น
+
+
+### **3. Painting Time**
+
+*   **Phase 3:** 157 ms
+    
+*   **Phase 4:** 1,144 ms
+    
+**สรุป**: **Painting time** ใน Phase 4 สูงกว่ามาก ซึ่งอาจบ่งบอกถึงปัญหาที่เกี่ยวข้องกับการแสดงผลของหน้าเว็บ เช่น การวาด UI, การจัดการภาพ และ Layout ที่ซับซ้อนขึ้น
+
+
+### **4. Rendering Time**
+
+*   **Phase 3:** 148 ms
+    
+*   **Phase 4:** 806 ms
+    
+**สรุป**: **Rendering time** ใน Phase 4 สูงขึ้นอย่างเห็นได้ชัด ซึ่งแสดงถึงการคำนวณ Layout และการจัดตำแหน่งขององค์ประกอบที่มากขึ้นหรือซับซ้อนขึ้นใน Phase 4
+
+
+### **5. Loading Time**
+
+*   **Phase 3:** 46 ms
+    
+*   **Phase 4:** 45 ms
+    
+**สรุป**: **Loading time** ใน Phase 4 น้อยกว่า Phase 3 เล็กน้อย แต่ความแตกต่างไม่มากนัก
+
+
+### **6. Memory Usage**
+
+*   **Phase 3:** 21.4 MB – 43.8 MB
+    
+*   **Phase 4:** 1.7 MB – 8.9 MB
+    
+**สรุป**: **Memory Usage** ใน Phase 3 สูงกว่า Phase 4 ซึ่งแสดงว่า Phase 3 ใช้หน่วยความจำมากขึ้น อาจจะมีการโหลดข้อมูลหรือคอนเทนต์ที่หนักกว่าใน Phase 3
+
+
+### **7. Documents Transferred**
+
+*   **Phase 3:** 9 – 45
+    
+*   **Phase 4:** 3 – 18
+    
+**สรุป**: จำนวน **documents transferred** ใน Phase 3 มากกว่า Phase 4 ซึ่งอาจแสดงถึงการโหลดเนื้อหามากขึ้นใน Phase 3
+
+
+### **8. Nodes Transferred**
+
+*   **Phase 3:** 2,291 – 6,627
+    
+*   **Phase 4:** 626 – 1,754
+    
+**สรุป**: **Nodes transferred** ใน Phase 4 ต่ำกว่า Phase 3 แสดงว่า Phase 4 อาจจะโหลด DOM น้อยลงและทำให้ประสิทธิภาพดีขึ้น
+
+
+### **9. Listeners**
+
+*   **Phase 3:** 266 – 692
+    
+*   **Phase 4:** 0 – 54
+    
+**สรุป**: **Listeners** ใน Phase 4 น้อยกว่า Phase 3 อย่างมาก แสดงถึงการใช้ event listeners ที่น้อยลง ซึ่งอาจทำให้โหลดหน้าเร็วขึ้นและลดการประมวลผล
+
+
+### **10. Extension Impact**
+
+*   **Phase 3:** Extension Impact ไม่ระบุในภาพ
+    
+*   **Phase 4:** ไม่มีการระบุเช่นกัน
+    
+**สรุป**: ดูเหมือนว่าในทั้งสอง Phase ไม่ได้ระบุผลกระทบจาก Extension อย่างชัดเจน แต่การทดสอบใน **Incognito Mode** อาจช่วยแยกแยะผลกระทบจาก Extensions ได้
+
+
+### **สรุปผลการเปรียบเทียบ:**
+
+*   **Phase 4** มี **เวลาในการประมวลผลสูงกว่า** ในหลายๆ ด้าน โดยเฉพาะในเรื่องของ **Painting** และ **Rendering** ที่ช้ากว่า **Phase 3**
+    
+*   **Phase 4** ใช้ **หน่วยความจำต่ำกว่า** และ **มีการโอนข้อมูลที่น้อยลง** ซึ่งแสดงถึงประสิทธิภาพที่ดีในแง่ของการจัดการ DOM และข้อมูล
+    
+*   การลด **Nodes Transferred** และ **Listeners** ใน **Phase 4** น่าจะเป็นการปรับปรุงที่ช่วยให้ประสิทธิภาพดียิ่งขึ้น
 
 <br>
 
