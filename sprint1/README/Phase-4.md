@@ -133,7 +133,27 @@
 <br>
 
     
- **การทำงานของ API ในแต่ละส่วน**
+    
+**การทำงานของ** **API** **ใน project**
+    
+**ภาพรวมของระบบ**
+*   ระบบนี้เป็นเว็บแอปพลิเคชันสำหรับจัดการข้อมูล **ภาพยนตร์**, **รีวิว**, **บุ๊คมาร์ค**, และ **คะแนน**
+*   API ถูกออกแบบเพื่อให้ผู้ใช้สามารถ **ดึงข้อมูล**, **เพิ่ม**, **ลบ**, และ **ค้นหา** ข้อมูลต่าง ๆ ผ่าน HTTP requests เช่น GET, POST, DELETE, PUT
+    
+| **HTTP Method**<br> | **Endpoint**<br> | **คำอธิบายการทำงาน**<br> |
+| --- | --- | --- |
+| GET<br> | /api/movies<br> | ดึงรายชื่อภาพยนตร์ทั้งหมด<br> |
+| GET<br> | /api/movies/:id<br> | ดึงรายละเอียดภาพยนตร์ตาม ID<br> |
+| POST<br> | /api/reviews<br> | เพิ่มรีวิวใหม่สำหรับภาพยนตร์<br> |
+| GET<br> | /api/reviews/:movieId<br> | ดึงรีวิวทั้งหมดของภาพยนตร์ตาม movieId<br> |
+| POST<br> | /api/bookmarks<br> | เพิ่มภาพยนตร์ลงในบุ๊คมาร์คของผู้ใช้<br> |
+| GET<br> | /api/bookmarks/:user<br> | ดูรายการบุ๊คมาร์คของผู้ใช้งาน<br> |
+| DELETE<br> | /api/bookmarks/:user/:movieId<br> | ลบบุ๊คมาร์ครายการใดรายการหนึ่งของผู้ใช้<br> |
+| POST<br> | /api/ratings<br> | ให้คะแนนภาพยนตร์<br> |
+| GET<br> | /api/ratings/:movieId<br> | ดูคะแนนทั้งหมดของภาพยนตร์<br> |
+
+    
+**การทำงานของ** **API** **ในแต่ละส่วน**
 *   Movies API
     *   ทำหน้าที่ให้ผู้ใช้ดึงข้อมูลภาพยนตร์ เช่น รายชื่อ, รายละเอียด
     *   อาจเชื่อมต่อกับไฟล์ JSON หรือ Database ในการดึงข้อมูล
@@ -409,6 +429,40 @@ Test Case 12
 <br>
 <br>
 
+**Test coverage report**
+
+![Screenshot_2568-04-25_at_23.55.13.png](/.attachments/Screenshot_2568-04-25_at_23.55.13-55215dcc-694f-4ac0-9fbc-058d2b0e7e61.png)
+
+![Screenshot_2568-04-26_at_00.04.13.png](/.attachments/Screenshot_2568-04-26_at_00.04.13-459b194e-13b5-47b3-a6f1-30d4b41b15b1.png)
+
+
+<br>
+
+**ตาราง** **Static Profiling**
+
+    
+| **File Name**<br> | **Lines of Code (SLOC)**<br> | **Complexity**<br> | **Estimated Errors**<br> | **Lint Errors**<br> | **Maintainability**<br> |
+| --- | --- | --- | --- | --- | --- |
+| bookmarkModel.js<br> | 90<br> | 9<br> | 0.68<br> | 12<br> | 85.29<br> |
+| commentModel.js<br> | 44<br> | 8<br> | 0.29<br> | 11<br> | 72.43<br> |
+| ratingModel.js<br> | 41<br> | 3<br> | 0.21<br> | 5<br> | 86.56<br> |
+
+![Screenshot_2568-04-26_at_00.11.21.png](/.attachments/Screenshot_2568-04-26_at_00.11.21-fe1ab2e6-0b7d-4fc0-bf07-5ec8d5fda0cd.png)
+
+![Screenshot_2568-04-26_at_00.11.30.png](/.attachments/Screenshot_2568-04-26_at_00.11.30-aceace5e-2569-4dbf-a3c4-939cfd874f4b.png)
+
+![Screenshot_2568-04-26_at_00.11.37.png](/.attachments/Screenshot_2568-04-26_at_00.11.37-5049180b-5d91-4204-a862-a7d69cbd8233.png)
+
+![Screenshot_2568-04-26_at_00.13.36.png](/.attachments/Screenshot_2568-04-26_at_00.13.36-d3dfcf24-139c-4863-a9d1-380e95cda2f4.png)
+
+![Screenshot_2568-04-26_at_00.13.51.png](/.attachments/Screenshot_2568-04-26_at_00.13.51-9e9eae39-acf6-4715-bf8b-2fa8844f83d4.png)
+
+
+![Screenshot_2568-04-26_at_00.14.00.png](/.attachments/Screenshot_2568-04-26_at_00.14.00-8b88d34b-34c9-4324-9945-a4da2b427ac1.png)
+
+
+
+<br>
 
 **Website screenshot**<br>
 
