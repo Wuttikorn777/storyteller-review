@@ -68,5 +68,10 @@
     "username": "giselle",
     "email": "giselle@gmail.com",
     "password": "$2b$10$DAXTy4BkoYEzo4J9s6B/OOufIfR2AiTGOuPq2DmrmkfsBvE1XoJ1i"
+  },
+  {
+    "username": "tle123",
+    "email": "title@gmail.com",
+    "password": "$2b$10$ydLIXoz4C0D/LnNxkI9JPOPLOv2K1MkurFJF7UfpyGsBT.WVRzPF."
   }
 ]
