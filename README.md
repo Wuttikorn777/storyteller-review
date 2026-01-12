@@ -45,7 +45,7 @@ Follow these steps to run the project locally:
 
 1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/Wuttikorn777/storyteller-review.git](https://github.com/Wuttikorn777/storyteller-review.git)
+    git clone https://github.com/WuttikornFunk/storyteller-review.git
     cd storyteller-review
     ```
 
@@ -59,9 +59,5 @@ Follow these steps to run the project locally:
     npm start
     ```
 
-4.  **Access the App**
-    Open your browser and navigate to:
-    ```
-    http://localhost:3000
-    ```
+4.  Access the App Open your browser and navigate to: http://localhost:3000
 
