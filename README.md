@@ -39,6 +39,20 @@ A built-in module for managing project tasks:
 * **Testing:** Unit Testing (via `test` directory)
 * **CI/CD:** Azure Pipelines
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="image/home1.png" alt="Home Page" width="90%">
+  <img src="image/home2.png" alt="home2 Interface" width="90%">
+  <img src="image/Login.png" alt="login Interface" width="45%">
+  <img src="image/Register.png" alt="Regiseter Interface" width="45%">
+  <img src="image/genre.png" alt="genre page" width="90%">
+  <img src="image/horror.png" alt="horror page" width="90%">
+  <img src="image/moviedetails.png" alt="moviedetails Interface" width="45%">
+  <img src="image/moviedetails1.png" alt="moviedetails Interface" width="45%">
+  <img src="image/bookmark.png" alt="Scanning Interface" width="90%">
+</p>
+
 ## 📦 Installation & Setup
 
 Follow these steps to run the project locally:
